@@ -1,0 +1,13 @@
+{"result": [
+    {
+      "param": "agentCode",
+      "discription": "代理店コードは10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "agentName",
+      "discription": "代理店名称は20桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

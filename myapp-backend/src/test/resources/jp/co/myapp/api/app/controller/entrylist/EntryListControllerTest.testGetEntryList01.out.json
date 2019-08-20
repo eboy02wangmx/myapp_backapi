@@ -1,0 +1,53 @@
+{
+    "count": 1,
+    "params": {
+        "salesCode": ["1234"],
+        "agentCode": ["1234567890"],
+        "policyNo": "A0000000001",
+        "contractorNameKana": "アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア",
+        "entryDateStart": "20190101",
+        "entryDateEnd": "20190101",
+        "startDateFrom": "20190101",
+        "startDateTo": "20190101",
+        "entryType": ["1","7"],
+        "paymentType": ["1","7"],
+        "appropriationStatus": ["1","7"],
+        "pageSize": 50,
+        "currentPage": 1,
+        "rownoStart": 1,
+        "rownoEnd": 50,
+        "goodsType": "1",
+        "userAuthority": null,
+        "firePaymentMethod": ["1","7"],
+        "earthquakePaymentMethod": ["1","7"]
+    },
+    "list": [
+        {
+            "no": "1",
+            "policyNo": "A0000000001",
+            "appropriationStatus": "1",
+            "entryType": "1",
+            "paymentType": "1",
+            "entryDate": "20190101",
+            "entryTime": "I00001",
+            "contractorName": "J00000000000000000000000000001",
+            "startDate": "20190101",
+            "firePaymentMethod": "1",
+            "earthquakePaymentMethod": "1",
+            "selectPlan": "1",
+            "totalFee": 100000001,
+            "receptionType": "J",
+            "salesCode": "1234",
+            "agentCode": "1234567890",
+            
+            "buildingFrom": "N",
+            "buildingLocation": "V000000001",
+            "fireTerm": 1001,
+            "earthquakeTerm": 1001,
+            "salesName": "NAME666",
+            "agentName": "M000000001",
+            
+            "updateTime": "20190221 01:00:00.000"
+        }
+    ]
+}

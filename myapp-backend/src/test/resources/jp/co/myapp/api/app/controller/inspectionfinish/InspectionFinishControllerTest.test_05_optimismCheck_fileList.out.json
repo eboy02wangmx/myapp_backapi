@@ -1,0 +1,3 @@
+{
+"result":[{"param":"inspectionImageList[0].fileId","discription":"ファイルIDは32桁まででご入力ください。","errorId":"E00001"},{"param":"inspectionImageList[0].fileStatus","discription":"ファイルステータスは1桁まででご入力ください。","errorId":"E00001"}]
+}

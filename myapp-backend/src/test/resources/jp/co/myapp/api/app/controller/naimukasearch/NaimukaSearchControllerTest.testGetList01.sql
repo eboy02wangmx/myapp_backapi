@@ -1,0 +1,9 @@
+truncate table NAIMUKA_MST;
+INSERT
+INTO NAIMUKA_MST
+values ('0001','7777');
+
+
+INSERT
+INTO NAIMUKA_MST
+values ('0002','9999');

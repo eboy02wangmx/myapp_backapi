@@ -1,0 +1,14 @@
+{
+    "result": [
+        {
+            "param": "contractorTelArea", 
+            "discription": "電話番号（自宅）を入力してください。", 
+            "errorId": "E00002"
+        }, 
+        {
+            "param": "contractorTel2City", 
+            "discription": "電話番号（携帯）を入力してください。", 
+            "errorId": "E00002"
+        }
+    ]
+}

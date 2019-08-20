@@ -1,0 +1,13 @@
+{
+	"processingType": "1",
+    "entryNo": "E00001",
+    "updateTime": "20191231 12:13:14.567",
+    "managerName": "楽天　花子",
+    "memo": "点検完了しました。問題ないです。",
+    "inspectionImageList": 
+        [
+        {"fileId": "F0000000000000000000000000000001", "fileStatus": "9", "updateTime": ""}, 
+        {"fileId": "F0000000000000000000000000000002", "fileStatus": "8", "updateTime": "20201231 12:13:14.567"}, 
+        {"fileId": "F0000000000000000000000000000003", "fileStatus": "7", "updateTime": "20201231 12:13:14.566"}
+        ]
+}

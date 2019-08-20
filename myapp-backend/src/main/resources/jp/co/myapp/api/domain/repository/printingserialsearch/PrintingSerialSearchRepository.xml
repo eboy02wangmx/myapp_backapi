@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.printingserialsearch.PrintingSerialSearchRepository">
+
+   <resultMap id="entrySaveSearchMap" type="EntrySavePrintingSerialBean">
+	<id property="entryNo" column="entry_no" ></id>
+	<id property="contractorName" column="name_keiyaku" ></id>
+	<result property="createTime" column="add_date" ></result>
+   </resultMap>
+
+   <select id="selectPrintingSerialCount" parameterType="jp.co.myapp.api.app.request.PrintingSerialSearchRequest" resultType="int">
+    <![CDATA[
+      SELECT
+            count(1) AS cnt
+       FROM
+            ENTRY_HA_TEMP
+      WHERE
+            dairi_cd = #{agentCode} and
+            state != '6' and
+            state != '8' and
+            state != '0' and
+            entry_type = '2' and
+            del_flg != '1'
+    ORDER BY
+            add_date DESC
+    ]]>
+    </select>
+
+   <select id="selectPrintingSerial" parameterType="jp.co.myapp.api.app.request.PrintingSerialSearchRequest" resultMap="entrySaveSearchMap">
+    <![CDATA[
+      SELECT
+            entry_no,
+            name_keiyaku,
+            add_date
+       FROM
+        (
+    SELECT  ROW_NUMBER() OVER(ORDER BY add_date DESC) AS no,
+            entry_no,
+            name_keiyaku,
+            add_date
+       FROM
+            ENTRY_HA_TEMP
+      WHERE
+            dairi_cd = #{agentCode} and
+            state != '6' and
+            state != '8' and
+            state != '0' and
+            entry_type = '2' and
+            del_flg != '1'
+    ORDER BY
+            add_date DESC
+            )
+
+    WHERE
+          no BETWEEN ((#{pageNo} - 1) * #{pageSize} + 1) AND #{pageNo} * #{pageSize}
+   ]]>
+    </select>
+</mapper>

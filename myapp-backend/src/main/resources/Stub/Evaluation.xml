@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Message>
+  <Header xml:lang="ja">
+    <MsgBlc>
+      <MsgID>HA001001</MsgID>
+      <ResponseID />
+      <EASIMsgType>Response</EASIMsgType>
+      <MsgTimeStamp>20180802160000000+0900</MsgTimeStamp>
+    </MsgBlc>
+  </Header>
+  <Body>
+    <AppDataFormat>
+      <HokenShiki>20180802</HokenShiki>
+      <HokenTaisho>3</HokenTaisho>
+      <TaishoShozaichi>25</TaishoShozaichi>
+      <KozoKyubetsu>T</KozoKyubetsu>
+      <Yoho>02</Yoho>
+      <ShoyuKubun>1</ShoyuKubun>
+      <Mansion>1</Mansion>
+      <Mansion1>1</Mansion1>
+      <Mansion2>2</Mansion2>
+      <GaikanHo>1</GaikanHo>
+      <ShutokuNenjiHo>0</ShutokuNenjiHo>
+      <SonotaHyokaHo>0</SonotaHyokaHo>
+      <SennyuMenseki>50.25</SennyuMenseki>
+      <MonHeiShakoKagaku>3000</MonHeiShakoKagaku>
+      <TatemonoChoseiRitsu>0</TatemonoChoseiRitsu>
+      <ShutokuKagaku>5000</ShutokuKagaku>
+      <KenchikuYear>2015</KenchikuYear>
+      <KenchikuMonth>03</KenchikuMonth>
+      <SonotaTatemonoHyokaGaku>0</SonotaTatemonoHyokaGaku>
+      <TatemonoKiso>1</TatemonoKiso>
+      <SetainushiNenrei>50</SetainushiNenrei>
+      <HaigushaAri>1</HaigushaAri>
+      <KodomoNinzu>1</KodomoNinzu>
+      <SonotaNinzu>1</SonotaNinzu>
+      <KazaiChoseiRitsu>0</KazaiChoseiRitsu>
+      <NyuryokuKazaiHyokagaku>3000</NyuryokuKazaiHyokagaku>
+      <HyokagakuUnit>3</HyokagakuUnit>
+      <SonotaHokenTaisho_0>1</SonotaHokenTaisho_0>
+      <SonotaHokenKihonAmt_0>1000</SonotaHokenKihonAmt_0>
+      <SonotaHokenJishinAmt_0>1000</SonotaHokenJishinAmt_0>
+      <SonotaHokenTaisho_1>2</SonotaHokenTaisho_1>
+      <SonotaHokenKihonAmt_1>2000</SonotaHokenKihonAmt_1>
+      <SonotaHokenJishinAmt_1>2000</SonotaHokenJishinAmt_1>
+      <SonotaHokenTaisho_2>3</SonotaHokenTaisho_2>
+      <SonotaHokenKihonAmt_2>3000</SonotaHokenKihonAmt_2>
+      <SonotaHokenJishinAmt_2>3000</SonotaHokenJishinAmt_2>
+      <ChoseiRitsuHaniShitei>0</ChoseiRitsuHaniShitei>
+      <TatemonoNomiHyokaGakuShitei>0</TatemonoNomiHyokaGakuShitei>
+    </AppDataFormat>
+    <ResultBlc>
+      <TatemonoNomiHyokaGaku>7700</TatemonoNomiHyokaGaku>
+      <TatemonoNomiHyokaGakuMax>10000</TatemonoNomiHyokaGakuMax>
+      <TatemonoNomiHyokaGakuMin>100</TatemonoNomiHyokaGakuMin>
+      <TatemonoHokaAmt>1000</TatemonoHokaAmt>
+      <TatemonoHokaJishinAmt>1000</TatemonoHokaJishinAmt>
+      <KazaiKanniHyokagaku>15600</KazaiKanniHyokagaku>
+      <KazaiHokaAmt>2000</KazaiHokaAmt>
+      <KazaiHokaJishinAmt>2000</KazaiHokaJishinAmt>
+      <TatemonoHyokagakuResult>37700</TatemonoHyokagakuResult>
+      <KazaiHyokagakuResult>15600</KazaiHyokagakuResult>
+      <TatemonoAmtMax>27700</TatemonoAmtMax>
+      <KazaiAmtMax>15600</KazaiAmtMax>
+    </ResultBlc>
+  </Body>
+  <Footer>
+    <ErrorCode>0</ErrorCode>
+    <ErrorName />
+    <ErrorMsg />
+  </Footer>
+</Message>

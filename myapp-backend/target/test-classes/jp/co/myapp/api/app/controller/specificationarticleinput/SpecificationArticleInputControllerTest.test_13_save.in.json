@@ -1,0 +1,28 @@
+{
+    "entryNo": "E00001",
+    "policyNo": "P0000000001",
+    "specificationArticleAmount": "5000",
+    "equipmentAmount": "6000",
+    "allData": 
+        [
+        {"serial": "6", "insuranceType": "2", "explicitPropertyType": "3", "explicitPropertyName": "明記物件の品名六", "amount": "6000", "notices": "特記事項六"},
+        {"serial": "1", "insuranceType": "1", "explicitPropertyType": "1", "explicitPropertyName": "明記物件の品名一", "amount": "2000", "notices": "特記事項一"},
+        {"serial": "3", "insuranceType": "1", "explicitPropertyType": "3", "explicitPropertyName": "明記物件の品名三", "amount": "3000", "notices": "特記事項三"}
+        ],
+    "createData": 
+        [
+        {"serial": "6", "insuranceType": "2", "explicitPropertyType": "3", "explicitPropertyName": "明記物件の品名六", "amount": "6000", "notices": "特記事項六"}
+        ],
+    "updateData": 
+        [
+        {"serial": "1", "insuranceType": "1", "explicitPropertyType": "1", "explicitPropertyName": "明記物件の品名一", "amount": "2000", "notices": "特記事項一"}
+        ],
+    "deleteData": 
+        [
+        {"serial": "2"}
+        ],
+    "noUpdateData": 
+        [
+        {"serial": "3", "insuranceType": "1", "explicitPropertyType": "3", "explicitPropertyName": "明記物件の品名三", "amount": "3000", "notices": "特記事項三"}
+        ]
+}

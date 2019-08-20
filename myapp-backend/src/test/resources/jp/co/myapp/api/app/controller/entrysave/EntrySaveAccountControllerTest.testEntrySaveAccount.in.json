@@ -1,0 +1,17 @@
+{
+	"entryNo": "E00001",
+	"screenID": "EntrySaveAccount",
+	"bankType": "1",
+	"financialInstitutionCode": "1234",
+	"shopNo": "123",
+	"subject": "1",
+	"accountNo": "1234567",
+	"accountHolderKana": "カナ",
+	"transferredNotification": "1",
+	"sign": "20345",
+	"number": "234567",
+	"accountHolderKanaYutyo": "カナユチュウ",
+	"transferredNotificationYutyo": "2",
+	"updateTime": "20180101 12:12:12.012"
+}
+

@@ -1,0 +1,9 @@
+{
+    "result": [
+        {
+            "param": "mail",
+            "discription": "メールアドレスを入力してください。",
+            "errorId": "E00002"
+        }
+    ]
+}

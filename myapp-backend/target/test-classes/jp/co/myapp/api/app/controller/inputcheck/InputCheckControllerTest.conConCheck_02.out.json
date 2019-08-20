@@ -1,0 +1,59 @@
+{
+    "result": [
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "screenID",
+            "discription": "一時保存画面IDを入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmContractor",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmBuilding",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmWithOtherAgree",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmTermPaymentMethod",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmWithEarthquakeDiscount",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmCompensation",
+            "discription": "「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmDisclosureStatement",
+            "discription": "重要事項説明書をご確認いただき、「上記の内容を確認しました」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmPrivacyProtection",
+            "discription": "「はい、同意します」ボタンを押してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "confirmEarthquake",
+            "discription": "地震保険の有無について、ご確認ください。",
+            "errorId": "E00027"
+        }
+    ]
+}

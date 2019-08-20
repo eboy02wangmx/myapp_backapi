@@ -1,0 +1,124 @@
+{
+  "result": [
+    {
+      "param": "agentCode",
+      "discription": "代理店コードは10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "agentName",
+      "discription": "代理店名称は20桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "basementFloor",
+      "discription": "地下階数は3桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingArea",
+      "discription": "建物面積は10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingBuildingDate",
+      "discription": "建物建築年月は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingFloor",
+      "discription": "建物階数は3桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingFrom",
+      "discription": "建物形態は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingLocation",
+      "discription": "建物所在地は10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingOwnership",
+      "discription": "建物所有関係は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "buildingStructure",
+      "discription": "建物構造は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "documentsConfirmed",
+      "discription": "書類提出確認済みは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryNo",
+      "discription": "申込依頼No.は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryStatus",
+      "discription": "申込ステータスは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryType",
+      "discription": "申込区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "goodsType",
+      "discription": "商品区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "otherBuildingType",
+      "discription": "その他建物種類詳細は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "residentialFloor",
+      "discription": "居住階数は3桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "screenID",
+      "discription": "一時保存画面IDは128桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "startDate",
+      "discription": "保険始期日は8桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "steelBuildingType",
+      "discription": "鉄骨造建物種類詳細は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "structureConfirmed",
+      "discription": "構造確認済みは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "structureGrade",
+      "discription": "構造級別は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+	{
+      "param": "updateTime",
+      "discription": "更新日時は21桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "withOldContract",
+      "discription": "旧保険契約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

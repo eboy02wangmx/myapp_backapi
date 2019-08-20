@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.keiyakulist.KeiyakuListEntryRepository">
+
+
+    <select id="selectHAType1"
+            parameterType="jp.co.myapp.mypage.app.request.KeiyakuListRequest"
+            resultType="jp.co.myapp.mypage.domain.model.KeiyakuListHAType1Bean">
+SELECT
+  OPEN_ID
+, '1'                  AS hokenShurui  <!-- 保険の種類 1:HA / 2:ASAP -->
+, '2'                  AS refType      <!-- 参照区分 1:契約レプリカ / 2:申込管理-->
+, V1.POLICY            AS policy       <!-- 証券番号 -->
+, NULL                 AS policyEda    <!-- 証券番号枝番 -->
+, NULL                 AS fmRemban     <!-- FM連番 -->
+, V1.NAME_KEIYAKU      AS keiyakuName  <!-- 契約者氏名 -->
+, V1.SHIKI_DATE        AS shiki        <!-- 保険始期 -->
+, V1.KASAI_SHUKI_DATE  AS shuki        <!-- 保険終期 -->
+, V1.SHIKI_DATE        AS jishinShiki  <!-- 地震始期 -->
+, V1.JISHIN_SHUKI_DATE AS jishinShuki  <!-- 地震終期 -->
+, CASE V1.JUSHO_ONAJI
+    WHEN '1' THEN V1.JUSHO_KEIYAKU || JUSHO_KEIYAKU_FREE
+    WHEN '2' THEN V1.JUSHO_HOKEN   || JUSHO_HOKEN_FREE
+    ELSE NULL
+  END                  AS shozaichiK   <!-- 保険対処の目的所在地 -->
+, '1'                  AS keiyakuJokyo
+FROM ENTRY_HA V1
+WHERE V1.OPEN_ID = #{openId}
+    <![CDATA[
+AND   V1.KEIJYOU_STATUS <> '9'
+    ]]>
+ORDER BY V1.SHIKI_DATE DESC,V1.POLICY DESC
+OFFSET (#{pageNo}-1)*10 ROWS FETCH FIRST 10 ROWS ONLY
+    </select>
+
+
+    <select id="selectHAType2"
+            parameterType="jp.co.myapp.mypage.app.request.KeiyakuListRequest"
+            resultType="jp.co.myapp.mypage.domain.model.KeiyakuListHAType2Bean">
+WITH MAIL_INFO_WK AS
+(
+  SELECT
+    TARGET
+  , OPEN_ID
+  , POLICY
+  , MAIL_ADDRESS
+  , RIREKI_REMBAN
+  FROM
+  (
+    SELECT
+      ROW_NUMBER() OVER (PARTITION BY POLICY ORDER BY RIREKI_REMBAN DESC) AS TARGET
+    , OPEN_ID
+    , POLICY
+    , MAIL_ADDRESS
+    , RIREKI_REMBAN
+    FROM MAIL_INFO
+    WHERE OPEN_ID = #{openId}
+      AND DEL_FLG = '0'
+  )
+  WHERE TARGET = 1
+)
+SELECT
+  '1'                    AS hokenShurui
+, '2'                    AS refType
+, V1.POLICY              AS policy
+, NULL                   AS policyEda
+, NULL                   AS fmRemban
+, V1.NAME_KEIYAKU        AS keiyakuName
+, V1.SHIKI_DATE          AS shiki
+, V1.KASAI_SHUKI_DATE    AS shuki
+, V1.SHIKI_DATE          AS jishinShiki
+, V1.JISHIN_SHUKI_DATE   AS jishinShuki
+, CASE V1.JUSHO_ONAJI
+    WHEN '1' THEN V1.JUSHO_KEIYAKU || JUSHO_KEIYAKU_FREE
+    WHEN '2' THEN V1.JUSHO_HOKEN   || JUSHO_HOKEN_FREE
+    ELSE NULL
+  END                  AS shozaichiK   <!-- 保険対処の目的所在地 -->
+, '1'                    AS keiyakuJokyo
+, V1.TEL_KEIYAKU_AREA    AS telKeiyakuArea
+, V1.TEL_KEIYAKU_CITY    AS telKeiyakuCity
+, V1.TEL_KEIYAKU_NUMBER  AS telKeiyakuNumber
+, V1.TEL_KEIYAKU2_AREA   AS telKeiyaku2Area
+, V1.TEL_KEIYAKU2_CITY   AS telKeiyaku2City
+, V1.TEL_KEIYAKU2_NUMBER AS telKeiyaku2Number
+, CASE
+    WHEN V2.MAIL_ADDRESS IS NULL
+    THEN V1.MAIL_KEIYAKU
+    ELSE V2.MAIL_ADDRESS
+  END                    AS mailKeiyaku
+, V1.ENTRY_TYPE          AS entryType   <!-- 申込区分 ペーパーレス募集 -->
+, V1.PAYMENT_TYPE        AS paymentType <!-- 支払区分 ペーパーレス募集 -->
+FROM ENTRY_HA V1
+LEFT OUTER JOIN MAIL_INFO_WK V2 ON ( V1.POLICY = V2.POLICY )
+WHERE V1.OPEN_ID = #{openId}
+    <![CDATA[
+AND   V1.KEIJYOU_STATUS <> '9'
+    ]]>
+ORDER BY V1.SHIKI_DATE DESC,V1.POLICY DESC
+OFFSET (#{pageNo}-1)*10 ROWS FETCH FIRST 10 ROWS ONLY
+    </select>
+
+    <select id="selectCountHA"
+            parameterType="jp.co.myapp.mypage.app.request.KeiyakuListRequest"
+            resultType="java.lang.Integer">
+SELECT
+COUNT(V1.POLICY)
+FROM ENTRY_HA V1
+WHERE V1.OPEN_ID = #{openId}
+    <![CDATA[
+AND   V1.KEIJYOU_STATUS <> '9'
+    ]]>
+    </select>
+</mapper>

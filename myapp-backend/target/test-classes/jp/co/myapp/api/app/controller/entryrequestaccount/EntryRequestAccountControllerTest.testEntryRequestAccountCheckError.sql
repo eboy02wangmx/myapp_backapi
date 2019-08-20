@@ -1,0 +1,11 @@
+truncate table ENTRY_HA_TEMP;
+insert into ENTRY_HA_TEMP(entry_no,serial,state,gamen_id,entry_type,payment_type,name_keiyaku,name_keiyaku_k,shiki_date,kozo_tekkotsu,kozo_other,kakunin_shorui,kasai_hoho,jishin_hoho,check_date,dairi_cd,uke_kbn,katen_cd,old_entry_no,del_flg,upd_date)
+values ('E00001','1','4','H000000001','1','2','朝日　太郎','アサヒ　タロウ','20180101','1','','1','1','1','20190101','1000000001','K','1001','S00001',null,TO_TIMESTAMP('20191231 12:13:14.567','yyyymmdd hh24:mi:ss.ff3'));
+insert into ENTRY_HA_TEMP(entry_no,serial,state,gamen_id,entry_type,payment_type,name_keiyaku,name_keiyaku_k,shiki_date,kozo_tekkotsu,kozo_other,kakunin_shorui,kasai_hoho,jishin_hoho,check_date,dairi_cd,uke_kbn,katen_cd,old_entry_no,del_flg,upd_date)
+values ('E00001','2','5','H000000002','2','2','朝日　太郎','アサヒ　タロウ','20180101','1','','1','1','1','20190101','1000000002','K','1002','S00002','',TO_TIMESTAMP('20191231 12:13:14.567','yyyymmdd hh24:mi:ss.ff3'));
+insert into ENTRY_HA_TEMP(entry_no,serial,state,gamen_id,entry_type,payment_type,name_keiyaku,name_keiyaku_k,shiki_date,kozo_tekkotsu,kozo_other,kakunin_shorui,kasai_hoho,jishin_hoho,check_date,dairi_cd,uke_kbn,katen_cd,old_entry_no,del_flg,upd_date)
+values ('E00001','3','3','H000000003','2','2','朝日　太郎','アサヒ　タロウ','20180101','1','','1','1','1','20190101','1000000003','K','1003','S00003','0',TO_TIMESTAMP('20191231 12:13:14.567','yyyymmdd hh24:mi:ss.ff3'));
+insert into ENTRY_HA_TEMP(entry_no,serial,state,gamen_id,entry_type,payment_type,name_keiyaku,name_keiyaku_k,shiki_date,kozo_tekkotsu,kozo_other,kakunin_shorui,kasai_hoho,jishin_hoho,check_date,dairi_cd,uke_kbn,katen_cd,old_entry_no,del_flg,upd_date)
+values ('E00001','4','5','H000000004','2','3','朝日　太郎','アサヒ　タロウ','20180101','1','','1','2','2','20190101','1000000004','K','1004','S00004','1',TO_TIMESTAMP('20191231 12:13:14.567','yyyymmdd hh24:mi:ss.ff3'));
+insert into ENTRY_HA_TEMP(entry_no,serial,state,gamen_id,entry_type,payment_type,name_keiyaku,name_keiyaku_k,shiki_date,kozo_tekkotsu,kozo_other,kakunin_shorui,kasai_hoho,jishin_hoho,check_date,dairi_cd,uke_kbn,katen_cd,old_entry_no,del_flg,upd_date)
+values ('E00005','1','5','H000000005','2','3','朝日　太郎','アサヒ　タロウ','20180102','1','','2','2','2','20190101','1000000005','K','1005','S00005',null,TO_TIMESTAMP('20191231 12:13:14.567','yyyymmdd hh24:mi:ss.ff3'));

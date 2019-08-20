@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.numbering.NumberingRepository">
+    <select id="getSequenceValue" parameterType="map" resultType="long" statementType="STATEMENT">
+    <![CDATA[
+        SELECT ${sequenceName}.NEXTVAL FROM DUAL
+    ]]>
+    </select>
+</mapper>

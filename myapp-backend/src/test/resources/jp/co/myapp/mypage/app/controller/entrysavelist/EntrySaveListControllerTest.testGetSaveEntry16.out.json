@@ -1,0 +1,16 @@
+{
+    "result": {
+        "dataCount": 21,
+        "data": [
+            {
+                "entryNo": "AAA001",
+                "hokenShurui": "ホームアシスト\r\n（家庭総合保険）",
+                "dairitenName": "保険の窓口",
+                "nameKeiyaku": "楽天　太郎",
+                "saveDate": "2018年08月08日",
+                "kigen": "2018年10月10日",
+                "email": "rakuta@gmail.com"
+            }
+        ]
+    }
+}

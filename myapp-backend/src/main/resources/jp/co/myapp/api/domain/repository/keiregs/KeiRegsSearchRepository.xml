@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.keiregs.KeiRegsSearchRepository">
+
+  <!-- 登録済の契約情報の件数取得 -->
+  <select id="searchkeiRegsCount" parameterType="jp.co.myapp.mypage.app.request.KeiRegsRequest" resultType="Integer">
+    <![CDATA[
+        SELECT
+              COUNT(POLICY)
+        FROM
+              ENTRY_HA
+        WHERE
+              OPEN_ID = #{openId}
+              AND
+              KEIJYOU_STATUS = '2'
+    ]]>
+   </select>
+
+  <!-- 登録済の契約情報取得 -->
+  <select id="searchKeiRegsInfo" parameterType="jp.co.myapp.mypage.app.request.KeiRegsRequest" resultType="jp.co.myapp.mypage.domain.model.KeiRegsBeanData">
+    <![CDATA[
+        SELECT
+              POLICY AS policy,
+              NAME_KEIYAKU_K AS keiyakuNam
+        FROM
+              ENTRY_HA
+        WHERE
+              OPEN_ID = #{openId}
+              AND
+              KEIJYOU_STATUS = '2'
+    ]]>
+   </select>
+
+  <!-- 該当契約情報は申込管理_HAより読取り -->
+  <select id="getPolicyEntryHaInfo" parameterType="jp.co.myapp.mypage.app.request.KeiRegsRequest" resultType="Integer">
+    <![CDATA[
+        SELECT
+              COUNT(POLICY)
+        FROM
+              ENTRY_HA
+        WHERE
+              POLICY = #{policy}
+              AND
+              KEIJYOU_STATUS = '2'
+    ]]>
+   </select>
+
+  <!-- 最新OpenIDを持って該当契約情報は申込管理_HAより読取り -->
+  <select id="getPolicyOpenIdEntryHaInfo" parameterType="jp.co.myapp.mypage.app.request.KeiRegsRequest" resultType="Integer">
+    <![CDATA[
+        SELECT
+              COUNT(POLICY)
+        FROM
+              ENTRY_HA
+        WHERE
+              POLICY = #{policy}
+              AND
+              OPEN_ID = #{openId}
+              AND
+              KEIJYOU_STATUS = '2'
+    ]]>
+   </select>
+
+   <!-- メールアドレス管理よりメールアドレスを取得 -->
+  <select id="getMailInfo" parameterType="jp.co.myapp.mypage.app.request.KeiRegsRequest" resultType="String">
+    <![CDATA[
+    SELECT
+        COALESCE(ML.MAIL_ADDRESS, HA.MAIL_KEIYAKU) AS MAILADRESS
+    FROM
+        ENTRY_HA HA
+    LEFT OUTER JOIN
+        (
+            SELECT
+                ROW_NUMBER() OVER (PARTITION BY POLICY ORDER BY RIREKI_REMBAN DESC) AS TARGET
+                ,POLICY
+                ,MAIL_ADDRESS
+            FROM
+                MAIL_INFO
+            WHERE
+                DEL_FLG = '0'
+        ) ML
+    ON
+        HA.POLICY = ML.POLICY
+        AND
+        ML.TARGET = 1
+    WHERE
+        HA.POLICY = #{policy}
+    ]]>
+
+   </select>
+</mapper>

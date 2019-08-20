@@ -1,0 +1,39 @@
+{
+    "result": [
+        {
+            "param": "startDate",
+            "discription": "保険始期日を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "cardCompany",
+            "discription": "カード会社を選択してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "creditCardNumber1",
+            "discription": "カード番号を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "creditCardNumber2",
+            "discription": "カード番号を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "creditCardNumber3",
+            "discription": "カード番号を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "creditCardNumber4",
+            "discription": "カード番号を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "creditCardExpirationDate",
+            "discription": "カード有効期限を選択してください。",
+            "errorId": "E00002"
+        }
+    ]
+}

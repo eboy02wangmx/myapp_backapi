@@ -1,0 +1,14 @@
+{
+    "result": [
+        {
+            "param": "reviewRequestDateFrom",
+            "errorId": "E00002",
+            "discription": "申込依頼日の検索終了日を検索開始日以降に設定してください。"
+        },
+        {
+            "param": "startDateFrom",
+            "errorId": "E00002",
+            "discription": "保険始期日の検索終了日を検索開始日以降に設定してください。"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "entryNo": "A000010",
+  "screenID": "G-NHA-000-12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
+  "withBuildingFireInsurance": "10",
+  "withNewBuildingValueKnown": "10",
+  "apartmentClassification": "10",
+  "fenceValue": "123450",
+  "newBuildingValue": "12345678900",
+  "includFoundationWork": "10",
+  "withHouseholdFireInsurance": "10",
+  "householderAge": "9990",
+  "withSpouse": "10",
+  "numberOfChildren": "990",
+  "housemates": "990",
+  "policyCurrentReplacementValue": "1234567890",
+  "startDate": "201901010",
+  "buildingLocation": "12345678900",
+  "structureGrade": "10",
+  "buildingFrom": "10",
+  "buildingFloor": "9990",
+  "buildingBuildingDate": "201901010",
+  "buildingArea": "12345678900"
+}

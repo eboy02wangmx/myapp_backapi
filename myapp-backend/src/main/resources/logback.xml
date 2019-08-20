@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%msg%n]]></pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPLICATION_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${app.log.dir:-log}/${app.context}-application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${app.log.dir:-log}/${app.context}-application-%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%msg%n]]></pattern>
+        </encoder>
+    </appender>
+
+    <appender name="MONITORING_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${app.log.dir:-log}/${app.context}-monitoring.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${app.log.dir:-log}/${app.context}-monitoring-%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tmessage:%msg%n]]></pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ENTRY_ACCOUNT_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${app.log.dir:-log}/${app.context}-entry-account.log</file>
+        <prudent>true</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${app.log.dir:-log}/${app.context}-entry-account-%d{yyyyMMdd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern><![CDATA[%d{yyyy-MM-dd HH:mm:ss}\t%msg%n]]></pattern>
+        </encoder>
+    </appender>
+
+    <!-- Application Loggers -->
+    <logger name="jp.co.myapp.welcome">
+        <level value="info" />
+    </logger>
+
+    <logger name="jp.co.myapp.api">
+        <level value="info" />
+    </logger>
+
+    <logger name="jp.co.myapp.mypage">
+        <level value="info" />
+    </logger>
+
+    <logger name="jp.co.myapp.common.log.EntryAccountLog">
+        <level value="info" />
+        <appender-ref ref="ENTRY_ACCOUNT_LOG_FILE" />
+    </logger>
+
+    <!-- TERASOLUNA -->
+    <logger name="org.terasoluna.gfw">
+        <level value="warn" />
+    </logger>
+    <logger name="org.terasoluna.gfw.web.logging.TraceLoggingInterceptor">
+        <level value="warn" />
+    </logger>
+    <logger name="org.terasoluna.gfw.common.exception.ExceptionLogger">
+        <level value="warn" />
+    </logger>
+    <logger name="org.terasoluna.gfw.common.exception.ExceptionLogger.Monitoring" additivity="false">
+        <level value="error" />
+        <appender-ref ref="MONITORING_LOG_FILE" />
+    </logger>
+
+    <!-- 3rdparty Loggers -->
+    <logger name="org.springframework">
+        <level value="warn" />
+    </logger>
+
+    <logger name="org.springframework.web.servlet">
+        <level value="warn" />
+    </logger>
+
+    <!--  REMOVE THIS LINE IF YOU USE JPA
+    <logger name="org.hibernate.engine.transaction">
+        <level value="info" />
+    </logger>
+          REMOVE THIS LINE IF YOU USE JPA  -->
+    <!--  REMOVE THIS LINE IF YOU USE MyBatis3  -->
+    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <level value="warn" />
+    </logger>
+    <!--  REMOVE THIS LINE IF YOU USE MyBatis3  -->
+
+    <logger name="jdbc.sqltiming">
+        <level value="warn" />
+    </logger>
+
+    <!-- only for development -->
+    <logger name="jdbc.resultsettable">
+        <level value="warn" />
+    </logger>
+
+    <logger name="org.apache.pdfbox">
+        <level value="off" />
+    </logger>
+
+    <root level="warn">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="APPLICATION_LOG_FILE" />
+    </root>
+
+</configuration>

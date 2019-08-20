@@ -1,0 +1,29 @@
+{
+    "entryNo": "E0000011",
+    "policyNo": "P0000000001",
+    "specificationArticleAmount": "111",
+    "equipmentAmount": "222",
+    "allData": 
+        [
+        {"serial": "", "insuranceType": "", "explicitPropertyType": "", "explicitPropertyName": "", "amount": "", "notices": ""},
+        {"serial": "2", "insuranceType": "1", "explicitPropertyType": "1", "explicitPropertyName": "明記物件の品名一", "amount": "1", "notices": "特記事項一"},
+        {"serial": "3"},
+        {"serial": "4", "insuranceType": "2", "explicitPropertyType": "1", "explicitPropertyName": "明記物件の品名一", "amount": "120", "notices": "特記事項一"}
+        ],
+    "createData": 
+        [
+        {"serial": "1", "insuranceType": "1", "explicitPropertyType": "1", "explicitPropertyName": "一二三四五六七八九十一二三四五六七八九十一", "amount": "12345678", "notices": "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一"}
+        ],
+    "updateData": 
+        [
+        {"serial": "2", "insuranceType": "2", "explicitPropertyType": "2", "explicitPropertyName": "一二三四五六七八九十一二三四五六七八九十", "amount": "1234567", "notices": "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十"}
+        ],
+    "deleteData": 
+        [
+        {"serial": "3"}
+        ],
+    "noUpdateData": 
+        [
+        {"serial": "4", "insuranceType": "1", "explicitPropertyType": "1", "explicitPropertyName": "明記物件の品名一", "amount": "120", "notices": "特記事項一"}
+        ]
+}

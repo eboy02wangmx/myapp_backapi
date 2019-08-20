@@ -1,0 +1,79 @@
+{
+	"result": [
+    {
+      "param": "confirmBuilding",
+      "discription": "保険の対象となる建物情報確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmCompensation",
+      "discription": "補償内容確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmContractor",
+      "discription": "契約者・被保険者・保険対象所在地確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmDisclosureStatement",
+      "discription": "重要事項説明書確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmEarthquake",
+      "discription": "地震保険確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmPrivacyProtection",
+      "discription": "個人情報取扱同意は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmTermPaymentMethod",
+      "discription": "保険期間・保険料払込方法確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmWithEarthquakeDiscount",
+      "discription": "地震保険加入有無・割引等確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "confirmWithOtherAgree",
+      "discription": "他の保険契約等の有無確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorName",
+      "discription": "契約者氏名は30桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryNo",
+      "discription": "申込依頼No.は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "goodsType",
+      "discription": "商品区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "mail",
+      "discription": "契約者メールアドレスは254桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "screenID",
+      "discription": "一時保存画面IDは128桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "updateTime",
+      "discription": "更新日時は21桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

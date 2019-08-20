@@ -1,0 +1,1 @@
+{"result":[{"param":"entryNo","discription":"印刷連番を入力してください。","errorId":"E00002"},{"param":"agentCode","discription":"代理店コードを入力してください。","errorId":"E00002"},{"param":"entryNo","discription":"代理店コードまたは印刷連番の入力に誤りがあるか登録されていません。","errorId":"E00048"}]}

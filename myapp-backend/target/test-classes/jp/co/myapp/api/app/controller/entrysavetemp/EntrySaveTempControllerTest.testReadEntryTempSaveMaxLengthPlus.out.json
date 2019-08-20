@@ -1,0 +1,24 @@
+{
+  "result": [
+    {
+      "param": "entryNo",
+      "discription": "申込依頼No.は6桁でご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "goodsType",
+      "discription": "商品区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "mail",
+      "discription": "メールアドレスは254桁でご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "systemDate",
+      "discription": "システム時間は21桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

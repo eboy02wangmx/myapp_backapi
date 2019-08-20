@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+    namespace="jp.co.myapp.api.domain.repository.hokenCompTnkChk.HokenCompTnkChkRepository">
+
+    <update id="updEntryHaEmp" parameterType="Map">
+    <![CDATA[
+        UPDATE
+            ENTRY_HA_TEMP
+        SET
+            state = '8'
+        WHERE
+            entry_no = #{entryNo}
+            AND
+            serial = #{serial}
+    ]]>
+    </update>
+</mapper>

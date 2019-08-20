@@ -1,0 +1,54 @@
+{
+  "result": [
+    {
+      "param": "dairitenCd",
+      "discription": "代理店は半角数字7桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "eigyoKatenCd",
+      "discription": "営業課店は半角数字4桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "henkouketsukeEndYmd",
+      "discription": "変更受付番号は半角数字8桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "henkouketsukeStartYmd",
+      "discription": "変更受付番号は半角数字8桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "keiyakuNameKana",
+      "discription": "契約者（カナ）は全角カナ60桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "kibouStartYmd",
+      "discription": "変更希望日はYYYYMMDDでご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "koboEndYmd",
+      "discription": "変更希望日はYYYYMMDDでご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "policy",
+      "discription": "証券番号は半角文字11桁まででご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "uketsukeEndEnd",
+      "discription": "受付日はYYYYMMDDでご入力ください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "uketsukeStartYmd",
+      "discription": "受付日はYYYYMMDDでご入力ください。",
+      "errorId": "E00001"
+    }
+  ]
+}

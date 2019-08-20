@@ -1,0 +1,9 @@
+{
+    "result": [
+        {
+            "param": "postalCode",
+            "discription": "郵便番号は半角数字7桁まででご入力ください。",
+            "errorId": "E00001"
+        }
+    ]
+}

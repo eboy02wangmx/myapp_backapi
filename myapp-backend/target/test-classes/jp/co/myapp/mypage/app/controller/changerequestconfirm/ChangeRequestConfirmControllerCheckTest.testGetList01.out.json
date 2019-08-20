@@ -1,0 +1,19 @@
+{
+	"result": [
+		{
+			"param": "inputItem.mailNew",
+			"discription": "メールアドレスを正しく入力してください。",
+			"errorId": "E00002"
+		},
+		{
+			"param": "inputItem.mailOld",
+			"discription": "メールアドレスを正しく入力してください。",
+			"errorId": "E00002"
+		},
+		{
+			"param": "keiyakuInfo.mailKeiyaku",
+			"discription": "メールアドレスを正しく入力してください。",
+			"errorId": "E00002"
+		}
+	]
+}

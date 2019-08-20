@@ -1,0 +1,34 @@
+{
+    "result": [
+        {
+            "param": "agentCode",
+            "discription": "代理店は半角数字10桁まででご入力ください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "contractorNameKana",
+            "discription": "契約者氏名カナは全角カナ60桁まででご入力ください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№は半角文字6桁まででご入力ください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "salesCode",
+            "discription": "営業課店は半角数字4桁まででご入力ください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "startDateFrom",
+            "discription": "保険始期日Fromは日付でご入力ください。",
+            "errorId": "E00001"
+        },        
+        {
+            "param": "startDateTo",
+            "discription": "保険始期日Toは日付でご入力ください。",
+            "errorId": "E00001"
+        }
+    ]
+}

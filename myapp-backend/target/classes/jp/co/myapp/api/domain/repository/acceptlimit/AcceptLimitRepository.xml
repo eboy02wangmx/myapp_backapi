@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.acceptlimit.AcceptLimitRepository">
+<select id="findAcceptLimitList"
+	parameterType="jp.co.myapp.api.app.request.AcceptLimitRequest"
+	resultType="jp.co.myapp.api.domain.model.AcceptLimitBean">
+<![CDATA[
+	SELECT
+		ACCEPT_LIMIT_ID as acceptLimitId,
+		ACCEPT_LIMIT_CODE as acceptLimitCode,
+		ACCEPT_LIMIT_LEVEL as acceptLimitLevel,
+		SCREEN_ID as screenId,
+		MESSAGE as message,
+		ALARM_MESSAGE as alarmMessage,
+		SCREEN_ID as alarmScreenId,
+		(CASE ACCEPT_LIMIT_ID
+			WHEN'1' THEN 'specArticleAmount'
+			WHEN '2'  THEN NULL
+			WHEN '3'  THEN 'fireTerm'
+			WHEN'4.1' THEN 'withTenant'
+			WHEN'4.2' THEN 'withBuildingMgt'
+			WHEN '8' THEN 'buildingDate'
+			ELSE 'fireTerm'
+			END) as alarmPosition
+	FROM
+		ACCEPT_LIMIT_INFO
+]]>
+</select>
+
+<select id="countByEntryNo" resultType="int">
+<![CDATA[
+  SELECT
+    count(*)
+  FROM
+      ENTRY_HA_TEMP
+  WHERE
+    ENTRY_NO = #{entryNo}
+]]>
+</select>
+
+<update id="updateAcceptLimitTempSave" parameterType="jp.co.myapp.api.app.request.AcceptLimitSaveRequest">
+<![CDATA[
+  UPDATE
+        ENTRY_HA_TEMP
+     SET
+     ]]>
+     <choose>
+        <when test="seigenCd == 0">
+            <![CDATA[ seigen_cd = null, ]]>
+        </when>
+        <otherwise>
+            <![CDATA[ seigen_cd = #{seigenCd}, ]]>
+        </otherwise>
+     </choose>
+     <choose>
+        <when test="ketteiNo == 0">
+            <![CDATA[ kettei_no = null, ]]>
+        </when>
+        <otherwise>
+            <![CDATA[ kettei_no = #{ketteiNo}, ]]>
+        </otherwise>
+     </choose>
+     <![CDATA[
+        UPD_DATE = #{newDate}
+   WHERE
+        entry_no = #{entryNo}
+]]>
+</update>
+</mapper>

@@ -1,0 +1,29 @@
+{
+  "result": [
+    {
+      "param": "entryNo",
+      "discription": "申込依頼No.は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryType",
+      "discription": "申込区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "goodsType",
+      "discription": "商品区分は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "screenID",
+      "discription": "一時保存画面IDは128桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "updateTime",
+      "discription": "更新日時は21桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

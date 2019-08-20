@@ -1,0 +1,16 @@
+{
+ "goodsType": "1",
+ "salesCode":"",
+ "agentCode":"",
+ "policyNo":"", 
+ "contractorNameKana":"",
+ "entryDateStart":"",
+ "entryDateEnd":"",
+ "startDateStart":"",
+ "startDateEnd":"",
+ "entryType": "",
+ "paymentType": "",
+ "appropriationStatus":"",
+ "firePaymentMethod": "",
+ "earthquakePaymentMethod": ""
+ }

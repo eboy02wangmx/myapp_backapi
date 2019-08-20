@@ -1,0 +1,209 @@
+{
+  "result": [
+    {
+      "param": "entryNo",
+      "discription": "申込依頼№は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.buildingArea",
+      "discription": "建物面積は10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.buildingBuildingDate",
+      "discription": "建物建築年月は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.buildingFrom",
+      "discription": "建物形態は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.buildingLocation",
+      "discription": "建物所在地は10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.confirmEarthquakeDiscount",
+      "discription": "地震保険割引確認は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.earthquakeBuildingAmount",
+      "discription": "地震保険建物保険金額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.earthquakeHouseholdAmount",
+      "discription": "地震保険家財保険金額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.earthquakeInsuranceDiscountPercent",
+      "discription": "地震保険割引率は2桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.fireBuildingAmount",
+      "discription": "火災保険建物保険金額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.fireHouseholdAmount",
+      "discription": "火災保険家財保険金額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.seismicGradeDiscountGrade",
+      "discription": "耐震等級割引等級は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.startDate",
+      "discription": "保険始期日は8桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.structureGrade",
+      "discription": "構造級別は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveScreenBean.withHouseholdFireInsurance",
+      "discription": "家財火災保険加入有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.corruptionCopayment",
+      "discription": "破損・汚損等自己負担額は7桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.corruptionHouseholdLimited",
+      "discription": "破損・汚損等家財支払限度額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.disasterExpensesLimited",
+      "discription": "災害時諸費用支払限度額は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.earthquakeTerm",
+      "discription": "地震保険期間は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.fireTerm",
+      "discription": "火災保険期間は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.selectPlan",
+      "discription": "選択プランは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.tenantLiabilityLimited",
+      "discription": "借家人賠償責任補償特約支払限度額は9桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.windCopayment",
+      "discription": "風災・ひょう災・雪災自己負担額は7桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withCommonRepairCostCompensation",
+      "discription": "共用部分修理費用補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withCorbelHouseholdCompensation",
+      "discription": "持ち出し家財補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withCorruptionCompensation",
+      "discription": "破損・汚損等補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withCrimeCostCompensation",
+      "discription": "防犯対策費用補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withDisasterExpensesCompensation",
+      "discription": "災害時諸費用補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withEarthquakeCompensationBuilding",
+      "discription": "地震・噴火・津波補償有無（建物）は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withEarthquakeCompensationHousehold",
+      "discription": "地震・噴火・津波補償有無（家財）は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withExpenseCompensation",
+      "discription": "費用保険金補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withExposureCompensation",
+      "discription": "類焼損害補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withFireCompensation",
+      "discription": "火災・落雷・破裂・爆発補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withMovingCompensation",
+      "discription": "引越し中の損害補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withPersonalLiability",
+      "discription": "個人賠償責任補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withRebuildingCostCompensation",
+      "discription": "建替費用補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withTenantLiability",
+      "discription": "借家人賠償責任補償特約有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withWaterCompensation",
+      "discription": "水災補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withWaterStainedCompensation",
+      "discription": "水濡れ・盗難補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entrySaveTrialBean.withWindCompensation",
+      "discription": "風災・ひょう災・雪災補償有無は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "screenID",
+      "discription": "一時保存画面IDは128桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

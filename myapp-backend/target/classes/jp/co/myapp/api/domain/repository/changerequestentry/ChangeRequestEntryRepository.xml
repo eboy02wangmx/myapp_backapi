@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+  namespace="jp.co.myapp.api.domain.repository.changerequestentry.ChangeRequestEntryRepository">
+
+    <insert id="insert"
+    		parameterType="jp.co.myapp.mypage.domain.model.ChangeRequestEntryBean">
+INSERT INTO CHG_REQEST
+(
+  ACCEPTANCE_NO    <!-- 変更受付番号 -->
+
+, POLICY           <!-- ENTRY_HA 証券番号 -->
+, NAME_KEIYAKU     <!-- ENTRY_HA 契約者氏名 -->
+, NAME_KEIYAKU_K   <!-- ENTRY_HA 契約者氏名カナ -->
+, KATEN_CD         <!-- ENTRY_HA 営業課店コード -->
+, DAIRI_CD         <!-- ENTRY_HA 代理店コード -->
+
+, SIKI_DATE        <!-- ENTRY_HA 保険始期日 -->
+, SYUUKI_DATE      <!-- ENTRY_HA 保険終期日 -->
+
+, UKE_YMD          <!-- SYSDATE 受付日 -->
+, UKE_TIME         <!-- SYSDATE 受付時間 -->
+
+, HENKO_KIBOU_YMD     <!-- param 変更希望日時 -->
+, HENKO_KBN
+, KEIYAKU_KBN         <!-- param 契約区分 -->
+, TEL_HOUR_AM         <!-- param 連絡時間帯（午前中） -->
+, TEL_HOUR_12_14      <!-- param 連絡時間帯（12時-14時） -->
+, TEL_HOUR_14_17      <!-- param 連絡時間帯（15時-17時）  -->
+, TEL_HOUR_NONE       <!-- param 連絡時間帯（指定なし） -->
+, TEL_RENRAKU_AREA    <!-- param 連絡先電話番号-市外 -->
+, TEL_RENRAKU_CITY    <!-- param 連絡先電話番号-市内  -->
+, TEL_RENRAKU_NUMBER  <!-- param 連絡先電話番号-加入番号 -->
+, TEL_CD              <!-- param つなぎ先 -->
+, JIYUU_1             <!-- param 事由１ -->
+, JIYUU_2             <!-- param 事由２ -->
+, JIYUU_3             <!-- param 事由３ -->
+, JIYUU_4             <!-- param 事由４ -->
+, JIYUU_5             <!-- param 事由５ -->
+, JIYUU_6             <!-- param 事由６ -->
+, MAIL_ADDRESS_OLD    <!-- param 旧メールアドレス -->
+, MAIL_ADDRESS_NEW    <!-- param 旧メールアドレス -->
+
+, KAKUNIN_FLG         <!-- 確認済みフラグ -->
+, DEL_FLG          <!-- 削除フラグ -->
+, UPD_DATE            <!-- 更新日時 -->
+, ADD_DATE            <!-- 登録日時 -->
+)
+SELECT
+  #{acceptanceNo}   <!-- 変更受付番号 -->
+
+, POLICY            <!-- ENTRY_HA 証券番号 -->
+, NAME_KEIYAKU      <!-- ENTRY_HA 契約者氏名 -->
+, NAME_KEIYAKU_K    <!-- ENTRY_HA 契約者氏名カナ -->
+, KATEN_CD          <!-- ENTRY_HA 営業課店コード -->
+, DAIRI_CD          <!-- ENTRY_HA 代理店コード -->
+
+, SHIKI_DATE        <!-- ENTRY_HA 保険始期日 -->
+, KASAI_SHUKI_DATE  <!-- ENTRY_HA 保険終期日 -->
+
+, TO_CHAR(SYSDATE,'YYYYMMDD')  <!-- SYSDATE 受付日 -->
+, TO_CHAR(SYSDATE,'HH24MI')    <!-- SYSDATE 受付時間 -->
+
+, #{param.henkoKibouYmd}    <!-- param 変更希望日時 -->
+, #{param.henkoKbn}         <!-- param 変更区分 -->
+, #{param.keiyakuKbn}       <!-- param 契約区分 -->
+, #{param.telHourAM}        <!-- param 連絡時間帯（午前中） -->
+, #{param.telHour12}        <!-- param 連絡時間帯（12時-14時） -->
+, #{param.telHour15}        <!-- param 連絡時間帯（15時-17時）  -->
+, #{param.telHourNone}      <!-- param 連絡時間帯（指定なし） -->
+, #{param.telRenrakuArea}   <!-- param 連絡先電話番号-市外 -->
+, #{param.telRenrakuCity}   <!-- param 連絡先電話番号-市内  -->
+, #{param.telRenrakuNumber} <!-- param 連絡先電話番号-加入番号 -->
+, #{param.telCd}            <!-- param つなぎ先 -->
+, #{param.jiyui1}           <!-- param 事由１ -->
+, #{param.jiyui2}           <!-- param 事由２ -->
+, #{param.jiyui3}           <!-- param 事由３ -->
+, #{param.jiyui4}           <!-- param 事由４ -->
+, #{param.jiyui5}           <!-- param 事由５ -->
+, #{param.jiyui6}           <!-- param 事由６ -->
+, #{param.mailAddressOld}   <!-- param 旧メールアドレス -->
+, #{param.mailAddressNew}   <!-- param 旧メールアドレス -->
+
+, '0'      <!-- 確認済みフラグ -->
+, '0'      <!-- 削除フラグ -->
+, SYSDATE  <!-- 更新日時 -->
+, SYSDATE  <!-- 登録日時 -->
+FROM ENTRY_HA
+WHERE POLICY  = #{policy}
+  AND OPEN_ID = #{openId}
+    </insert>
+</mapper>
+

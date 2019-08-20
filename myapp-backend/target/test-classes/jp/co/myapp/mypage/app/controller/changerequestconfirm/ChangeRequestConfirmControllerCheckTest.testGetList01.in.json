@@ -1,0 +1,38 @@
+{
+	"henkoAccessToken": "",
+    "henkoKbn": "1",
+    "keiyakuInfo": {
+        "returnPageNo": "1",
+        "refType": "2",
+        "shohinKbn": "1",
+        "policy": "12345678901",
+        "policyEda": "1",
+        "mailKeiyaku": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmaaa.com"
+    },
+    "inputItem": {
+        "henkoDateTime": "20181031",
+        "renrakuAM": "0",
+        "renraku12": "0",
+        "renraku14": "0",
+        "renraku": "1",
+        "telShurui": "3",
+        "telKeiyakuArea": "123456",
+        "telKeiyakuCity": "1234",
+        "telKeiyakuNumber": "1234",
+        "telKeiyaku2Area": "123456",
+        "telKeiyaku2City": "1234",
+        "telKeiyaku2Number": "1234",
+        "telKeiyaku3Area": "123456",
+        "telKeiyaku3City": "1234",
+        "telKeiyaku3Number": "1234",
+        "telOthunagiSaki": "1",
+        "jiyu1": "1",
+        "jiyu2": "0",
+        "jiyu3": "0",
+        "jiyu4": "0",
+        "jiyu5": "0",
+        "jiyu6": "0",
+        "mailOld": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmaaa.com",
+        "mailNew": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmbbb.com"
+    }
+}

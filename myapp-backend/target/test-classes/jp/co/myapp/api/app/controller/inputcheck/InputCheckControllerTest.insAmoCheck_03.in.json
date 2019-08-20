@@ -1,0 +1,17 @@
+{
+  "entryNo": "A000011", 
+  "screenID": "BBBBBBBB1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901",
+  "withBuildingFireInsurance": "1",
+  "withNewBuildingValueKnown": "1",
+  "policyCurrentReplacementValue": "2014",
+  "buildingAppraisedLower": "930",
+  "buildingAppraisedUpper": "1740",
+  "newBuildingValue": "3104",
+  "fireBuildingAmount": "3205",
+  "withHouseholdFireInsurance": "1",
+  "householderAge": "33",
+  "withSpouse": "1",
+  "fireHouseholdAmount": "3015",
+  "householdAppraisedLower": "1930",
+  "householdAppraisedUpper": "2740"
+}

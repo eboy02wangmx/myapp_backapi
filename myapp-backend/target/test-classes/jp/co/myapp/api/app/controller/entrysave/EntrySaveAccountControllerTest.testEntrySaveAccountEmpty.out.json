@@ -1,0 +1,34 @@
+{
+  "result": [
+    {
+      "param": "financialInstitutionCode",
+      "discription": "金融機関コードを入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "shopNo",
+      "discription": "店番号を入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "subject",
+      "discription": "科目を選択してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "accountNo",
+      "discription": "口座番号を入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "accountHolderKana",
+      "discription": "口座名義人カナを入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "transferredNotification",
+      "discription": "振替済通知を選択してください。",
+      "errorId": "E00002"
+    }
+  ]
+}

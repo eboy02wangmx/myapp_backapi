@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.mailsave.MailSaveRepository">
+
+<select id="selectForUpdate" resultType="jp.co.myapp.api.domain.model.MailInfoBean">
+<![CDATA[
+SELECT
+    open_id as openId,
+    policy_no as policyNo,
+    mail_address_old as mailAddressOld,
+    mail_address_new as mailAddressNew
+FROM
+    MAIL_CHGWK
+WHERE
+    mail_access_token = #{fixToken}
+    AND expiration_date >= #{expirationDate}
+    AND del_flg <> '1'
+FOR UPDATE
+]]>
+</select>
+
+<insert id="regist" parameterType="MailSaveBean">
+<![CDATA[
+insert into MAIL_CHGWK(
+    mail_access_token,
+    open_id,
+    policy_no,
+    mail_address_old,
+    mail_address_new,
+    expiration_date,
+    del_flg,
+    upd_date,
+    add_date
+    )
+    values(
+        #{mailAccessToken},
+        #{openId},
+        #{policyNo},
+        #{mailAddressOld},
+        #{mailAddressNew},
+        #{expirationDate},
+        '0',
+        #{updDate},
+        #{addDate}
+    )
+]]>
+</insert>
+
+<update id="updateDelFlg">
+<![CDATA[
+UPDATE MAIL_CHGWK
+SET
+    del_flg = '1',
+    upd_date = #{updDate}
+WHERE
+    mail_access_token = #{fixToken}
+    AND del_flg <> '1'
+]]>
+</update>
+
+<update id="updateEntryHaTempMailSendFlg" parameterType="MailSaveBean">
+<![CDATA[
+UPDATE ENTRY_HA_TEMP
+SET
+	MAIL_SEND_FLG = #{promotionMailSendFlag},
+	UPD_DATE = #{updDate}
+WHERE
+ENTRY_NO IN
+(
+	SELECT
+		ENTRY_NO
+	FROM
+	ENTRY_HA_TEMP
+	WHERE
+		OLD_ENTRY_NO IN 
+		(
+			SELECT
+				OLD_ENTRY_NO
+			FROM
+			ENTRY_HA_TEMP
+			WHERE
+			ENTRY_NO IN 
+			(
+				SELECT
+					ENTRY_NO
+				FROM
+				ENTRY_HA
+				WHERE
+				POLICY = #{policyNo}
+			)
+		)
+)
+]]>
+</update>
+
+<update id="updateEntryHaMailSendFlg" parameterType="MailSaveBean">
+<![CDATA[
+UPDATE ENTRY_HA
+SET
+	MAIL_SEND_FLG = #{promotionMailSendFlag},
+	UPD_DATE = #{updDate}
+WHERE
+	POLICY = #{policyNo}
+]]>
+</update>
+</mapper>

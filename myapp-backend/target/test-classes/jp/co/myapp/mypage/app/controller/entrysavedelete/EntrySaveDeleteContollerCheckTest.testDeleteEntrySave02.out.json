@@ -1,0 +1,9 @@
+{
+  "result": [
+    {
+      "param": "entryNo",
+      "discription": "申込依頼№は6桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

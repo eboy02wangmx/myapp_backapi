@@ -1,0 +1,28 @@
+{
+    "result": {
+        "dataCount": 21,
+        "data": [
+            {
+                "hokenShurui": "ホームアシスト\r\n（家庭総合保険）",
+                "refType": "2",
+                "policy": "192P0000009",
+                "keiyakuName": "楽天　太郎",
+                "shiki": "2016年02月29日",
+                "shuki": "2020年02月29日",
+                "jishinShiki": "2016年02月29日",
+                "jishinShuki": "2017年02月28日",
+                "jishinUmu": "1",
+                "shozaichiK": "北海道札幌市中央区大通西１－１－１",
+                "keiyakuJokyo": "有効",
+                "mailKeiyaku": "rakuta@gmail.com",
+                "telKeiyakuArea": "011",
+                "telKeiyakuCity": "023",
+                "telKeiyakuNumber": "0567",
+                "telKeiyaku2Area": "03",
+                "telKeiyaku2City": "0345",
+                "telKeiyaku2Number": "0678",
+                "creditCardButton": "1"
+            }
+        ]
+    }
+}

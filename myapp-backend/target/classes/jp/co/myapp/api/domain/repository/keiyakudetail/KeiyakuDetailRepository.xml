@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    MEMO
+    TOKU_KAZAI_NOMI は TOKU_KASAI_NOMI のカラム名設定間違い
+ -->
+<mapper namespace="jp.co.myapp.api.domain.repository.keiyakudetail.KeiyakuDetailRepository">
+          <select id="selectEntryDtl" parameterType="String" resultType="jp.co.myapp.mypage.domain.model.EntryInfoBean">
+      SELECT
+           HA.OPEN_ID as openId
+          ,HA.POLICY as policy
+          ,HA.ENTRY_TYPE as entryType
+          ,HA.DAIRI_NAME as dairitenName
+          ,HA.PAYMENT_TYPE as paymentType
+          ,HA.ENTRY_DATE as teiketsuYmd
+          ,HA.NAME_KEIYAKU as nameKeiyaku
+          ,HA.NAME_KEIYAKU_K as nameKeiyakuKana
+          ,HA.YUBIN_KEIYAKU as yubinKeiyaku
+          ,HA.JUSHO_KEIYAKU || JUSHO_KEIYAKU_FREE as jushoKeiyaku
+          ,HA.TEL_KEIYAKU_AREA as tel1Shigai
+          ,HA.TEL_KEIYAKU_CITY as tel1Shinai
+          ,HA.TEL_KEIYAKU_NUMBER as tel1Kanyu
+          ,HA.TEL_KEIYAKU2_AREA as tel2Shigai
+          ,HA.TEL_KEIYAKU2_CITY as tel2Shinai
+          ,HA.TEL_KEIYAKU2_NUMBER as tel2Kanyu
+          ,COALESCE(ML.MAIL_ADDRESS, HA.MAIL_KEIYAKU) as mailKeiyaku
+          ,HA.SEIBETSU_KEIYAKU as seibetsuKeiyaku
+          ,HA.BIRTHDAY_KEIYAKU as birthdayKeiyaku
+          ,HA.KEIYAKU_HIHO_ONAJI as hihoOnaji
+          ,HA.NAME_HIHO as nameHiho
+          ,HA.NAME_BAISHO_KOJIN as nameBaishoKojin
+          ,HA.NAME_BAISHO_SYAKUYA as nameBaishoShakuya
+          ,HA.SHIKI_DATE as shikiDate
+          ,HA.SHIKI_JIKAN as shikiJikan
+          ,HA.KASAI_SHUKI_DATE as kasaiShukiDate
+          ,HA.JISHIN_SHUKI_DATE as jisShukiDate
+          ,HA.KAISU_CHIJO as kaisuChijo
+          ,HA.KAISU_CHIKA as kaisuChika
+          ,HA.TATE_KOUZOU as tateKouzou
+          ,HA.KOUZOU_TEKIN as kouzouTekin
+          ,HA.KOUZOU_OTHER as kouzouOther
+          ,HA.GRADE as grade
+          ,HA.KENCHIKU_YM_SEIREKI as kenchikuYmSeireki
+          ,HA.AREA as area
+          ,HA.SAICHOTATU_GAKU as saichotatugGaku
+          ,HA.KAKUNIN_SHORUI as kakuninShorui
+          ,HA.INC_KISO as incKiso
+          ,HA.INC_TATAMI as incTatami
+          ,HA.INC_MONHEI as incMonHei
+          ,HA.INC_SHAKO as incShako
+          ,HA.INC_KYOYO as incKyoyo
+          ,HA.KASAI_HKIKAN as hokenKikan
+          ,HA.JISHIN_HKIKAN as jishinHokenKikan
+          ,HA.JISHIN_JIDOKEIZOKU as jisJidokeizoku
+          ,HA.KASAI_HOHO as shiharaiHoho
+          ,HA.JISHIN_HOHO as shiharaiHohoJishin
+          ,HA.SENTAKU_PLAN as keiyakuType
+          ,HA.HUSAI_HOSHO as fusaiHosho
+          ,HA.HUSAI_GAKU as tateFuHyoSetuJikoFutanGaku
+          ,HA.KAZAI_KANYU as kazaKanyu
+          ,HA.SUISAI_HOSHO as suisaiHosho
+          ,HA.TONAN_HOSHO as tonanHosho
+          ,HA.HASON_HOSHO as fusokuHosho
+          ,HA.HASON_HUTAN as tateHasonOsonJikoFutanGaku
+          ,HA.HASON_LIMIT as hasonLimit
+          ,HA.TOKU_KOJINBAISHO  as tokuKojinBaisho
+          ,HA.TOKU_SYAKUYABAISHO as tokuSyakuyabaisho
+          ,HA.TOKU_SYAKUYABAISHO_LIMIT as tokuShakuyaBaicho
+          ,HA.HASON_LIMIT as kazaiHasonOsonShiharaiGendo
+          ,HA.TOKU_RUISHO as tokuRuisho
+          ,HA.TOKU_TATEKAE as tokuTatekae
+          ,HA.TOKU_KYOYO as tokuKyoyo
+          ,HA.TOKU_BOHAN as tokuBohan
+          ,HA.TOKU_MOTIDASHI  as tokuMochidashi
+          ,HA.GAKU_KASAI_TATE as tateHokenGaku
+          ,HA.TATE_KANYU as tateKanyu
+          ,HA.GAKU_KASAI_KAZAI as kazaiHokenGaku
+          ,HA.GAKU_JISHIN_TATE as tateJishinHokenGaku
+          ,HA.GAKU_JISHIN_KAZAI as kazaiJishinHokenGaku
+          ,HA.HRYO_KASAI_TATE as hryoKasaiTate
+          ,HA.HRYO_KASAI_KAZAI as hryoKasaiKazai
+          ,HA.HRYO_JISHIN_TATE as hryoJishinTate
+          ,HA.HRYO_JISHIN_KAZAI as hryoJishinKazai
+          ,HA.HRYO_KOJINBAI as hryoKojinBai
+          ,HA.HRYO_SHAKUYABAI as hryoShakuyaBai
+          ,HA.HRYO_RUISHO as hryoRuisho
+          ,HA.HRYO as hryo
+          ,HA.HRYO_NENGAKU as nenkanHryo
+          ,HA.HRYO_SHOKAI as shokaiHaraiHryo
+          ,HA.JUSHO_HOKEN || JUSHO_HOKEN_FREE as jushoHoken
+          ,HA.JUSHO_ONAJI as jyushOnaj
+          ,HA.YOUHOU as youhou
+          ,HA.SETUJ_GAKU as setsuHokenGaku
+          ,HA.SEIHN_GAKU as shohinHokenGaku
+          ,HA.MB_GAKU as mbHokenGaku
+          ,HA.HRYO_SETUJ as hryoSetubi
+          ,HA.HRYO_SEIHN as hryoSeihin
+          ,HA.HRYO_MB as hryoMb
+          ,HA.TEITO_UMU as teitoUmu
+          ,HA.JISHIN_WARIBIKIRITSU as jishinWaribikiritsu
+          ,HA.TATE_KEITAI as tateKeitai
+          ,HA.TOKU_HIKOSHI AS tokuHikoshi
+          ,HA.SAIGAI_LIMIT AS saigaiLimit
+          ,HA.MB_SHOSAI_UMU AS mbShosaiUmu
+          ,HA.TOKU_MIZUNUREHOSHO as tokuMizunurehosho
+          ,HA.TOKU_HOJIN_KEIYAKU as tokuHojinKeiyaku
+          ,HA.TOKU_KAZAI_NOMI as tokuKasaiNomi
+          ,HA.TOKU_SUISAI_TAISHOGAI as tokuSuisaiTaishogai
+          ,HA.TOKU_FUSAI_SHIHARAI as tokuFusaiShiharai
+          ,HA.TOKU_SUISAI_SHIHARAI as tokuSuisaiShiharai
+          ,HA.TOKU_ROSUI_TAISHOGAI as tokuRosuiTaishogai
+          ,HA.SETUJ_KANYU as setujKanyu
+          ,HA.SETUJ_HYOKA_GAKU as setujKyokaGaku
+          ,HA.SEIHN_KANYU as seihnKanyu
+          ,HA.SEIHN_HYOKA_GAKU as shohinHOShiharaiGendoGaku
+          ,HA.HRYO_TATEMONO_KANRI as hryoTatemonoKanri
+          ,HA.TOKU_TATEBAISHO_LIMIT as tokuTatebaishoLimit
+          ,HA.SHOKUSAGYO as shokusagyo
+          ,TO_CHAR(HA.PAPER_POLICY_SEND) as shokenFuyo
+          ,HA.MAIL_SEND_FLG as mailSendFlg
+      FROM
+          ENTRY_HA HA
+          LEFT OUTER JOIN (
+                        SELECT
+                            MAIL_ADDRESS
+                            ,POLICY
+                      FROM (
+                            SELECT
+                                ROW_NUMBER() OVER (PARTITION BY POLICY ORDER BY RIREKI_REMBAN DESC) AS TARGET
+                                ,POLICY
+                                ,MAIL_ADDRESS
+                             FROM
+                                MAIL_INFO
+                             WHERE
+                                DEL_FLG != 1
+                            )
+                        WHERE
+                        TARGET = 1
+        ) ML
+          ON HA.POLICY = ML.POLICY
+      WHERE
+          HA.POLICY = #{policy}
+          AND HA.OPEN_ID = #{openId}
+    </select>
+    <select id="selectEntryDtlByPolicy" parameterType="String" resultType="jp.co.myapp.mypage.domain.model.EntryInfoBean">
+      SELECT
+             HA.MB_SHOSAI_UMU AS mbShosaiUmu
+            ,HA.ENTRY_TYPE AS entryType
+      FROM
+          ENTRY_HA HA
+      WHERE
+          HA.POLICY = #{policy}
+    </select>
+</mapper>

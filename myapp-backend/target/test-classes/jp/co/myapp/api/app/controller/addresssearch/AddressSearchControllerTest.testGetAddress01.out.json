@@ -1,0 +1,13 @@
+{
+    "list": [
+        {
+    "addressCode": "A1B1C01D01",
+    "kaNaPrefectureName": "I000000000000001",
+    "kaNaCityCountyName": "J000000000000000000000000000000000000001",
+    "kaNaMunicipalityName": "K00000000000000000000000000000000000000000000000000000000001",
+    "kanJiPrefectureName": "T0000001",
+    "kanJiCityCountyName": "U0000000000000000001",
+    "kanJiMunicipalityName": "V000000000000000000000000000000000000001"
+        }
+    ]
+}

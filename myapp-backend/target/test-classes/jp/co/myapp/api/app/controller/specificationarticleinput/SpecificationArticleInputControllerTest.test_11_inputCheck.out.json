@@ -1,0 +1,19 @@
+{
+  "result": [
+    {
+      "param": "createData[0].amount",
+      "discription": "保険金額は7桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "createData[0].explicitPropertyName",
+      "discription": "明記物件の品名は20桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "createData[0].notices",
+      "discription": "特記事項は250桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

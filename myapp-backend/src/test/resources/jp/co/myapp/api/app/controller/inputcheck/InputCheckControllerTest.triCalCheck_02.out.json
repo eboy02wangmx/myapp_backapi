@@ -1,0 +1,29 @@
+{
+    "result": [
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№を入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "screenID",
+            "discription": "一時保存画面IDを入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "fireTerm",
+            "discription": "火災保険の保険期間を選択してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "earthquakeTerm",
+            "discription": "地震保険の保険期間を選択してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "selectPlan",
+            "discription": "ご契約プランを選択してください。",
+            "errorId": "E00002"
+        }
+    ]
+}

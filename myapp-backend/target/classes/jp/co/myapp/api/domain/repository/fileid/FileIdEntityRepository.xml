@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.fileid.FileIdEntityRepository">
+
+    <insert id="insertIntoFileId" parameterType="jp.co.myapp.api.domain.model.FileIdEntityBean">
+    <![CDATA[
+        INSERT INTO FILE_ID 
+        	(
+           	entry_no,
+           	file_ID,
+           	upd_date,
+			add_date
+			)
+		VALUES
+			(
+			#{entryNo},
+			#{fileID},
+			#{updDate},
+			#{addDate}
+			)
+    ]]>
+    </insert>
+
+</mapper>

@@ -1,0 +1,17 @@
+{
+  "entryNo": "", 
+  "screenID": "",
+  "withBuildingFireInsurance": "",
+  "withNewBuildingValueKnown": "",
+  "policyCurrentReplacementValue": "",
+  "buildingAppraisedLower": "930",
+  "buildingAppraisedUpper": "1740",
+  "newBuildingValue": "3104",
+  "fireBuildingAmount": "3205",
+  "withHouseholdFireInsurance": "",
+  "householderAge": "",
+  "withSpouse": "",
+  "fireHouseholdAmount": "",
+  "householdAppraisedLower": "1930",
+  "householdAppraisedUpper": "2740"
+}

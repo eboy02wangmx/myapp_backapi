@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repositoryreplica.agentsearch.AgentSearchRepository">
+    <resultMap id="dairitenMap" type="DairitenBean">
+		<id property="agentCode" column="DAIRITEN_CD" ></id>
+		<result property="agentName" column="DAIRI_MEI_K" ></result>
+		<result property="agentNameKana" column="DAIRI_MEI" ></result>
+	</resultMap>
+
+   <select id="findKiBoCd" parameterType="jp.co.myapp.api.app.request.AgentSearchRequest" resultType="String">
+    <![CDATA[
+        SELECT
+        	KIBO_CD
+        FROM
+            ssrep.DAIRITEN
+        WHERE
+        	TRIM(DAIRITEN_CD) = #{selfAgentCode} ]]>
+	</select>
+
+   <select id="findAgentCode" parameterType="jp.co.myapp.api.app.request.AgentSearchRequest" resultMap="dairitenMap">
+   <![CDATA[
+   SELECT
+      TRIM(DAIRITEN_CD) AS DAIRITEN_CD
+      , DAIRI_MEI_K
+      , DAIRI_MEI
+   FROM
+      ssrep.DAIRITEN
+      ]]>
+   WHERE  1 = 1
+     <if test="agentCode != null and agentCode != ''">
+       AND TRIM(DAIRITEN_CD) = TRIM(#{agentCode})
+     </if>
+     <if test="nationalCode != null and nationalCode != ''">
+ 	   AND DAIRITEN_CD in (
+			 SELECT
+               DAIRITEN_CD
+               FROM
+               ssrep.DAIRITEN
+               WHERE
+               KIBO_CD IN #{nationalCode}
+		)</if>
+		<if test="nationalCode == null or nationalCode == ''">
+		 AND TRIM(DAIRITEN_CD) = TRIM(#{selfAgentCode})</if>
+     <if test="agentName != null and agentName != ''">
+     <bind name="toAgentName" value="@org.terasoluna.gfw.common.query.QueryEscapeUtils@toContainingCondition(agentName)" />
+     AND DAIRI_MEI_K like #{toAgentName} ESCAPE '~'
+     </if>
+     <if test="agentNameKana != null and agentNameKana != ''">
+     <bind name="toAgentNameKana" value="@org.terasoluna.gfw.common.query.QueryEscapeUtils@toContainingCondition(agentNameKana)" />
+     AND DAIRI_MEI like #{toAgentNameKana} ESCAPE '~'
+     </if>
+   ORDER BY
+      DAIRITEN_CD ASC
+   </select>
+
+   <select id="findAgentCode01" parameterType="jp.co.myapp.api.app.request.AgentSearchRequest" resultMap="dairitenMap">
+   <![CDATA[
+   SELECT
+       TRIM(DAIRITEN_CD) AS DAIRITEN_CD
+      ,DAIRI_MEI_K
+      ,DAIRI_MEI
+   FROM
+      ssrep.DAIRITEN
+     ]]>
+    WHERE  1 = 1
+          <if test="agentCode != null and agentCode != ''">
+     <![CDATA[
+            AND TRIM(DAIRITEN_CD) = TRIM(#{agentCode})
+     ]]></if>
+         <if test="agentName != null and agentName != ''">
+         <bind name="toAgentName" value="@org.terasoluna.gfw.common.query.QueryEscapeUtils@toContainingCondition(agentName)" />
+	<![CDATA[
+ 			AND DAIRI_MEI_K like #{toAgentName} ESCAPE '~'
+     ]]></if>
+        <if test="agentNameKana != null and agentNameKana != ''">
+        <bind name="toAgentNameKana" value="@org.terasoluna.gfw.common.query.QueryEscapeUtils@toContainingCondition(agentNameKana)" />
+	<![CDATA[
+			AND DAIRI_MEI like #{toAgentNameKana} ESCAPE '~'
+    ]]></if>
+   <![CDATA[  ORDER BY
+        DAIRITEN_CD ASC
+    ]]>
+   </select>
+
+   <select id="findAgentsByAgentCds" parameterType="java.util.Set" resultMap="dairitenMap">
+    <![CDATA[
+        SELECT
+        	TRIM(DAIRITEN_CD) AS DAIRITEN_CD,
+            DAIRI_MEI_K
+        FROM
+            ssrep.DAIRITEN
+        WHERE
+        	TRIM(DAIRITEN_CD) IN ]]>
+       	<foreach collection="collection" item="item" open="(" separator="," close=")">#{item}
+       	</foreach>
+	</select>
+
+	<select id="getAgentCodeList" parameterType="String" resultType="String">
+    <![CDATA[
+    	SELECT
+        	DAIRITEN_CD
+        FROM
+            ssrep.BV_OL_ACCESS_TBL
+        WHERE
+        	GROUP_CD = (
+	        SELECT
+	        	GROUP_CD
+	        FROM
+	            ssrep.BV_OL_ACCESS_TBL
+	        WHERE
+	        	TRIM(DAIRITEN_CD) = #{agentCode}
+	        	)]]>
+	</select>
+
+	<select id="getAgentCodeList2" parameterType="String" resultType="String">
+    <![CDATA[
+    	SELECT
+		  RTRIM(DAIRITEN_CD) AS DAIRITEN_CD
+		FROM
+		  ssrep.DAIRITEN
+		WHERE
+		  RTRIM(DAIRITEN_CD) = #{agentCode}
+		  OR KIBO_CD = (
+		        SELECT
+		          KIBO_CD
+		        FROM
+		          ssrep.DAIRITEN
+		        WHERE
+		          RTRIM(DAIRITEN_CD) = #{agentCode}
+		        AND
+		          RTRIM(KIBO_CD) IS NOT NULL
+		      )
+		ORDER BY
+		  DAIRITEN_CD ASC
+		]]>
+	</select>
+
+</mapper>

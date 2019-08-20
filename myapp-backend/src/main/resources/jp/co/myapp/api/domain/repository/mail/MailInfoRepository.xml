@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.mail.MailInfoRepository">
+  <!-- R_MKY_0004_1 -->
+    <select id="selectMailAddress" parameterType="String" resultType="String">
+    SELECT
+      COALESCE(ML.MAIL_ADDRESS, HA.MAIL_KEIYAKU) as mailAdress
+    FROM
+      ENTRY_HA HA
+    LEFT OUTER JOIN (
+          SELECT
+              MAIL_ADDRESS
+              ,POLICY
+        FROM (
+              SELECT
+                  ROW_NUMBER() OVER (PARTITION BY POLICY ORDER BY RIREKI_REMBAN DESC) AS TARGET
+                  ,POLICY
+                  ,MAIL_ADDRESS
+               FROM
+                  MAIL_INFO
+               WHERE
+                  DEL_FLG != 1
+            )
+        WHERE TARGET = 1
+    ) ML
+    ON HA.POLICY = ML.POLICY
+  WHERE
+    HA.POLICY = #{policy}
+    AND HA.OPEN_ID = #{openId}
+    </select>
+
+</mapper>

@@ -1,0 +1,10 @@
+{"result":[{"param":"withOtherContract","discription":"���_��L������͂��Ă��������B","errorId":"E00002"},
+{"param":"screenID","discription":"�ꎞ�ۑ����ID����͂��Ă��������B","errorId":"E00002"},
+{"param":"entryNo","discription":"�\���˗�������͂��Ă��������B","errorId":"E00002"},
+{"param":"agentCode","discription":"�㗝�X�R�[�h����͂��Ă��������B","errorId":"E00002"},
+{"param":"agentName","discription":"�㗝�X���̂���͂��Ă��������B","errorId":"E00002"},
+{"param":"myappFirst","discription":"1���ڂ̕ی���Ђ�I�����Ă��������B","errorId":"E00002"},
+{"param":"insuranceTypeKanaFirst","discription":"1���ڂ̕ی���ނ���͂��Ă��������B","errorId":"E00002"},
+{"param":"insuranceTargetFirst","discription":"1���ڂ̕ی��Ώۂ�I�����Ă��������B","errorId":"E00002"},
+{"param":"basicInsuranceAmountFirst","discription":"1���ڂ̊�{�ی����z����͂��Ă��������B","errorId":"E00002"},
+{"param":"dueDateFirst","discription":"1���ڂ̖���������͂��Ă��������B","errorId":"E00002"}]}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.keiregs.KeiRegsUpdRepository">
+
+  <!-- 申込管理_HAから楽天OpenIDを取得 -->
+  <select id="getOpenId" parameterType="String" resultType="String">
+    <![CDATA[
+        SELECT
+              OPEN_ID AS openId
+        FROM
+              ENTRY_HA
+        WHERE
+              POLICY = #{policy}
+    ]]>
+   </select>
+
+  <!-- 申込管理_HAを更新 -->
+  <update id="updEntryHa" parameterType="jp.co.myapp.api.domain.model.EntrySaveEntityBean">
+    <![CDATA[
+        UPDATE
+            ENTRY_HA
+        SET
+            OPEN_ID = #{openId},
+            OPEN_ID_OLD = #{openIdOld},
+            UPD_PROC_ID = #{updProcessId},
+            UPD_DATE = #{updDate}
+        WHERE
+            POLICY = #{policy}
+    ]]>
+   </update>
+
+  <!-- メールアドレス管理からメール情報を取得 -->
+  <select id="getMailInfo" parameterType="String" resultType="jp.co.myapp.api.domain.model.MailInfoBean">
+    <![CDATA[
+        SELECT
+            MAIL_ADDRESS AS mailAddressNew,
+            POLICY AS policy,
+            RIREKI_REMBAN AS rirekiRenban
+        FROM
+            (
+                SELECT
+                    ROW_NUMBER() OVER (PARTITION BY POLICY ORDER BY RIREKI_REMBAN DESC) AS TARGET,
+                    POLICY,
+                    MAIL_ADDRESS,
+                    RIREKI_REMBAN
+                FROM
+                    MAIL_INFO
+            )
+        WHERE
+            TARGET = 1
+            AND
+            POLICY = #{policy}
+    ]]>
+   </select>
+
+  <!-- メールアドレスを更新（論理削除） -->
+  <update id="updMailInfo" parameterType="jp.co.myapp.api.domain.model.MailSaveBean">
+    <![CDATA[
+        UPDATE
+            MAIL_INFO
+        SET
+            DEL_FLG = '1',
+            UPD_PROC_ID = #{updProcessId},
+            UPD_DATE = #{updDate}
+        WHERE
+            POLICY = #{policyNo}
+            AND
+            RIREKI_REMBAN = #{rirekiRenban}
+            AND
+            DEL_FLG = '0'
+    ]]>
+   </update>
+
+  <!-- メールアドレスをインサート -->
+  <insert id="insMailInfo" parameterType="jp.co.myapp.api.domain.model.MailSaveBean">
+    <![CDATA[
+        INSERT INTO MAIL_INFO (
+            OPEN_ID,
+            POLICY,
+            RIREKI_REMBAN,
+            MAIL_ADDRESS,
+            DEL_FLG,
+            UPD_PROC_ID,
+            UPD_DATE,
+            ADD_PROC_ID,
+            ADD_DATE
+        ) VALUES (
+            #{openId},
+            #{policyNo},
+            #{rirekiRenban},
+            #{mailAddressNew},
+            '0',
+            #{updProcessId},
+            #{updDate},
+            #{insProcessId},
+            #{addDate}
+        )
+    ]]>
+   </insert>
+
+</mapper>

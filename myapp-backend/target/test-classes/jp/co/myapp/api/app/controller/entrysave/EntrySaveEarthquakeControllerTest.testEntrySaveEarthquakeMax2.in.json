@@ -1,0 +1,20 @@
+{
+	"entryNo": "x00002_",
+	"screenID": "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678_",
+	"goodsType": "1_",
+	"withBuildingEarthquakeInsurance": "1_",
+	"withHouseholdEarthquakeInsurance": "1_",
+	"earthquakeBuildingAmount": "9999999990",
+	"earthquakeBuildingAmountLower": "9999999980",
+	"earthquakeBuildingAmountUpper": "9999999970",
+	"earthquakeHouseholdAmount": "9999999960",
+	"earthquakeHouseholdAmountLower": "9999999950",
+	"earthquakeHouseholdAmountUpper": "9999999940",
+	"confirmEarthquakeDiscount": "1_",
+	"earthquakeInsuranceDiscountPercent": "600",
+	"seismicGradeDiscountGrade": "2_",
+	"seismicDiagnosisDate": "20180202_",
+	"buildingDateConfirmed": "1_",
+	"discountCertificateConfirmed": "1_",
+	"updateTime": "20180101 12:12:12.012_"
+}

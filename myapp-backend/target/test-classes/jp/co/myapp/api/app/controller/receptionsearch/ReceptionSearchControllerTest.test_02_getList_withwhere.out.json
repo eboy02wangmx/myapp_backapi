@@ -1,0 +1,44 @@
+{
+  "result": {
+    "count": 1,
+    "list": [
+      {
+        "changeReceptionNo": "10000008",
+        "policyNo": "11111111111",
+        "contractorName": "C00000000000000000000000000000000000000000000000000000000008",
+        "contractorNameKana": "ｱアアアアアアアアアハチ",
+        "salesCode": "1118",
+        "agentCode": "1111118",
+        "receptionDate": "20191208",
+        "receptionTime": "1218",
+        "changeDesiredDate": "20191108",
+        "changeType": "4",
+        "agreeType": "2",
+        "startDate": "20190108",
+        "endDate": "20190208",
+        "contactTimeZoneMorning": "1",
+        "contactTimeZoneNoon": "1",
+        "contactTimeZoneAfternooon": "1",
+        "contactTimeZoneNone": "1",
+        "contactTelArea": "100001",
+        "contactTelCity": "1001",
+        "contactTelNo": "1001",
+        "contactCode": "4",
+        "reason1": "1",
+        "reason2": "1",
+        "reason3": "1",
+        "reason4": "1",
+        "reason5": "1",
+        "reason6": "1",
+        "oldMailAddress": "aaa@xxxx.com",
+        "newMailAddress": "bbb@xxxx.com",
+        "confirmedFlag": "1",
+        "deleteFlag": "0",
+        "updateTime": "20180101 12:12:12.000",
+        "createTime": "20180101 12:12:12.000",
+        "agentName": "",
+        "salesName": ""
+      }
+    ]
+  }
+}

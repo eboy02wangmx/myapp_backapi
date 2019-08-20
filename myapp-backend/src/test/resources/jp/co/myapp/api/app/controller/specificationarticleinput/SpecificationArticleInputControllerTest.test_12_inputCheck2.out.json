@@ -1,0 +1,49 @@
+{
+  "result": [
+    {
+      "param": "entryNo",
+      "discription": "申込依頼№は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryNo",
+      "discription": "連番を入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "insuranceType",
+      "discription": "行目の保険の対象区分を選択してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "explicitPropertyType",
+      "discription": "行目の保険の明記物件区分を選択してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "explicitPropertyName",
+      "discription": "行目の保険の明記物件の品名を入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "amount",
+      "discription": "行目の保険の保険金額を入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "amount",
+      "discription": "2行目の保険の保険金額は数字で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "specificationArticleAmount",
+      "discription": "入力された家財の保険金額合計が保険金額画面の明記物件保険金額と同額ではありません。",
+      "errorId": "E00049"
+    },
+    {
+      "param": "equipmentAmount",
+      "discription": "入力された設備・什器等の保険金額合計が保険金額画面の設備・什器等保険金額を超えました。",
+      "errorId": "E00050"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "result": [
+    {
+      "param": "file",
+      "discription": "JPG、PNG、HEIC形式の画像ファイルまたはPDFファイルを選択してください。",
+      "errorId": "E00003"
+    }
+  ]
+}

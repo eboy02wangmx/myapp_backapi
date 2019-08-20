@@ -1,0 +1,18 @@
+[
+  {
+    "serial": "1",
+    "insuranceType": "1",
+    "explicitPropertyType": "1",
+    "explicitPropertyName": "品名一",
+    "amount": "100000001",
+    "notices": "特記事項一"
+  },
+  {
+    "serial": "2",
+    "insuranceType": "2",
+    "explicitPropertyType": "2",
+    "explicitPropertyName": "品名二",
+    "amount": "100000002",
+    "notices": "特記事項二"
+  }
+]

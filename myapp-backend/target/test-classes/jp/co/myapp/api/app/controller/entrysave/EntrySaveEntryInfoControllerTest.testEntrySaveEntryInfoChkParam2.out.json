@@ -1,0 +1,214 @@
+{
+  "result": [
+    {
+      "param": "contractorAddress",
+      "discription": "契約者住所は68桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorAddressCode",
+      "discription": "契約者住所コードは10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorAddressFree",
+      "discription": "契約者住所は68桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorAddressKana",
+      "discription": "契約者住所カナは136桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorAddressKanaFree",
+      "discription": "契約者住所カナは136桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorBirthday",
+      "discription": "契約者生年月日は8桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorIdentical",
+      "discription": "被保険者同異は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorMail",
+      "discription": "契約者メールアドレスは254桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorMail",
+      "discription": "契約者メールアドレスを正しく入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "contractorName",
+      "discription": "契約者氏名は30桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorNameKana",
+      "discription": "契約者氏名カナは60桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorPost",
+      "discription": "契約者郵便番号は7桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorSex",
+      "discription": "契約者性別は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTel2Area",
+      "discription": "契約者電話番号2ー市外は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTel2City",
+      "discription": "契約者電話番号2ー市内は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTel2No",
+      "discription": "契約者電話番号2ー加入番号は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTelArea",
+      "discription": "契約者電話番号ー市外は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTelCity",
+      "discription": "契約者電話番号ー市内は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "contractorTelNo",
+      "discription": "契約者電話番号ー加入番号は4桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "entryNo",
+      "discription": "申込依頼No.は6桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "includFence",
+      "discription": "門・塀・垣含むは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "includFoundationWork",
+      "discription": "基礎工事含むは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "includGarage",
+      "discription": "物置車庫等含むは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "includJoinery",
+      "discription": "畳・建具等含むは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "includShared",
+      "discription": "共用部分含むは1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "insuredName",
+      "discription": "被保険者氏名は30桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "insuredNameKaNa",
+      "discription": "被保険者氏名カナは60桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "mail",
+      "discription": "メールアドレスは254桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "mail",
+      "discription": "メールアドレスを正しく入力してください。",
+      "errorId": "E00002"
+    },
+    {
+      "param": "mytoken",
+      "discription": "マイページトークンは37桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddress",
+      "discription": "保険対象住所は68桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddressCode",
+      "discription": "保険対象住所コードは10桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddressFree",
+      "discription": "保険対象住所は68桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddressKana",
+      "discription": "保険対象住所カナは136桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddressKanaFree",
+      "discription": "保険対象住所カナは136桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectAddressSame",
+      "discription": "保険対象住所同異は1桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "objectYubin",
+      "discription": "保険対象郵便番号は7桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "personalLiabilityName",
+      "discription": "個人賠償補償対象者氏名は30桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "personalLiabilityNameKana",
+      "discription": "個人賠償補償対象者氏名カナは60桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "screenID",
+      "discription": "一時保存画面IDは128桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "tenantCompensationName",
+      "discription": "借家賠償補償対象者氏名は30桁以内で入力してください。",
+      "errorId": "E00001"
+    },
+    {
+      "param": "tenantCompensationNameKana",
+      "discription": "借家賠償補償対象者氏名カナは30桁以内で入力してください。",
+      "errorId": "E00001"
+    }
+  ]
+}

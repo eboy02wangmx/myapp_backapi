@@ -1,0 +1,65 @@
+{
+    "count": 1,
+    "params": {
+        "salesCode": "1234",
+        "agentCode": [
+            "1234567890",
+            "123456789"
+        ],
+        "entryNo": "A00001",
+        "contractorNameKana": "アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア",
+        "startDateFrom": "20190101",
+        "startDateTo": "20190101",
+        "entryType": [
+            "1",
+            "7"
+        ],
+        "paymentType": [
+            "1",
+            "7"
+        ],
+        "firePaymentMethod": [
+            "1",
+            "7"
+        ],
+        "earthquakePaymentMethod": [
+            "1",
+            "7"
+        ],
+        "deleteFlag": [
+            "1"
+        ],
+        "deleteType": "1",
+        "pageSize": 50,
+        "currentPage": 1,
+        "rownoStart": 1,
+        "rownoEnd": 50,
+        "goodsType": "1",
+        "entryStatus": [
+            "1",
+            "2",
+            "3"
+        ],
+        "inspectionType": [
+            "1"
+        ]
+    },
+    "list": [
+        {
+            "no": "1",
+            "inspectionType": "点検前",
+            "entryNo": "A00001",
+            "entryStatus": "1",
+            "entryType": "1",
+            "paymentType": "1",
+            "contractorName": "H00000000000000000000000000001",
+            "startDate": "20190101",
+            "firePaymentMethod": "1",
+            "earthquakePaymentMethod": "1",
+            "agentCode": "1234567890",
+            "receptionType": "X",
+            "salesCode": "1234",
+            "deleteFlag": "1"
+        }
+    ]
+}

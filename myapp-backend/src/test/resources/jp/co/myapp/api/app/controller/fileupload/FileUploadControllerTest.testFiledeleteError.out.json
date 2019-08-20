@@ -1,0 +1,9 @@
+{
+  "result": [
+    {
+      "param": "fileNo",
+      "discription": "ファイルを選択してください。",
+      "errorId": "E00002"
+    }
+  ]
+}

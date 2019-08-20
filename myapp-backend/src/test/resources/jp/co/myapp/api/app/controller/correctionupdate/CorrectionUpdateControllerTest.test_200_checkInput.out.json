@@ -1,0 +1,19 @@
+{
+    "result": [
+        {
+            "param": "buildingArea",
+            "discription": "面積は半角数字で8桁以内（小数点第３位まで）で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "buildingBuildingDate",
+            "discription": "誠に申し訳ございませんが、お客様のご契約条件ではお引き受けすることができません。",
+            "errorId": "E00021"
+        },
+        {
+            "param": "appraised",
+            "discription": "評価額を10万円単位で入力してください。",
+            "errorId": "E00002"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "fireBuildingFee": 10000,
+  "fireHouseholdFee": 20000,
+  "fireFee": 420000,
+  "equipmentFee": 30000,
+  "goodsFee": 40000,
+  "specificationArticleFee": 50000,
+  "earthquakeBuildingFee": 60000,
+  "earthquakeHouseholdFee": 70000,
+  "earthquakeFee": 130000,
+  "personalLiabilityFee": 80000,
+  "tenantLiabilityFee": 90000,
+  "exposureFee": 100000,
+  "totalFee": 110000,
+  "annualFee": 120000,
+  "firstInsuranceFee": 130000,
+  "fireEndDate": "20210303",
+  "earthquakeEndDate": "20200303"
+}

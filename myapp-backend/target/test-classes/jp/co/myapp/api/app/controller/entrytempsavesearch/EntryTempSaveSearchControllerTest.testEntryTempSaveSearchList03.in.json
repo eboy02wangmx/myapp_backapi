@@ -1,0 +1,4 @@
+{"goodsType":"1", "pageSize": "10", "currentPage":"2", "salesCode":"1234", "agentCode":["1234567890","123456789"],
+ "contractorNameKana":"アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア",
+ "startDateFrom":"20190101", "startDateTo":"20190101", "entryType": ["1","7"], "screenID":["1"], "paymentType": ["1","7"],
+ "deleteFlag": ["2"], "firePaymentMethod": ["1","7"], "earthquakePaymentMethod": ["1","7"], "inspectionType": ["1","2"]} 

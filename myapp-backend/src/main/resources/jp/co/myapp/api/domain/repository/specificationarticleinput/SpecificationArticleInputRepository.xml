@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.specificationarticleinput.SpecificationArticleInputRepository">
+
+    <select id="retrieveMeikiArticleList" parameterType="jp.co.myapp.api.app.request.SpecificationArticleInputRequest"
+        resultType="jp.co.myapp.api.domain.model.SpecificationArticleDataBean">
+        <![CDATA[
+        SELECT
+            serial_id        AS serial,
+            ho_taisho_type   AS insuranceType,
+            meiki_type       AS explicitPropertyType,
+            meiki_hinmei     AS explicitPropertyName,
+            hoken_kingaku    AS amount,
+            tokki_jiko       AS notices
+        FROM
+            HIGH_VALUE_ITEM
+        WHERE
+            entry_no = #{entryNo}
+            ]]>
+            <if test="policyNo != null and policyNo != ''">
+            <![CDATA[
+				AND policy = #{policyNo}
+			]]>
+			</if>
+			<![CDATA[
+            AND (delete_flg IS NULL OR delete_flg <> '1')
+        ORDER BY
+            serial_id
+        ]]>
+    </select>
+
+    <select id="findMeikiArticleListByPolicyNo" parameterType="String" resultMap="getListMap">
+        <![CDATA[
+        SELECT
+            entry_no,
+			serial_id,
+			policy,
+			ho_taisho_type,
+			meiki_type,
+			meiki_hinmei,
+			hoken_kingaku,
+			tokki_jiko,
+			delete_flg,
+			add_date,
+			delete_date
+        FROM
+            HIGH_VALUE_ITEM
+        WHERE
+			policy = #{policyNo}
+            AND (delete_flg IS NULL OR delete_flg <> '1')
+        ORDER BY
+            serial_id
+        ]]>
+    </select>
+
+    <insert id="insertIntoMeikiArticle" parameterType="jp.co.myapp.api.domain.model.SpecificationArticleDataBean">
+        <![CDATA[
+        INSERT INTO HIGH_VALUE_ITEM
+            (
+            entry_no,
+            serial_id,
+            policy,
+            ho_taisho_type,
+            meiki_type,
+            meiki_hinmei,
+            hoken_kingaku,
+            tokki_jiko,
+            add_date
+            )
+        VALUES
+            (
+            #{entryNo},
+            #{serial},
+            #{policyNo},
+            #{insuranceType},
+            #{explicitPropertyType},
+            #{explicitPropertyName},
+            #{amount},
+            #{notices},
+            #{createTime}
+            )
+        ]]>
+    </insert>
+
+    <update id="updateMeikiArticle" parameterType="jp.co.myapp.api.domain.model.SpecificationArticleDataBean">
+    <![CDATA[
+        UPDATE
+            HIGH_VALUE_ITEM
+        SET
+            ho_taisho_type = #{insuranceType},
+            meiki_type = #{explicitPropertyType},
+            meiki_hinmei = #{explicitPropertyName},
+            hoken_kingaku = #{amount},
+            tokki_jiko = #{notices},
+            delete_date = #{updateTime}
+        WHERE
+            entry_no = #{entryNo}
+            ]]>
+            <if test="policyNo != null and policyNo != ''">
+            <![CDATA[
+				AND policy = #{policyNo}
+			]]>
+			</if>
+			<![CDATA[
+            AND serial_id = #{serial}
+    ]]>
+    </update>
+
+    <update id="deleteFromMeikiArticle" parameterType="jp.co.myapp.api.domain.model.SpecificationArticleDataBean">
+    <![CDATA[
+        DELETE FROM
+            HIGH_VALUE_ITEM
+        WHERE
+            entry_no = #{entryNo}
+            AND serial_id = #{serial}
+            ]]>
+            <if test="policyNo != null and policyNo != ''">
+            <![CDATA[
+				AND policy = #{policyNo}
+			]]>
+			</if>
+    </update>
+
+    <resultMap id="getListMap" type="jp.co.myapp.api.domain.model.SpecificationArticleDetailBean">
+		<id property="entryNo" column="entry_no" ></id>
+		<id property="serial" column="serial_id" ></id>
+		<id property="policyNo" column="policy" ></id>
+		<result property="insuranceType" column="ho_taisho_type" ></result>
+		<result property="explicitPropertyType" column="meiki_type" ></result>
+		<result property="explicitPropertyName" column="meiki_hinmei" ></result>
+		<result property="amount" column="hoken_kingaku" ></result>
+		<result property="notices" column="tokki_jiko" ></result>
+		<result property="deleteFlag" column="delete_flg" ></result>
+		<result property="createTime" column="add_date" ></result>
+		<result property="updateTime" column="delete_date" ></result>
+	</resultMap>
+
+</mapper>

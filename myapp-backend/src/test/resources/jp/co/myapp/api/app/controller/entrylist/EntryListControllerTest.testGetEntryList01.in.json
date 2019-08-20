@@ -1,0 +1,6 @@
+{"goodsType":"1", "pageSize":"50", "currentPage":"1", "salesCode":["1234"], 
+ "agentCode": ["1234567890"], "policyNo":"A0000000001", 
+ "contractorNameKana":"アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア",
+ "entryDateStart":"20190101", "entryDateEnd":"20190101","startDateFrom":"20190101", "startDateTo":"20190101", 
+ "entryType": ["1","7"], "paymentType": ["1","7"], "appropriationStatus": ["1","7"], 
+ "firePaymentMethod": ["1","7"], "earthquakePaymentMethod": ["1","7"]}

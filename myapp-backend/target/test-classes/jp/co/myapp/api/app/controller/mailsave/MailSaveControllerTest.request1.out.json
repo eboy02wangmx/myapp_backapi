@@ -1,0 +1,9 @@
+{
+    "list":
+     [
+        {
+            "mailOld": "old@mail.com",
+            "mailNew": "new@mail.com"
+        }
+    ]
+}

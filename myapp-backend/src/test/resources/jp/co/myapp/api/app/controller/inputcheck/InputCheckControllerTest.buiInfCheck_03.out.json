@@ -1,0 +1,54 @@
+{
+    "result": [
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№は6桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "screenID",
+            "discription": "一時保存画面IDは128桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "entryStatus",
+            "discription": "申込ステータスは1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "agentCode",
+            "discription": "代理店コードは10桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "agentName",
+            "discription": "代理店名称は20桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "withOldContract",
+            "discription": "旧保険契約有無は1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "structureGrade",
+            "discription": "構造級別は1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "startDate",
+            "discription": "2030年08月18日～2030年11月30日の範囲で入力して下さい。",
+            "errorId": "E00013"
+        },
+        {
+            "param": "buildingBuildingDate",
+            "discription": "保険始期日以降に完成する建物はご契約いただけません。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "buildingArea",
+            "discription": "建物の面積は8桁以内（小数点第３位まで）で入力してください。",
+            "errorId": "E00001"
+        }
+    ]
+}

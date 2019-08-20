@@ -1,0 +1,14 @@
+{
+    "result": [
+        {
+            "param": "mail",
+            "discription": "メールアドレスを入力してください。",
+            "errorId": "E00002"
+        },
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№を入力してください。",
+            "errorId": "E00002"
+        }
+    ]
+}

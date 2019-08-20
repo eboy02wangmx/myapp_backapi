@@ -1,0 +1,14 @@
+{
+    "result": [
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№は6桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "screenID",
+            "discription": "一時保存画面IDは128桁以内で入力してください。",
+            "errorId": "E00001"
+        }
+    ]
+}

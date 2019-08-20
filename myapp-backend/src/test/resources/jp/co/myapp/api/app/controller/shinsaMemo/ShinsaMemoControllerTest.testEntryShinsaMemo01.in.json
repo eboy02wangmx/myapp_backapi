@@ -1,0 +1,20 @@
+{
+	"entryNo": "aa0001",
+	"policyNo": "b123",
+	"list": [
+		{
+			"inspectionObject": "1",
+			"insuranceCompanyAgency": "0",
+			"userID": "user",
+			"userName": "name",
+			"inspectionMemo": "123"
+		},
+		{
+			"inspectionObject": "1",
+			"insuranceCompanyAgency": "0",
+			"userID": "user",
+			"userName": "name",
+			"inspectionMemo": ""
+		}
+	]
+}

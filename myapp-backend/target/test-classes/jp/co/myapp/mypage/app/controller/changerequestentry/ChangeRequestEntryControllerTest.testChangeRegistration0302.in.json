@@ -1,0 +1,37 @@
+{
+    "henkoAccessToken": "12345678-89ab-4cde-8f20-123456789a12",
+    "henkoKbn": "3",
+    "keiyakuInfo": {
+        "refType": "1",
+        "shohinKbn": "",
+        "policy": "192P5678912",
+        "policyEda": "12",
+        "mailKeiyaku": "sample_user@example.com"
+    },
+    "inputItem": {
+        "henkoDateTime": "20200102",
+        "renrakuAM": "0",
+        "renraku12": "0",
+        "renraku14": "0",
+        "renraku": "1",
+        "telShurui": "1",
+        "telKeiyakuArea": "011",
+        "telKeiyakuCity": "232",
+        "telKeiyakuNumber": "3342",
+        "telKeiyaku2Area": "090",
+        "telKeiyaku2City": "1122",
+        "telKeiyaku2Number": "2232",
+        "telKeiyaku3Area": "03",
+        "telKeiyaku3City": "8892",
+        "telKeiyaku3Number": "0572",
+        "telOthunagiSaki": "1",
+        "jiyu1": "1",
+        "jiyu2": "1",
+        "jiyu3": "0",
+        "jiyu4": "0",
+        "jiyu5": "0",
+        "jiyu6": "0",
+        "mailOld": "rakuta_12@gmail.com",
+        "mailNew": "sample_user@example.com"
+    }
+}

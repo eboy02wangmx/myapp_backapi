@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+		"-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repositoryreplica.keiyakudetail.KeiyakuDetailReplicaRepository">
+
+
+<select id="selectEntryDtl" parameterType="String" resultType="jp.co.myapp.mypage.domain.model.EntryInfoBean">
+  SELECT
+			 KYOTU.IDO_YMD as idoYmd
+			,KYOTU.KNAME_K as nameKeiyaku
+			,KYOTU.KNAME as nameKeiyakuKana
+			,KYOTU.K_BIRTHDAY_SEIREKI as birthdayKeiyaku
+			,KYOTU.KHOJIN_SEIBETU as seibetsuKeiyaku
+			,KYOTU.KYUBIN_7 as yubinKeiyaku
+			,KYOTU.KJUSHO_K as jushoKeiyaku
+			,KYOTU.KJ_TEL_SHIGAI as tel1Shigai
+			,KYOTU.KJ_TEL_SHINAI as tel1Shinai
+			,KYOTU.KJ_KANYU_NO as tel1Kanyu
+			,KYOTU.KK_TEL_SHIGAI as tel2Shigai
+			,KYOTU.KK_TEL_SHINAI as tel2Shinai
+			,KYOTU.KK_KANYU_NO as tel2Kanyu
+			,KYOTU.TEIKETSU_YMD as teiketsuYmd
+			,KYOTU.POLICY as policy
+			,KYOTU.SHIKI as shikiDate
+			,KYOTU.SHIKI_AMPM as shikiAmPm
+			,KYOTU.SHIKI_TIME as shikiJikan
+			,KYOTU.SHUKI as kasaiShukiDate
+			,KYOTU.HKIKAN as hokenKikan
+			,KYOTU.HARAI_HOHO as shiharaiHoho
+			,KYOTU.SEIKYU_HOHO as paymentType
+			,KYOTU.DAIRI_NFLG as dairiNflg
+			,TANPO.hryoKasaiTate as hryoKasaiTate
+			,TANPO.tateHokenGaku as tateHokenGaku
+			,TANPO.hryoJishinTate as hryoJishinTate
+			,TANPO.tateJishinHokenGaku as tateJishinHokenGaku
+			,TANPO.hryoKasaiKazai as hryoKasaiKazai
+			,TANPO.kazaiHokenGaku as kazaiHokenGaku
+			,TANPO.hryoJishinKazai as hryoJishinKazai
+			,TANPO.kazaiJishinHokenGaku as kazaiJishinHokenGaku
+			,TANPO.hryoSetubi as hryoSetubi
+			,TANPO.setsuHokenGaku as setsuHokenGaku
+			,TANPO.hryoSeihin as hryoSeihin
+      ,TANPO.shohinHokenGaku as shohinHokenGaku
+			,TANPO.hryoMb as hryoMb
+			,TANPO.mbHokenGaku as mbHokenGaku
+			,TANPO.hryoKojinBai as hryoKojinBai
+			,TANPO.hryoShakuyaBai as hryoShakuyaBai
+			,TANPO.hryoRuisho as hryoRuisho
+			,TANPO.tokuShakuyaBaicho as tokuShakuyaBaicho
+			,SHUMO.KEIYAKU_TYPE as keiyakuType
+			,SHUMO.JIS_SHIKI as jisShikiDate
+			,SHUMO.JIS_HKIKAN_KBN as jisHkikanKbn
+			,SHUMO.MOK_SHOYUSHA_K as  nameHiho
+			,SHUMO.HONNIN_SIMEI_K as nameBaishoKojin
+			,SHUMO.SHAKKA_HNAME_K as nameBaishoShakuya
+			,SHUMO.SHOZAICHI_K as jushoHoken
+			,SHUMO.TSHURUI_SEINOU as tateKouzou
+			,SHUMO.KENCHIKU_YM as kenchikuYm
+			,SHUMO.KENCHIKU_YM_SEIREKI as kenchikuYmSeireki
+			,SHUMO.CHIJO_KAISU as kaisuChijo
+			,SHUMO.CHIKA_KAISU as kaisuChika
+			,SHUMO.YOHO_CD as youhou
+			,DECODE(SHUMO.SEN_MENS, null, SHUMO.ZEN_MENS, 0, SHUMO.ZEN_MENS, SHUMO.SEN_MENS) as area
+			,SHUMO.KAS_KKYUBETU as grade
+			,SHUMO.HYOKAGAKU1 as saichotatugGaku
+			,SHUMO.KISOKO as incKiso
+			,SHUMO.TATAMI as incTatami
+			,SHUMO.MON_HEI as incMonHei
+			,SHUMO.MONO_SHAKO as incShako
+			,SHUMO.KYOYO_BBN as incKyoyo
+			,SHUMO.G_HRYO as hryo
+			,SHUMO.NENKAN_HRYO as nenkanHryo
+			,SHUMO.SHOKAI_HARAI_HRYO as shokaiHaraiHryo
+			,SHUMO.MENSIN_KENTIKU_WARI AS mensinKentikuWari
+			,SHUMO.TAISIN_TOKYU        AS taisinTokyu
+			,SHUMO.TAISIN_SINDAN_WARI  AS taisinSindanWari
+			,SHUMO.TOKU_SUISAI_HU      AS tokuSuisaiHu
+			,SHUMO.TOKU_ZATSU_HU       AS tokuZatsuHu
+			,SHUMO.TOKU_HAOSON_HU      AS tokuHaosonHu
+			,SHUMO.TOKU_SAIGAI_HU      AS tokuSaigaiHu
+			,SHUMO.YKJ_FWARI1 as tateYakujoWariai
+			,SHUMO.MENSEKI_KING4 as tateFuHyoSetuJikoFutanGaku
+			,SHUMO.MENSEKI_KING1 as tateHasonOsonJikoFutanGaku
+			,SHUMO.MENSEKI_KING5 as kazaiFuHyoSetsuJikoFutanGaku
+			,SHUMO.MENSEKI_KING2 as kazaiHasonOsonJikoFutanGaku
+			,SHUMO.KAZAI_HAOSON_GENDO as kazaiHasonOsonShiharaiGendo
+			,SHUMO.TOKU_KASAI as fusaiHosho
+			,SHUMO.TOKU_SUISAI_HU as suisaiHosho
+			,SHUMO.TOKU_ZATSU_HU as saigaiHosho
+			,SHUMO.TOKU_ZATSU_HU as mizumoreHosho
+			,SHUMO.TOKU_ZATSU_HU as sojouHosho
+			,SHUMO.TOKU_ZATSU_HU  as tonanHosho
+			,SHUMO.TOKU_HAOSON_HU as fusokuHosho
+			,SHUMO.TOKU_CD1 as tokuCd1
+			,SHUMO.TOKU_CD2 as tokuCd2
+			,SHUMO.TOKU_CD3 as tokuCd3
+			,SHUMO.TOKU_CD4 as tokuCd4
+			,SHUMO.TOKU_CD5 as tokuCd5
+			,SHUMO.TOKU_CD6 as tokuCd6
+			,SHUMO.TOKU_CD7 as tokuCd7
+			,SHUMO.TOKU_CD8 as tokuCd8
+			,SHUMO.TOKU_CD9 as tokuCd9
+			,SHUMO.TOKU_CD10 as tokuCd10
+			,SHUMO.TOKU_CD11 as tokuCd11
+			,SHUMO.TOKU_CD12 as tokuCd12
+			,SHUMO.TOKU_CD13 as tokuCd13
+			,SHUMO.TOKU_CD14 as tokuCd14
+			,SHUMO.TOKU_CD15 as tokuCd15
+			,SHUMO.TOKU_CD16 as tokuCd16
+			,SHUMO.TOKU_CD17 as tokuCd17
+			,SHUMO.TOKU_CD18 as tokuCd18
+			,SHUMO.TOKU_CD19 as tokuCd19
+			,SHUMO.TOKU_CD20 as tokuCd20
+			,SHUMO.SHOKSA_CD as shoksaCd
+			,KROOT.KEIYAKU_JOKYO as keiyakuJokyo
+			,DECODE(DAIRI.DAIRI_MEI_K, null, KYOTU.DAIRITEN_CD, DAIRI.DAIRI_MEI_K) as dairitenName
+			,KYOTU.HARAI_KAISU as haraiKaisu
+			,TANPO.hryoTatemonoKanri as hryoTatemonoKanri
+			,TANPO.tokuTatebaishoLimit as tokuTatebaishoLimit
+			,SHUMO.JIS_CHOKI as jisChoki
+			,SHUMO.JIS_JIKEI as jisJidokeizoku
+			,SHUMO.MENSEKI_KING7 as setsuFuHyoSetsuJikoFutanGaku
+			,SHUMO.MENSEKI_KING3 as setsuHasonOsonJikoFuanGaku
+			,SHUMO.SETSUBI_HAOSON_GENDO as setsuHOShiharaiGendoGaku
+			,SHUMO.MENSEKI_KING8 as shohinFuHyoSetsuJikoFutanGaku
+			,SHUMO.MENSEKI_KING6 as shohinHasonOsonJikoFuanGaku
+			,SHUMO.SHOHIN_HAOSON_GENDO as shohinHOShiharaiGendoGaku
+			,SHUMO.JIS_HKIKAN_KBN as jishinHokenKikan
+			,KROOT.G_HRYO as shokaiHaraiHryo2
+			,SHUMO.SHOKSA_CD as shokusagyo
+			,SHUMO.WARIMB_CD1 as warimbCd1
+			,SHUMO.WARIMB_CD2 as warimbCd2
+			,SHUMO.WARIMB_CD3 as warimbCd3
+			,SHUMO.WARIMB_CD4 as warimbCd4
+			,SHUMO.WARIMB_CD5 as warimbCd5
+			,SHUMO.WARIMB_CD6 as warimbCd6
+			,SHUMO.WARIMB_CD7 as warimbCd7
+			,SHUMO.WARIMB_CD8 as warimbCd8
+			,SHUMO.WARIMB_CD9 as warimbCd9
+			,SHUMO.WARIMB_CD10 as warimbCd10
+			,SHUMO.WARIMB_CD11 as warimbCd11
+			,SHUMO.WARIMB_CD12 as warimbCd12
+			,KYOTU.SHOKEN_FUYO as shokenFuyo
+			,SHUMO.TOKU_KASAI as tokuKasaiNomi
+	FROM
+			ssdb.KEI_KYOTU_S KYOTU
+			INNER JOIN (
+							SELECT
+									 max(CASE WHEN TANPO_NO = '011' THEN TANPO_HRYO END) AS hryoKasaiTate
+									,max(CASE WHEN TANPO_NO = '011' THEN TANPO_HKING END) AS tateHokenGaku
+									,max(CASE WHEN TANPO_NO = '018' THEN TANPO_HRYO END) AS hryoJishinTate
+									,max(CASE WHEN TANPO_NO = '018' THEN TANPO_HKING END) AS tateJishinHokenGaku
+									,max(CASE WHEN TANPO_NO = '012' THEN TANPO_HRYO END) AS hryoKasaiKazai
+									,max(CASE WHEN TANPO_NO = '012' THEN TANPO_HKING END) AS kazaiHokenGaku
+									,max(CASE WHEN TANPO_NO = '019' THEN TANPO_HRYO END) AS hryoJishinKazai
+									,max(CASE WHEN TANPO_NO = '019' THEN TANPO_HKING END) AS kazaiJishinHokenGaku
+									,max(CASE WHEN TANPO_NO = '014' THEN TANPO_HRYO END) AS hryoSetubi
+									,max(CASE WHEN TANPO_NO = '014' THEN TANPO_HKING END) AS setsuHokenGaku
+									,max(CASE WHEN TANPO_NO = '015' THEN TANPO_HRYO END) AS hryoSeihin
+									,max(CASE WHEN TANPO_NO = '015' THEN TANPO_HKING END) AS shohinHokenGaku
+									,max(CASE WHEN TANPO_NO = '013' THEN TANPO_HRYO END) AS hryoMb
+									,max(CASE WHEN TANPO_NO = '013' THEN TANPO_HKING END) AS mbHokenGaku
+									,max(CASE WHEN TANPO_NO = '005' THEN TANPO_HRYO END) AS hryoKojinBai
+									,max(CASE WHEN TANPO_NO = '006' THEN TANPO_HKING END) AS tokuShakuyaBaicho
+									,max(CASE WHEN TANPO_NO = '006' THEN TANPO_HRYO END) AS hryoShakuyaBai
+									,max(CASE WHEN TANPO_NO = '003' THEN TANPO_HRYO END) AS hryoRuisho
+									,POLICY
+									,POL_EDA
+									,max(CASE WHEN TANPO_NO = '007' THEN TANPO_HRYO END) AS hryoTatemonoKanri
+									,max(CASE WHEN TANPO_NO = '007' THEN TANPO_HKING END) AS tokuTatebaishoLimit
+							FROM
+									ssdb.KEI_TANPO_S
+							WHERE
+									POLICY = #{policy}
+									AND TANPO_NO in ('011', '018', '012', '019', '014', '015', '013', '005', '006', '003', '007')
+						 GROUP BY POLICY, POL_EDA) TANPO
+			ON KYOTU.POLICY = TANPO.POLICY
+			AND KYOTU.POL_EDA = TANPO.POL_EDA
+	INNER JOIN ssdb.KEI_SHUMOKU_F_S SHUMO
+			ON KYOTU.POLICY = SHUMO.POLICY
+			AND KYOTU.POL_EDA = SHUMO.POL_EDA
+	INNER JOIN ssdb.KEI_ROOT KROOT
+			ON KYOTU.POLICY = KROOT.POLICY
+			AND KYOTU.POL_EDA = KROOT.POL_EDA
+	LEFT OUTER JOIN ssrep.DAIRITEN DAIRI
+			ON KYOTU.DAIRITEN_CD = DAIRI.DAIRITEN_CD
+	WHERE
+      1=1 AND KYOTU.POLICY = #{policy}
+   </select>
+<select id="selectEntryByPolicy" parameterType="String" resultType="jp.co.myapp.mypage.domain.model.EntryInfoBean">
+<![CDATA[
+SELECT
+		KNAME AS nameKeiyakuKana,
+		KNAME_K AS nameKeiyaku,
+		K_BIRTHDAY_SEIREKI as birthdayKeiyaku,
+		KYUBIN_7 AS yubinKeiyaku,
+		(KJ_TEL_SHIGAI || KJ_TEL_SHINAI || KJ_KANYU_NO) AS telKeiyaku,
+		(KK_TEL_SHIGAI || KK_TEL_SHINAI || KK_KANYU_NO) as telKeiyaku2
+FROM
+		KEI_KYOTU_S
+WHERE
+		1=1
+AND
+		POLICY = #{policy}
+AND
+	 TORIKESHI_KBN <> '1'
+]]>
+	 </select>
+</mapper>

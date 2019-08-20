@@ -1,0 +1,1 @@
+Insert into LOGIN_INFO (OPEN_ID,LOGIN_DATE,DEL_FLG,UPD_DATE,ADD_DATE) values ('testLastLogin14',to_timestamp('18-07-10 10:10:59.000000000','RR-MM-DD HH24:MI:SSXFF'),'0',null,to_timestamp('18-07-10 10:10:59.000000000','RR-MM-DD HH24:MI:SSXFF'));

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.revisecount.ReviseCountRepository">
+     
+    <select id="getReviseCount" resultType="java.lang.Integer" parameterType="jp.co.myapp.api.app.request.ReviseCountRequest">
+    <![CDATA[
+    SELECT
+  count(entry_no) as count
+FROM
+  ( 
+    SELECT
+      ENTRY_HA_TEMP.entry_no
+      , ROW_NUMBER() OVER ( 
+        PARTITION BY
+          ENTRY_HA_TEMP.entry_no 
+        ORDER BY
+          ENTRY_HA_TEMP.serial DESC
+      ) AS serialRownum
+    FROM
+      ENTRY_HA_TEMP 
+    WHERE
+      EXISTS ( 
+        SELECT
+          FILE_ID.ENTRY_NO 
+        FROM
+          FILE_ID 
+          INNER JOIN FILE_INFO 
+            ON ( 
+              FILE_ID.FILE_ID = FILE_INFO.FILE_ID
+			  AND (FILE_INFO.FILE_STATUS = '3'
+		      OR( FILE_INFO.DOC_TYPE = '50'
+		      AND FILE_INFO.FILE_STATUS = '0'))
+            ) 
+        WHERE
+          FILE_ID.ENTRY_NO = ENTRY_HA_TEMP.ENTRY_NO)
+      ]]><if test="salesCode != null and salesCode != ''">
+          AND katen_cd = #{salesCode}
+      </if><![CDATA[
+      ]]><if test="selfAgentCode != null and selfAgentCode != ''">
+           AND dairi_cd = #{selfAgentCode}
+     </if><![CDATA[
+	       AND del_flg <> '1' 
+           AND ( 
+              state = '8' 
+              OR ( state = '6' 
+              AND transfer_shichiken_status IN ('1', '2', '3')
+           )
+          )
+        ) 
+     WHERE
+         serialRownum = 1 
+  ]]>
+    </select>
+
+</mapper>

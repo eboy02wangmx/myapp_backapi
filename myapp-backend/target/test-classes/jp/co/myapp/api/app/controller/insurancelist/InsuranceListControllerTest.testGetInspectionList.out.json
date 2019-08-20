@@ -1,0 +1,20 @@
+{
+  "result": {
+    "count": 1,
+    "list": [
+      {
+        "no": 1,
+        "entryNo": "703106",
+        "contractorName": "楽天太郎",
+        "startDate": "20190223",
+        "reviewRequestDate": "20190219",
+        "buildingFrom": "1",
+        "buildingLocation": "03",
+        "paymentType": "2",
+        "list": [],
+        "salesCode": "1303",
+        "agentCode": "1303037"
+      }
+    ]
+  }
+}

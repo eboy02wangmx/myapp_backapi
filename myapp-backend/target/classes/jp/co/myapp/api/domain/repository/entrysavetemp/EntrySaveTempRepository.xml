@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.entrysavetemp.EntrySaveTempRepository">
+
+    <select id="findOneByPK" parameterType="jp.co.myapp.api.domain.model.EntrySaveSearchBean" resultMap="jp.co.myapp.api.domain.repository.entrytempsavesearch.EntryTempSaveSearchRepository.entrySaveSearchMap">
+    <![CDATA[
+    	SELECT
+    	    ENTRY_HA_TEMP.*
+    	FROM
+	        ENTRY_HA_TEMP
+	    WHERE
+	    	entry_no = #{entryNo}
+		AND
+	    	serial = #{serial}
+    ]]>
+    </select>
+
+    <select id="findOneInEntrySaveTemp" parameterType="jp.co.myapp.api.app.request.EntrySaveTempRequest" resultMap="jp.co.myapp.api.domain.repository.entrytempsavesearch.EntryTempSaveSearchRepository.entrySaveSearchMap">
+    <![CDATA[
+    	SELECT T.*
+    	FROM
+	        (SELECT
+	        	ROWNUM AS NO,
+	            ENTRY_HA_TEMP.*
+	        FROM
+	            ENTRY_HA_TEMP
+	        WHERE
+	            entry_no = #{entryNo}
+    ]]>
+            <if test="mail != null and mail.length != 0">
+	<![CDATA[
+			AND
+	            mail = #{mail}
+    ]]>
+			</if>
+	<![CDATA[
+			AND
+	            kigen >= #{systemDate}
+	        AND
+	            dairi_cd = #{agentCode}
+			AND
+	            del_flg != '1'
+	        ORDER BY
+	            serial DESC) T
+	    WHERE
+	    	T.NO = 1
+    ]]>
+    </select>
+
+    <select id="findOneInEntrySaveTempFromAgent" parameterType="jp.co.myapp.api.app.request.EntrySaveTempRequest" resultMap="jp.co.myapp.api.domain.repository.entrytempsavesearch.EntryTempSaveSearchRepository.entrySaveSearchMap">
+    <![CDATA[
+    	SELECT T.*
+    	FROM
+	        (SELECT
+	        	ROWNUM AS NO,
+	            ENTRY_HA_TEMP.*
+	        FROM
+	            ENTRY_HA_TEMP
+	        WHERE
+	            entry_no = #{entryNo}
+			AND
+	            dairi_cd = TRIM(#{agentCode})
+			AND
+	            kigen >= #{systemDate}
+			AND
+	            del_flg != '1'
+	        ORDER BY
+	            serial DESC) T
+	    WHERE
+	    	T.NO = 1
+    ]]>
+    </select>
+
+    <select id="findOneAllItemByMaxSerial" parameterType="jp.co.myapp.api.app.request.EntrySaveTempRequest" resultMap="jp.co.myapp.api.domain.repository.entrytempsavesearch.EntryTempSaveSearchRepository.entrySaveSearchMap">
+    <![CDATA[
+    	SELECT T.*
+    	FROM
+	        (SELECT
+	        	ROWNUM AS NO,
+	            ENTRY_HA_TEMP.*
+	        FROM
+	            ENTRY_HA_TEMP
+	        WHERE
+	            entry_no = #{entryNo}
+	        ORDER BY
+	            serial DESC) T
+	    WHERE
+	    	T.NO = 1
+    ]]>
+    </select>
+
+    <select id="findAllItemsByMaxSerial" parameterType="jp.co.myapp.api.app.request.EntrySaveTempRequest" resultMap="jp.co.myapp.api.domain.repository.entrytempsavesearch.EntryTempSaveSearchRepository.entrySaveSearchMap">
+    <![CDATA[
+    	SELECT T.*
+    	FROM
+	        (SELECT
+	        	ROWNUM AS NO,
+	            ENTRY_HA_TEMP.*
+	        FROM
+	            ENTRY_HA_TEMP
+	        WHERE
+	            entry_no = #{entryNo}
+	        ORDER BY
+	            serial DESC) T
+	    WHERE
+	    	T.NO = 1
+    ]]>
+    </select>
+
+    <update id="updateByOldEntryNo" parameterType="jp.co.myapp.api.domain.model.EntrySaveSearchBean">
+    <![CDATA[
+        UPDATE
+            ENTRY_HA_TEMP
+        SET
+            state = '6',
+            gamen_id = #{screenID},
+            upd_date = #{newDate}
+        WHERE
+            old_entry_no = #{reviewRequestEntryNo}
+    ]]>
+    </update>
+
+    <update id="updateEntryStatus" parameterType="jp.co.myapp.api.domain.model.EntrySaveSearchBean">
+    <![CDATA[
+        UPDATE
+            ENTRY_HA_TEMP
+        SET
+            state = #{entryStatus},
+            gamen_id = #{screenID},
+            doc_submit = #{documentsConfirmMethod},
+            check_date = #{reviewRequestDate},
+            check_jikan = #{reviewRequestTime},
+            fireproof_send_flg = #{fireResistanceMailingFlag},
+            quake_send_flg = #{earthquakeDiscountMailingFlag},
+            upd_date = #{newDate}
+	    WHERE
+	    	entry_no = #{entryNo}
+		AND
+	    	serial = #{serial}
+		AND
+	    	upd_date = #{updateTime}
+    ]]>
+    </update>
+
+    <update id="updateAppraisedValue" parameterType="jp.co.myapp.api.domain.model.EntrySaveSearchBean">
+    <![CDATA[
+        UPDATE
+            ENTRY_HA_TEMP
+        SET
+			gamen_id = #{screenID},
+			tate_kanyu = #{withBuildingFireInsurance},
+			hyokagaku_fumei = #{withNewBuildingValueKnown},
+			kyotei_gaku = #{policyCurrentReplacementValue},
+			mon_gaku = #{fenceValue},
+			shinchiku_gaku = #{newBuildingValue},
+			hyoka_kijun = #{apartmentClassification},
+			kazai_kanyu = #{withHouseholdFireInsurance},
+			setai_nenrei = #{householderAge},
+			kodomo_ninzu = #{numberOfChildren},
+			haigusha = #{withSpouse},
+			dokyo_ninzu = #{housemates},
+			inc_kiso = #{includFoundationWork},
+			tate_hyoka_gaku_low = #{buildingAppraisedLower},
+			tate_hyoka_gaku_up = #{buildingAppraisedUpper},
+			kazai_hyoka_gaku_low = #{householdAppraisedLower},
+			kazai_hyoka_gaku_up = #{householdAppraisedUpper},
+            upd_date = #{newDate}
+	    WHERE
+	    	entry_no = #{entryNo}
+		AND
+	    	serial = #{serial}
+		AND
+	    	upd_date = #{updateTime}
+    ]]>
+    </update>
+
+   <select id="selectCountByEntryNo" parameterType="jp.co.myapp.api.app.request.EntrySaveTempRequest" resultType="int">
+    <![CDATA[
+      SELECT
+            count(1) AS cnt
+       FROM
+            ENTRY_HA_TEMP
+      WHERE
+            entry_no = #{entryNo} and
+            (state = '6' OR
+            state = '8')
+    ORDER BY
+            add_date DESC
+    ]]>
+    </select>
+</mapper>

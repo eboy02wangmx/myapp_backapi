@@ -1,0 +1,39 @@
+{
+    "result": [
+        {
+            "param": "confirmEarthquakeDiscount",
+            "discription": "地震保険割引確認は1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "entryNo",
+            "discription": "申込依頼№は6桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "screenID",
+            "discription": "一時保存画面IDは128桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "seismicDiagnosisDate",
+            "discription": "耐震診断年月日は8桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "seismicGradeDiscountGrade",
+            "discription": "耐震等級割引等級は1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "withBuildingEarthquakeInsurance",
+            "discription": "建物地震保険加入有無は1桁以内で入力してください。",
+            "errorId": "E00001"
+        },
+        {
+            "param": "withHouseholdEarthquakeInsurance",
+            "discription": "家財地震保険加入有無は1桁以内で入力してください。",
+            "errorId": "E00001"
+        }
+    ]
+}

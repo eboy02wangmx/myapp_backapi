@@ -1,0 +1,6 @@
+{"goodsType":"1", "pageSize":"50", "pageNo":"1", "paperlessSalesCode":["aaaa"], 
+ "agentCode": ["bbbbbbbbbbb"], "policy":"706022", "entryNoFrom":"706022", "entryNoTo":"706022",
+ "contractorNameKana":"1234567890",
+ "reviewRequestDateFrom":"20190101", "reviewRequestDateTo":"20180101","startDateFrom":"20190101", "startDateTo":"20180101", 
+ "entryType": ["1","7"], "paymentType": ["1","7"], "accountTransfer": ["1","0"], 
+ "firePaymentMethod": ["1","7"], "earthquakePaymentMethod": ["1","7"]}

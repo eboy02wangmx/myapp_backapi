@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.agentshareinput.AgentShareInputRepository">
+
+   <update id="updateEntry" parameterType="jp.co.myapp.api.app.request.AgentShareInputRequest">
+    <![CDATA[
+      UPDATE
+            ENTRY_HA_TEMP
+         SET
+            hknj1_katen_cd = #{noneManagerStoreCode1},
+            hknj1_dairi_cd = #{noneManagerAgentCode1},
+            hknj1_jiko = #{noneManagerSelfSpecific1},
+            hknj1_bnt_wari = #{noneManagerProportion1},
+            hknj2_katen_cd = #{noneManagerStoreCode2},
+            hknj2_dairi_cd = #{noneManagerAgentCode2},
+            hknj2_jiko = #{noneManagerSelfSpecific2},
+            hknj2_bnt_wari = #{noneManagerProportion2},
+            UPD_DATE = #{newDate}
+       WHERE
+            entry_no = #{entryNo}
+
+    ]]>
+    </update>
+</mapper>

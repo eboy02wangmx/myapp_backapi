@@ -1,0 +1,6 @@
+{"goodsType":"1", "pageSize":"50", "pageNo":"1", "paperlessSalesCode":["11111"], 
+ "agentCode": ["11111111111"], "policy":"706022", "entryNoFrom":"706022", "entryNoTo":"706022",
+ "contractorNameKana":"アアアアアあああああアアアアアあああああアアアアアあああああアアアアアあああああアアアアアあああああアアアアアあああああアアアアアあああああアアアアアあああああ",
+ "reviewRequestDateFrom":"aaaaaa", "reviewRequestDateTo":"aaaaaa","startDateFrom":"aaaaaa", "startDateTo":"aaaaaa", 
+ "entryType": ["1","7"], "paymentType": ["1","7"], "accountTransfer": ["1","0"], 
+ "firePaymentMethod": ["1","7"], "earthquakePaymentMethod": ["1","7"]}

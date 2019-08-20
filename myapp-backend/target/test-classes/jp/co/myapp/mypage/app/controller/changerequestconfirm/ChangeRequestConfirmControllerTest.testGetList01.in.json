@@ -1,0 +1,35 @@
+{
+    "keiyakuInfo": {
+        "returnPageNo": "1",
+        "refType": "2",
+        "shohinKbn": "1",
+        "policy": "M6001",
+        "policyEda": "1"
+    },
+    "inputItem": {
+        "henkoDateTime": "20181031",
+        "renrakuAM": "0",
+        "renraku12": "0",
+        "renraku14": "0",
+        "renraku": "1",
+        "telShurui": "3",
+        "telKeiyakuArea": "011",
+        "telKeiyakuCity": "211",
+        "telKeiyakuNumber": "0871",
+        "telKeiyaku2Area": "080",
+        "telKeiyaku2City": "9619",
+        "telKeiyaku2Number": "3942",
+        "telKeiyaku3Area": "011",
+        "telKeiyaku3City": "211",
+        "telKeiyaku3Number": "8070",
+        "telOthunagiSaki": "1",
+        "jiyu1": "1",
+        "jiyu2": "0",
+        "jiyu3": "0",
+        "jiyu4": "0",
+        "jiyu5": "0",
+        "jiyu6": "0",
+        "mailOld": "",
+        "mailNew": ""
+    }
+}
