@@ -1,9 +1,7 @@
 package jp.co.myapp.api.app.controller;
 
-import java.io.IOException;
 import java.util.Locale;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.myapp.api.app.data.AbstractResultData;
 import jp.co.myapp.api.domain.model.ConfigBean;
-import jp.co.myapp.api.domain.service.agentsearch.AgentSearchService;
 import jp.co.myapp.common.Constants;
 import jp.co.myapp.common.ConstantsEnum.API_ID;
 import jp.co.myapp.common.exception.CustomizeBadRequestException;
@@ -39,8 +36,8 @@ public class ConfigController extends AbstractApiController {
 	private String oshiraseFile;
 
 
-	@Inject
-	protected AgentSearchService agentSearchService;
+//	@Inject
+//	protected AgentSearchService agentSearchService;
 
 
 	/**
@@ -69,22 +66,5 @@ public class ConfigController extends AbstractApiController {
 		return configBean;
 	}
 
-	/**
-	 * 代理店情報取得
-	 *
-	 * @param configBean
-	 * @param agentParameter
-	 * @throws IOException
-	 */
-	private void getAgentInfo(ConfigBean configBean, String agencyCode) throws IOException {
-
-		String agentCd = agencyCode;
-		configBean.setAgentCode(agentCd);
-
-		// 代理店名称取得
-		//String agentNm = AgentSearchService.getAgentNm(agentCd);
-		String agentNm = "";
-		configBean.setAgentName(agentNm);
-	}
 
 }

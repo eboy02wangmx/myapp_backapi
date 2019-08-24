@@ -51,7 +51,7 @@
     <!--  REMOVE THIS LINE IF YOU USE MyBatis3  -->
 
     <!-- add second DB by gaoxiang start -->
-    <bean id="realDataSourcereplica" class="org.apache.commons.dbcp2.BasicDataSource"
+    <!--<bean id="realDataSourcereplica" class="org.apache.commons.dbcp2.BasicDataSource"
         destroy-method="close">
         <property name="driverClassName" value="${databasereplica.driverClassName}" />
         <property name="url" value="${databasereplica.url}" />
@@ -64,16 +64,16 @@
         <property name="maxWaitMillis" value="${cp.maxWait}" />
         <property name="timeBetweenEvictionRunsMillis" value="1800000" />
         <property name="minEvictableIdleTimeMillis" value="1800000" />
-    </bean>
+    </bean>-->
 
-    <bean id="dataSourcereplica" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+    <!--<bean id="dataSourcereplica" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg index="0" ref="realDataSourcereplica" />
-    </bean>
+    </bean>-->
 
-    <bean id="transactionManagerreplica"
+    <!--<bean id="transactionManagerreplica"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSourcereplica" />
         <property name="rollbackOnCommitFailure" value="true" />
-    </bean>
+    </bean>-->
     <!-- add second DB by gaoxiang end -->
 </beans>
