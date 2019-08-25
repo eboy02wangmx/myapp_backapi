@@ -11,11 +11,10 @@ import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import jp.co.myapp.common.util.KrPanoCmdBatUtil;
 
 /**
  * VR生成用イメージのアップロード処理
@@ -23,6 +22,7 @@ import jp.co.myapp.common.util.KrPanoCmdBatUtil;
  * @author orias
  *
  */
+@Controller
 public class UploadController extends AbstractApiController {
 
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
@@ -36,18 +36,19 @@ public class UploadController extends AbstractApiController {
      *            HttpServletResponse
      * @throws Exception
      */
-    @RequestMapping(value = "/api/fileupload", headers = "Content-Type= multipart/form-data", produces = "multipart/form-data;charset=UTF-8", method = { RequestMethod.POST })
+    @RequestMapping(value = "/api/imageUpload", method = { RequestMethod.POST })
     @ResponseBody
     public void fileupload(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        logger.info("NHA_O_0011" + " 処理開始");
+        logger.info("NHA_O_0010" + " 処理開始");
 
         Part part = request.getPart("file");
         String fileName = part.getSubmittedFileName();
 
-        String path = KrPanoCmdBatUtil.class.getClass().getResource("/").getPath();
+        LoginController lc = new LoginController();
+        String path = lc.getClass().getResource("/").getPath();
         path = path.substring(1, path.indexOf("classes")) + "uploads";
 
-        Path outputDir = Paths.get(path, request.getSession().getId());
+        Path outputDir = Paths.get(path);
         if (!Files.exists(outputDir)) {
             Files.createDirectory(outputDir);
         }
@@ -67,6 +68,6 @@ public class UploadController extends AbstractApiController {
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json");
 
-        logger.info("NHA_O_0011" + " POST処理完了");
+        logger.info("NHA_O_0010" + " POST処理完了");
     }
 }
