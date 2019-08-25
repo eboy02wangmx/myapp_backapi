@@ -4,8 +4,10 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.myapp.api.app.data.AbstractResultData;
 import jp.co.myapp.api.domain.model.ConfigBean;
+import jp.co.myapp.api.domain.service.agentsearch.AgentSearchService;
 import jp.co.myapp.common.Constants;
 import jp.co.myapp.common.ConstantsEnum.API_ID;
 import jp.co.myapp.common.exception.CustomizeBadRequestException;
@@ -37,6 +40,9 @@ public class LoginController extends AbstractApiController {
 //	@Inject
 //	protected AgentSearchService agentSearchService;
 
+
+	@Inject
+	AgentSearchService agentSearchService;
 
 	/**
 	 * Config処理
@@ -58,7 +64,8 @@ public class LoginController extends AbstractApiController {
 			throws CustomizeSystemErrorException, CustomizeBadRequestException {
 		logger.info(API_ID.NHA_O_0001 + " 処理開始");
 		ConfigBean configBean = new ConfigBean();
-		configBean.setAgentName("ログイン用アプリの代理店名");
+		List<String> lst = agentSearchService.getAgentList("1");
+		configBean.setAgentName("ログイン用アプリの代理店名:" + lst.get(0));
 
 		logger.info(API_ID.NHA_O_0001 + " 処理完了");
 		return configBean;
