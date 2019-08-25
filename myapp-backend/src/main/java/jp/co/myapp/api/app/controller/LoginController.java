@@ -85,7 +85,7 @@ public class LoginController extends AbstractApiController {
         String path = lc.getClass().getResource("/").getPath();
         path = path.substring(1, path.indexOf("classes")) + "uploads";
 
-        Path outputDir = Paths.get(path, request.getSession().getId());
+        Path outputDir = Paths.get(path);
         if (!Files.exists(outputDir)) {
             Files.createDirectory(outputDir);
         }
