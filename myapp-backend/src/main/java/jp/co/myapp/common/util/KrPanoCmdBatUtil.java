@@ -8,8 +8,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import jp.co.myapp.common.exception.CustomizeSystemErrorException;
 
@@ -89,6 +102,8 @@ public class KrPanoCmdBatUtil {
                                 // 臨時フォルダを削除する
                                 delFolder(preFolder + "\\vtour");
                             }
+                            // XML修正
+                            updateXML(postFolder);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -225,5 +240,68 @@ public class KrPanoCmdBatUtil {
             }
         }
         return flag;
+    }
+
+    /**
+     * tour.xmlファイルの修正処理を行う。
+     */
+    private static void updateXML(String xmlpath)
+    {
+      try
+      {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = dbf.newDocumentBuilder();
+        File file = new File(xmlpath + "\\tour.xml");
+        Document document = builder.parse(file);
+
+        Element root = document.getDocumentElement();
+
+        NodeList list = root.getElementsByTagName("action");
+        for (int i=0; i < list.getLength() ; i++)
+        {
+            Node element = list.item(i);
+            String nodeValue = element.getFirstChild().getNodeValue().replaceAll("\r\n", "").replaceAll("\n", "").replaceAll("\t", "") + "js('onready');";
+            element.setTextContent(nodeValue);
+        }
+
+        createxml(file, document);
+
+      } catch(Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    /**
+     * XMLの作成処理を行う。
+     *
+     * @param file
+     * @param document
+     * @return
+     */
+    private static boolean createxml(File file, Document document){
+      Transformer transformer = null;
+      try
+      {
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        transformer = transformerFactory.newTransformer();
+      } catch (TransformerConfigurationException e)
+      {
+        e.printStackTrace();
+        return false;
+      }
+      transformer.setOutputProperty("indent", "yes");
+      transformer.setOutputProperty("encoding", "UTF-8");
+
+      try
+      {
+        transformer.transform(new DOMSource(document), new StreamResult(file));
+      } catch (TransformerException e)
+      {
+        e.printStackTrace();
+        return false;
+      }
+
+      return true;
     }
 }
