@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.myapp.api.app.data.error.ErrorInfoData;
-import jp.co.myapp.api.app.request.TopMenuRequest;
+import jp.co.myapp.api.app.request.UserRequest;
 import jp.co.myapp.common.Constants;
 import jp.co.myapp.common.ConstantsEnum.API_ID;
 import jp.co.myapp.common.exception.CustomizeBadRequestException;
@@ -52,7 +52,7 @@ public class InputCheckController extends AbstractEntrySaveController {
 	 */
 	@RequestMapping(value = "/api/topMenuCheck", method = { RequestMethod.POST })
 	@ResponseBody
-	public void topMenuCheck(Locale locale, @RequestBody TopMenuRequest params)
+	public void topMenuCheck(Locale locale, @RequestBody UserRequest params)
 			throws CustomizeBadRequestException, CustomizeSystemErrorException {
 
 		List<ErrorInfoData> errLst = ValidatorUtil.validate(params, super.messageSource, locale);

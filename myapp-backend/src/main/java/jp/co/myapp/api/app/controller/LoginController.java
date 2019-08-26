@@ -1,6 +1,5 @@
 package jp.co.myapp.api.app.controller;
 
-import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -10,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.myapp.api.app.data.AbstractResultData;
-import jp.co.myapp.api.domain.model.ConfigBean;
-import jp.co.myapp.api.domain.service.agentsearch.AgentSearchService;
-import jp.co.myapp.common.Constants;
+import jp.co.myapp.api.app.request.UserRequest;
+import jp.co.myapp.api.domain.model.UserBean;
+import jp.co.myapp.api.domain.service.user.UserService;
 import jp.co.myapp.common.ConstantsEnum.API_ID;
 import jp.co.myapp.common.exception.CustomizeBadRequestException;
 import jp.co.myapp.common.exception.CustomizeSystemErrorException;
@@ -37,7 +36,7 @@ public class LoginController extends AbstractApiController {
 
 
 	@Inject
-	AgentSearchService agentSearchService;
+	UserService userService;
 
 	/**
 	 * Config処理
@@ -52,17 +51,18 @@ public class LoginController extends AbstractApiController {
 	 */
 	@RequestMapping(value = "/api/login", method = { RequestMethod.POST })
 	@ResponseBody
-	public AbstractResultData config(HttpServletRequest request, HttpServletResponse response, Locale locale,
-			@RequestParam(required = false, name = Constants.LOGIN_KEY_AGENCY) String reqAgency,
-			@RequestParam(required = false, name = Constants.LOGIN_KEY_ENTRY_TYPE) String reqEntryType,
-			@RequestParam(required = false, name = Constants.LOGIN_KEY_AGENT_CODE) String reqAgentCode)
+	public AbstractResultData userLogin(HttpServletRequest request, HttpServletResponse response, Locale locale,
+			@RequestBody UserRequest params)
 			throws CustomizeSystemErrorException, CustomizeBadRequestException {
 		logger.info(API_ID.NHA_O_0001 + " 処理開始");
-		ConfigBean configBean = new ConfigBean();
-		List<String> lst = agentSearchService.getAgentList("1");
-		configBean.setAgentName("ログイン用アプリの代理店名:" + lst.get(0));
+
+		UserBean userBean = userService.userLogin(params.getUserName());
+		logger.info("ログインユーザー名称；" + userBean.getUserName() + "," + userBean.getPassword());
+		if (params.getPassword() == null || !params.getPassword().equals(userBean.getPassword())) {
+			userBean = null;
+		}
 
 		logger.info(API_ID.NHA_O_0001 + " 処理完了");
-		return configBean;
+		return userBean;
 	}
 }
