@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.album.AlbumRepository">
+
+	<select id="getAlbum" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
+
+    	SELECT
+			filename,
+			bukenme,
+			userid,
+			shoyusha,
+			yukokbn,
+			sakusesha,
+		    sakusehi,
+			koushinsha,
+			koushinhi,
+			picnum
+		 FROM innodb.vr_info
+		 WHERE userid = #{userid}
+
+	</select>
+
+	<select id="getRiyo" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
+    	SELECT
+			filename,
+			bukenme,
+			userid,
+			shoyusha,
+			yukokbn,
+			sakusesha,
+		    sakusehi,
+			koushinsha,
+			koushinhi,
+			picnum
+		 FROM innodb.vr_info
+	</select>
+
+	<delete id="deleteAlbum" parameterType="String">
+	delete from innodb.vr_info where userid = #{userid}
+	</delete>
+
+	<update id="editAlbum" parameterType = "jp.co.myapp.api.domain.model.AlbumBean">
+	update innodb.vr_info
+	filename = #{album.filename},
+	bukenme = #{album.bukenme},
+	shoyusha = #{album.shoyusha},
+	yukokbn = #{album.yukokbn},
+	sakusesha = #{album.sakusesha},
+    sakusehi = #{album.sakusehi},
+	koushinsha = #{album.koushinsha},
+	koushinhi = #{album.koushinhi},
+	picnum where userid = #{album.userid}
+
+	</update>
+
+
+</mapper>

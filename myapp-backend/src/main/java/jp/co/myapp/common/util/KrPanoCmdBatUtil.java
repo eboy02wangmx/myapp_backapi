@@ -24,7 +24,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import jp.co.myapp.api.app.controller.LoginController;
 import jp.co.myapp.common.exception.CustomizeSystemErrorException;
 
 /**
@@ -58,8 +57,7 @@ public class KrPanoCmdBatUtil {
      */
     public static void setKrpano(final String token, final String title) throws Exception {
 
-    	LoginController login = new LoginController();
-        String path = login.getClass().getResource("/").getPath();
+        String path = KrPanoCmdBatUtil.class.getClass().getResource("/").getPath();
         path = path.substring(1, path.indexOf("classes")) + "uploads";
 
         String preFolder = path + "\\pre\\" + token + "\\" + title;
