@@ -1,10 +1,11 @@
 package jp.co.myapp.api.domain.service.userkanri;
 
-public class UserKanriService {
+import java.util.List;
 
-	public void getAlbumInfo(String user1) {
-		// TODO 自動生成されたメソッド・スタブ
+import jp.co.myapp.api.domain.model.UserKanriBean;
 
-	}
+public interface UserKanriService {
+
+		public List<UserKanriBean> getUserkanriInfo(String userId);
 
 }

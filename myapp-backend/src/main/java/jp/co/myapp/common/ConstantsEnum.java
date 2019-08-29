@@ -143,7 +143,8 @@ public class ConstantsEnum {
         NHA_O_0039("NHA_O_0039", "引受制限判定"),
         NHA_O_0040("NHA_O_0040", "お知らせ情報検索"),
         NHA_O_0041("NHA_O_0041", "見積連番検索"),
-        NHA_O_0042("NHA_O_0042", "申込一時保存口座情報");
+        NHA_O_0042("NHA_O_0042", "申込一時保存口座情報"),
+    	NHA_O_0110("NHA_O_0042", "申込一時保存口座情報");
         private String id;
         private String name;
 

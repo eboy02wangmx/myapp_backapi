@@ -1,22 +1,41 @@
 package jp.co.myapp.api.app.controller;
 
+import java.util.List;
+import java.util.Locale;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import jp.co.myapp.api.app.request.UserKanriRequest;
+import jp.co.myapp.api.domain.model.UserKanriBean;
 import jp.co.myapp.api.domain.service.userkanri.UserKanriService;
+import jp.co.myapp.common.ConstantsEnum.API_ID;
 
+@Controller
 public class UserKanriController {
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Inject
 	UserKanriService userKanriService;
 
+
 	@RequestMapping(value = "/api/userKanri", method = { RequestMethod.POST })
-	public void getuserKanriInfo(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-		String user1 = request.getParameter("user");
-		userKanriService.getAlbumInfo(user1);
+	@ResponseBody
+	public List<UserKanriBean> getUserkanriInfo(HttpServletRequest request, HttpServletResponse response,  Locale locale,
+			@RequestBody UserKanriRequest params) {
+		logger.info(API_ID.NHA_O_0110 + " 処理開始");
+
+		List<UserKanriBean> userKanri = userKanriService.getUserkanriInfo(params.getUserId());
+
+
+		return userKanri;
 	}
 }

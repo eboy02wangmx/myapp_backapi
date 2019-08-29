@@ -11,7 +11,7 @@ public interface UserRepository {
      * @param agentCode
      * @return
      */
-	public UserBean findOne(String userName);
+	public UserBean findOne(String userId);
 
 
 }
