@@ -18,17 +18,47 @@
     <select id="getUserkanriInfo" parameterType="String" resultMap="userKanriMap">
 
         SELECT
-            user_info.userid,
-            user_info.kengen,
-            user_info.yukokbn,
-            user_info.systemdate,
-            vr_info.picnum
-        FROM
-            user_info,
-            vr_info
-        WHERE
+			user_info.userid,
+			user_info.kengen,
+			user_info.yukokbn,
+			user_info.systemdate,
+			sum(vr_info.picnum) picnum
+			FROM
+				user_info
+			left join
+				vr_info
+			on vr_info.userid = user_info.userid
+			WHERE
             user_info.userid = #{userId}
 
     </select>
+
+    <update id="createUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+    update innodb.user_info set
+	shimekana = concat(#{furiganase},#{furiganame}),
+	shimekanji = concat(#{kanjise},#{kanjime}),
+	password = #{password}
+	where userid = #{userid}
+
+	</update>
+
+    <insert id="insertUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+
+		insert into innodb.user_info
+		(
+        userid,
+		shimekana,
+		shimekanji,
+		password
+		)
+	values
+		(
+		#{userid},
+		concat(#{shimese},#{shimeme}),
+		concat(#{kanjise},#{kanjime}),
+		#{password}
+		)
+    </insert>
+
 
 </mapper>
