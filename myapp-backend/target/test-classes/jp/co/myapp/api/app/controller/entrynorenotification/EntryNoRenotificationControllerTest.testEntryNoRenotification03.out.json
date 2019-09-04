@@ -1,9 +1,0 @@
-{
-    "result": [
-        {
-            "param": "mail",
-            "discription": "メールアドレスを正しく入力してください。",
-            "errorId": "E00002"
-        }
-    ]
-}

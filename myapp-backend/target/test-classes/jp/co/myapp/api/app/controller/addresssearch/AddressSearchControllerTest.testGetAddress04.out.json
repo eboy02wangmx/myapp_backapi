@@ -1,9 +1,0 @@
-{
-    "result": [
-        {
-            "param": "postalCode",
-            "discription": "郵便番号をご入力ください。",
-            "errorId": "E00002"
-        }
-    ]
-}

@@ -1,1 +1,0 @@
-{"result":[{"param":"agentCode","discription":"代理店は半角数字10桁まででご入力してください。","errorId":"E00001"},{"param":"contractorNameKana","discription":"契約者氏名カナは全角カナ60桁まででご入力してください。","errorId":"E00001"},{"param":"paperlessSalesCode","discription":"営業課店は半角数字4桁まででご入力してください。","errorId":"E00001"}]}

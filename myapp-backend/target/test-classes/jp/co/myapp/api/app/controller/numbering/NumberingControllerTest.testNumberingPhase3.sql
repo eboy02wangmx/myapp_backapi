@@ -1,2 +1,0 @@
-DROP SEQUENCE entryreq_asap_seq ; 
-CREATE SEQUENCE entryreq_asap_seq  START WITH 703000      INCREMENT BY 1 MAXVALUE 9490999      MINVALUE 703000       ;

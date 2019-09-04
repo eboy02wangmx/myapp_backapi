@@ -1,9 +1,0 @@
-{
-    "result": [
-       {
-            "param": "appraised",
-            "discription": "評価額を10万円単位で入力してください。",
-            "errorId": "E00002"
-        }
-    ]
-}

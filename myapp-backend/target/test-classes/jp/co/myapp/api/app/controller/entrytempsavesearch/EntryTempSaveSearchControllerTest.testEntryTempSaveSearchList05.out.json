@@ -1,9 +1,0 @@
-{
-    "result": [
-        {
-            "param": "startDate",
-            "discription": "保険始期日の検索終了日を検索開始日以降に設定してください。",
-            "errorId": "E00002"
-        }
-    ]
-}

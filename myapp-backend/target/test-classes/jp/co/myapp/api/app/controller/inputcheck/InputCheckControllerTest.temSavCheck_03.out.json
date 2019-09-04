@@ -1,9 +1,0 @@
-{
-    "result": [
-        {
-            "param": "mail",
-            "discription": "メールアドレスは254桁以内で入力してください。",
-            "errorId": "E00001"
-        }
-    ]
-}

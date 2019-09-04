@@ -1,9 +1,0 @@
-{
-  "result": [
-    {
-      "param": "file",
-      "discription": "アップロードできるファイルのサイズは、5MB以下です。",
-      "errorId": "E00004"
-    }
-  ]
-}

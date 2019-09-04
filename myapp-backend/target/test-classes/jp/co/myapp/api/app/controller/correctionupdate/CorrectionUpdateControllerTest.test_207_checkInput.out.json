@@ -1,9 +1,0 @@
-{
-    "result": [
-       {
-            "param": "managerName",
-            "discription": "担当者名をご入力ください。",
-            "errorId": "E00002"
-        }
-    ]
-}

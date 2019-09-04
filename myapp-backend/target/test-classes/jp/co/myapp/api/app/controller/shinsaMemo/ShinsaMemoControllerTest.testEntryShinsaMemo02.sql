@@ -1,1 +1,0 @@
-truncate table INSPECTION_MEMO;
