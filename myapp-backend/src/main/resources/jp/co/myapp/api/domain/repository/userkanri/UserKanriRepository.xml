@@ -17,7 +17,7 @@
 
     <select id="getUserkanriInfo" parameterType="String" resultMap="userKanriMap">
 
-        SELECT
+            SELECT
 			user_info.userid,
 			user_info.kengen,
 			user_info.yukokbn,
@@ -29,7 +29,13 @@
 				vr_info
 			on vr_info.userid = user_info.userid
 			WHERE
-            user_info.userid = #{userId}
+            user_info.customid = (
+                                    select user_info.customid
+                                    from user_info
+                                    where user_info.userid = #{userId}
+                                    )
+
+            group by user_info.userid
 
     </select>
 
@@ -54,11 +60,13 @@
 	values
 		(
 		#{userid},
-		concat(#{shimese},#{shimeme}),
+		concat(#{furiganase},#{furiganame}),
 		concat(#{kanjise},#{kanjime}),
 		#{password}
 		)
     </insert>
 
-
+    <delete id="deleteUser" parameterType="String">
+	delete from innodb.user_info where userid = #{userid}
+	</delete>
 </mapper>

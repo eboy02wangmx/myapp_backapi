@@ -8,9 +8,11 @@ import jp.co.myapp.api.domain.model.UserKanriBean;
 public interface UserKanriRepository {
    public List<UserKanriBean> getUserkanriInfo(String userId);
 
+   // ユーザーの編集
    public void createUser(UserCreateRequest param);
 
-   public void editUser(UserKanriBean user);
+   // ユーザーの作成
+   public void insertUser(UserCreateRequest param);
 
-   public void removeUser(String user);
+   public void deleteUser(String user);
 }

@@ -25,6 +25,16 @@ public class UserKanriBean extends AbstractResultData implements Serializable {
    //所有画像数
 	private String picnum;
 
+	private String flag;
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+
 	public String getUserid() {
 		return userid;
 	}

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import jp.co.myapp.api.app.request.UserKanriRequest;
 import jp.co.myapp.api.domain.model.UserKanriBean;
 import jp.co.myapp.api.domain.service.userkanri.UserKanriService;
-import jp.co.myapp.common.ConstantsEnum.API_ID;
 
 @Controller
 public class UserKanriController {
@@ -31,7 +30,7 @@ public class UserKanriController {
 	@ResponseBody
 	public List<UserKanriBean> getUserkanriInfo(HttpServletRequest request, HttpServletResponse response,  Locale locale,
 			@RequestBody UserKanriRequest params) {
-		logger.info(API_ID.NHA_O_0110 + " 処理開始");
+		// logger.info(API_ID.NHA_O_0110 + " 処理開始");
 
 		List<UserKanriBean> userKanri = userKanriService.getUserkanriInfo(params.getUserId());
 
