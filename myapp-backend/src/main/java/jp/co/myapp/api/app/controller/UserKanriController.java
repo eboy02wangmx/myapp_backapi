@@ -31,10 +31,14 @@ public class UserKanriController {
 	public List<UserKanriBean> getUserkanriInfo(HttpServletRequest request, HttpServletResponse response,  Locale locale,
 			@RequestBody UserKanriRequest params) {
 		// logger.info(API_ID.NHA_O_0110 + " 処理開始");
+		List<UserKanriBean> userKanri;
+        if(params.getUserId().equals("panolib_admin")) {
+        userKanri = userKanriService.getAdminInfo(params.getUserId());
+        }else {
 
-		List<UserKanriBean> userKanri = userKanriService.getUserkanriInfo(params.getUserId());
+		userKanri = userKanriService.getUserkanriInfo(params.getUserId());
 
-
+        }
 		return userKanri;
 	}
 }

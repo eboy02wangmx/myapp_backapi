@@ -8,4 +8,6 @@ public interface UserKanriService {
 
 		public List<UserKanriBean> getUserkanriInfo(String userId);
 
+		public List<UserKanriBean> getAdminInfo(String userId);
+
 }

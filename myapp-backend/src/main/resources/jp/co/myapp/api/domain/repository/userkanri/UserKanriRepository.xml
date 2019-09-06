@@ -38,6 +38,22 @@
             group by user_info.userid
 
     </select>
+        <select id="getAdminInfo" parameterType="String" resultMap="userKanriMap">
+
+            SELECT
+			user_info.userid,
+			user_info.kengen,
+			user_info.yukokbn,
+			user_info.systemdate,
+			sum(vr_info.picnum) picnum
+			FROM
+				user_info
+			left join
+				vr_info
+			on vr_info.userid = user_info.userid
+			group by userid
+
+    </select>
 
     <update id="createUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
     update innodb.user_info set

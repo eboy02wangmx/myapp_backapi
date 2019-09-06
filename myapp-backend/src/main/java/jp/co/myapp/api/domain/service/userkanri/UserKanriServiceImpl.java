@@ -19,4 +19,11 @@ public class UserKanriServiceImpl implements UserKanriService{
 		return userKanriRepository.getUserkanriInfo(userId);
 	}
 
+
+	@Override
+	public List<UserKanriBean> getAdminInfo(String userId) {
+
+		return userKanriRepository.getAdminInfo(userId);
+	}
+
 }

@@ -15,4 +15,6 @@ public interface UserKanriRepository {
    public void insertUser(UserCreateRequest param);
 
    public void deleteUser(String user);
+
+   public List<UserKanriBean> getAdminInfo(String userId);
 }
