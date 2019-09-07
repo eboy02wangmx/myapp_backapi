@@ -13,9 +13,9 @@
 		    vi.shoyusha,
 		    vi.yukokbn,
 		    vi.sakusesha,
-		    vi.sakusehi,
+		    DATE_FORMAT(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
 		    vi.koushinsha,
-		    vi.koushinhi,
+		    DATE_FORMAT(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
 		    vi.picnum,
 		    ui.customid
 		FROM
@@ -42,7 +42,7 @@
 		    vi.sakusesha,
 		    DATE_FORMAT(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
 		    vi.koushinsha,
-		    vi.koushinhi,
+		    DATE_FORMAT(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
 		    vi.picnum,
 		    ui.customid
 		FROM
@@ -64,10 +64,8 @@
 	bukenme = #{album.bukenme},
 	shoyusha = #{album.shoyusha},
 	yukokbn = #{album.yukokbn},
-	sakusesha = #{album.sakusesha},
-    sakusehi = #{album.sakusehi},
 	koushinsha = #{album.koushinsha},
-	koushinhi = #{album.koushinhi},
+	koushinhi = SYSDATA,
 	picnum where userid = #{album.userid}
 
 	</update>
@@ -87,8 +85,8 @@
 		NOW(),
 		#{bukenme},
 		#{userid},
-		#{sakusehi},
-		#{koushinhi},
+		SYSDATA,
+		SYSDATA,
 		0
 		)
 
