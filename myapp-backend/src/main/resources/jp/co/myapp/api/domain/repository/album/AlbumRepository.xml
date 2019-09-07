@@ -6,44 +6,57 @@
 <mapper namespace="jp.co.myapp.api.domain.repository.album.AlbumRepository">
 
 	<select id="getAlbum" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
-
     	SELECT
-			filename,
-			bukenme,
-			userid,
-			shoyusha,
-			yukokbn,
-			sakusesha,
-		    sakusehi,
-			koushinsha,
-			koushinhi,
-			picnum
-		 FROM innodb.vr_info
-		 WHERE userid = #{userid}
-
+		    vi.filename,
+		    vi.bukenme,
+		    vi.userid,
+		    vi.shoyusha,
+		    vi.yukokbn,
+		    vi.sakusesha,
+		    vi.sakusehi,
+		    vi.koushinsha,
+		    vi.koushinhi,
+		    vi.picnum,
+		    ui.customid
+		FROM
+		    innodb.vr_info vi
+		        LEFT JOIN
+		    innodb.user_info ui ON vi.userid = ui.userid
+		WHERE
+		    ui.customid = (SELECT
+		            customid
+		        FROM
+		            user_info
+		        WHERE
+		            userid = #{userid})
+		    and vi.yukokbn = '1'
 	</select>
 
 	<select id="getRiyo" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
     	SELECT
-			filename,
-			bukenme,
-			userid,
-			shoyusha,
-			yukokbn,
-			sakusesha,
-		    sakusehi,
-			koushinsha,
-			koushinhi,
-			picnum
-		 FROM innodb.vr_info
+		    vi.filename,
+		    vi.bukenme,
+		    vi.userid,
+		    vi.shoyusha,
+		    vi.yukokbn,
+		    vi.sakusesha,
+		    vi.sakusehi,
+		    vi.koushinsha,
+		    vi.koushinhi,
+		    vi.picnum,
+		    ui.customid
+		FROM
+		    innodb.vr_info vi
+		        LEFT JOIN
+		    innodb.user_info ui ON vi.userid = ui.userid
 	</select>
 
-	<delete id="deleteAlbum" parameterType="String">
-	delete from innodb.vr_info where userid = #{userid}
+	<delete id="removeAlbum" parameterType="String">
+	delete from innodb.vr_info where filename = #{filename}
 	</delete>
 
 	<update id="editAlbum" parameterType = "jp.co.myapp.api.domain.model.AlbumBean">
-	update innodb.vr_info
+	update innodb.vr_info set
 	filename = #{album.filename},
 	bukenme = #{album.bukenme},
 	shoyusha = #{album.shoyusha},
@@ -56,5 +69,31 @@
 
 	</update>
 
+	<insert id="createAlbum" parameterType = "jp.co.myapp.api.app.request.AlbumCreateRequest">
+	insert into innodb.vr_info
+		(
+		filename,
+		bukenme,
+		userid,
+		sakusehi,
+		koushinhi,
+		picnum
+		)
+	values
+		(
+		NOW(),
+		#{bukenme},
+		#{userid},
+		#{sakusehi},
+		#{koushinhi},
+		0
+		)
 
+	</insert>
+
+	<update id="riiyoEff"  parameterType = "String">
+
+
+
+	</update>
 </mapper>
