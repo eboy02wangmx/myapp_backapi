@@ -21,7 +21,7 @@
 			user_info.userid,
 			user_info.kengen,
 			user_info.yukokbn,
-			user_info.systemdate,
+			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
 			sum(vr_info.picnum) picnum
 			FROM
 				user_info
@@ -44,7 +44,7 @@
 			user_info.userid,
 			user_info.kengen,
 			user_info.yukokbn,
-			user_info.systemdate,
+			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
 			sum(vr_info.picnum) picnum
 			FROM
 				user_info
@@ -57,8 +57,10 @@
 
     <update id="createUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
     update innodb.user_info set
-	shimekana = concat(#{furiganase},#{furiganame}),
-	shimekanji = concat(#{kanjise},#{kanjime}),
+    shimekanasei = #{furiganase},
+    shimekanamei = #{furiganame},
+	shimekanjisei = #{kanjise},
+	shimekanjimei = #{kanjime},
 	password = #{password}
 	where userid = #{userid}
 
@@ -69,16 +71,22 @@
 		insert into innodb.user_info
 		(
         userid,
-		shimekana,
-		shimekanji,
-		password
+		shimekanjisei,
+		shimekanjimei,
+		shimekanasei,
+		shimekanamei,
+		password,
+		systemdate
 		)
 	values
 		(
 		#{userid},
-		concat(#{furiganase},#{furiganame}),
-		concat(#{kanjise},#{kanjime}),
-		#{password}
+		#{kanjise},
+		#{kanjime},
+		#{furiganase},
+		#{furiganame},
+		#{password},
+		SYSDATE()
 		)
     </insert>
 

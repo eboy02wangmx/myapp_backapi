@@ -57,9 +57,15 @@ public class LoginController extends AbstractApiController {
 		logger.info(API_ID.NHA_O_0001 + " 処理開始");
 
 		UserBean userBean = userService.userLogin(params.getUserName());
-		logger.info("ログインユーザー名称；" + userBean.getUserName() + "," + userBean.getPassword());
+		if (userBean != null) {
+			logger.info("ログインユーザー名称；" + userBean.getUserName() + "," + userBean.getPassword());
+		} else {
+			userBean = new UserBean();
+			userBean.setUserName("");
+		}
 		if (params.getPassword() == null || !params.getPassword().equals(userBean.getPassword())) {
-			userBean = null;
+			userBean = new UserBean();
+			userBean.setUserName("");
 		}
 
 		logger.info(API_ID.NHA_O_0001 + " 処理完了");

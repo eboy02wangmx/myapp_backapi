@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="jp.co.myapp.api.domain.repository.userinfo.UserInfoRepository">
+
+	<resultMap id="userInfoBeanMap" type="UserInfoBean">
+		<id property="furiganase" column="shimekanasei"
+			javaType="java.lang.String"></id>
+		<result property="furiganame" column="shimekanamei"
+			javaType="java.lang.String"></result>
+		<result property="kanjise" column="shimekanjisei"
+			javaType="java.lang.String"></result>
+		<result property="kanjime" column="shimekanjimei"
+			javaType="java.lang.String"></result>
+	</resultMap>
+
+
+	<select id="getUserInfo" parameterType="String"
+		resultMap="userInfoBeanMap">
+        <![CDATA[
+        SELECT
+			u.shimekanasei,
+			u.shimekanamei,
+			u.shimekanjisei,
+			u.shimekanjimei
+		FROM
+			user_info u
+		WHERE
+			u.userid = #{userId}
+		]]>
+	</select>
+
+</mapper>

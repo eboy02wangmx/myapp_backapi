@@ -8,23 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import jp.co.myapp.common.exception.CustomizeSystemErrorException;
 
 /**
  * KrPanoでVRフォルダを生成すること。
@@ -35,33 +20,20 @@ public class KrPanoCmdBatUtil {
 
     private static final Logger log = LoggerFactory.getLogger(KrPanoCmdBatUtil.class);
 
-    public static void main(String[] args) throws CustomizeSystemErrorException {
-
-        String token = "22a854f3-c4de-45af-a2dc-5bdd781fe403";
-        String title = "2";
-        try {
-            setKrpano(token, title);
-        } catch (Exception e) {
-            throw new CustomizeSystemErrorException();
-        }
-    }
-
     /**
      * KrPanoでVRフォルダを生成することを行う。
      *
-     * @param token
-     *            イメージの臨時フォールだ名
-     * @param title
-     *            イメージのサブフォールだ名
+     * @param classesPath
+     *            クラスパス
+     * @param path
+     *            イメージの臨時フォルダー
+     * @param fileName
+     *            イメージの臨時フォルダー
      * @throws Exception
      */
-    public static void setKrpano(final String token, final String title) throws Exception {
-
-        String path = KrPanoCmdBatUtil.class.getClass().getResource("/").getPath();
-        path = path.substring(1, path.indexOf("classes")) + "uploads";
-
-        String preFolder = path + "\\pre\\" + token + "\\" + title;
-        String postFolder = path + "\\post\\" + token + "\\" + title + "\\vtour";
+    public static void setKrpano(final String classesPath, final String path, final String fileName) throws Exception {
+        String preFolder = path;
+        String postFolder = classesPath + "\\tour" + fileName;
         File targetFile = new File(preFolder);
         if (!targetFile.exists()) {
             targetFile.mkdirs();
@@ -102,8 +74,6 @@ public class KrPanoCmdBatUtil {
                                 // 臨時フォルダを削除する
                                 delFolder(preFolder + "\\vtour");
                             }
-                            // XML修正
-                            updateXML(postFolder);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -240,68 +210,5 @@ public class KrPanoCmdBatUtil {
             }
         }
         return flag;
-    }
-
-    /**
-     * tour.xmlファイルの修正処理を行う。
-     */
-    private static void updateXML(String xmlpath)
-    {
-      try
-      {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = dbf.newDocumentBuilder();
-        File file = new File(xmlpath + "\\tour.xml");
-        Document document = builder.parse(file);
-
-        Element root = document.getDocumentElement();
-
-        NodeList list = root.getElementsByTagName("action");
-        for (int i=0; i < list.getLength() ; i++)
-        {
-            Node element = list.item(i);
-            String nodeValue = element.getFirstChild().getNodeValue().replaceAll("\r\n", "").replaceAll("\n", "").replaceAll("\t", "") + "js('onready');";
-            element.setTextContent(nodeValue);
-        }
-
-        createxml(file, document);
-
-      } catch(Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-
-    /**
-     * XMLの作成処理を行う。
-     *
-     * @param file
-     * @param document
-     * @return
-     */
-    private static boolean createxml(File file, Document document){
-      Transformer transformer = null;
-      try
-      {
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        transformer = transformerFactory.newTransformer();
-      } catch (TransformerConfigurationException e)
-      {
-        e.printStackTrace();
-        return false;
-      }
-      transformer.setOutputProperty("indent", "yes");
-      transformer.setOutputProperty("encoding", "UTF-8");
-
-      try
-      {
-        transformer.transform(new DOMSource(document), new StreamResult(file));
-      } catch (TransformerException e)
-      {
-        e.printStackTrace();
-        return false;
-      }
-
-      return true;
     }
 }

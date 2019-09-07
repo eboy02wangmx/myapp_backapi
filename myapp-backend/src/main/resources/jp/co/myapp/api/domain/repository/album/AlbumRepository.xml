@@ -65,7 +65,7 @@
 	shoyusha = #{album.shoyusha},
 	yukokbn = #{album.yukokbn},
 	koushinsha = #{album.koushinsha},
-	koushinhi = SYSDATA,
+	koushinhi = SYSDATE(),
 	picnum where userid = #{album.userid}
 
 	</update>
@@ -85,8 +85,8 @@
 		NOW(),
 		#{bukenme},
 		#{userid},
-		SYSDATA,
-		SYSDATA,
+		SYSDATE(),
+		SYSDATE(),
 		0
 		)
 

@@ -9,6 +9,7 @@
 		<id property="userName" column="userid" javaType="java.lang.String"></id>
 		<result property="password" column="password" javaType="java.lang.String"></result>
 		<result property="customId" column="customid" javaType="java.lang.String"></result>
+		<result property="kengen" column="kengen" javaType="java.lang.String"></result>
 	</resultMap>
 
     <select id="findOne" parameterType="string" resultMap="userMap">
@@ -16,7 +17,8 @@
         SELECT
             userid,
             password,
-            customId
+            customId,
+            kengen
         FROM
             user_info
         WHERE

@@ -20,7 +20,10 @@ public class UserBean extends AbstractResultData implements Serializable {
 	 * お客様id
 	 */
 	private String customId;
-
+	/**
+	 * 権限
+	 */
+	private String kengen;
 
 	public String getCustomId() {
 		return customId;
@@ -46,5 +49,12 @@ public class UserBean extends AbstractResultData implements Serializable {
 		this.password = password;
 	}
 
+	public String getKengen() {
+		return kengen;
+	}
+
+	public void setKengen(String kengen) {
+		this.kengen = kengen;
+	}
 
 }

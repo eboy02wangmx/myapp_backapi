@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="jp.co.myapp.api.domain.repository.file.FileRepository">
+	<insert id="insertImgsmain" useGeneratedKeys="true"
+		keyProperty="pk_img_main"
+		parameterType="jp.co.myapp.api.domain.model.ImgsmainBean">
+		insert into
+		innodb.u_imgsmain
+		(
+		filename,
+		location,
+		thumb_path,
+		view_uuid
+		)
+		values
+		(
+		#{fileName},
+		#{location},
+		#{thumb},
+		#{fileName}
+		)
+	</insert>
+
+	<delete id="deleteImgsWorks" parameterType="String">
+		delete from u_imgs_works where pk_works_main = #{filename}
+	</delete>
+
+	<insert id="insertImgsWorks" parameterType="String>
+		insert into
+		innodb.u_imgs_works
+		(
+		pk_img_main,
+		pk_works_main
+		)
+		values
+		(
+		#{pkImgMain},
+		#{fileName}
+		)
+	</insert>
+</mapper>
