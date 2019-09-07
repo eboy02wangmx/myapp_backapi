@@ -40,7 +40,7 @@
 		    vi.shoyusha,
 		    vi.yukokbn,
 		    vi.sakusesha,
-		    vi.sakusehi,
+		    DATE_FORMAT(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
 		    vi.koushinsha,
 		    vi.koushinhi,
 		    vi.picnum,
@@ -49,6 +49,9 @@
 		    innodb.vr_info vi
 		        LEFT JOIN
 		    innodb.user_info ui ON vi.userid = ui.userid
+		WHERE
+		    vi.userid &lt;&gt; 'panolib_admin'
+		ORDER BY ui.customid, vi.userid, vi.sakusehi ASC
 	</select>
 
 	<delete id="removeAlbum" parameterType="String">
