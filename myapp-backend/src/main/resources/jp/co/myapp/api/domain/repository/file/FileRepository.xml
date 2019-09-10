@@ -11,7 +11,7 @@
 		insert into
 		innodb.u_imgsmain
 		(
-		filename,
+		filename ,
 		location,
 		thumb_path,
 		view_uuid
