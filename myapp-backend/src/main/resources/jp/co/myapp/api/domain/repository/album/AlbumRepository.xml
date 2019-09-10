@@ -29,7 +29,6 @@
 		            user_info
 		        WHERE
 		            userid = #{userid})
-		    and vi.yukokbn = '1'
 	</select>
 
 	<select id="getRiyo" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">

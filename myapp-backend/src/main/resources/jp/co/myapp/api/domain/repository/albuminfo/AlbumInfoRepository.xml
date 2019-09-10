@@ -5,16 +5,75 @@
 
 <mapper namespace="jp.co.myapp.api.domain.repository.albuminfo.AlbumInfoRepository">
 
-	<select id="getAlbumInfo" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumInfoBean">
-    <![CDATA[
+	<select id="getAlbum" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
     	SELECT
-        	NAME
-        FROM
-            sss
-        WHERE
-        	NO = #{agentCode}
-	        ]]>
+		    vi.filename,
+		    vi.bukenme,
+		    vi.userid,
+		    vi.shoyusha,
+		    vi.yukokbn,
+		    vi.sakusesha,
+		    vi.sakusehi,
+		    vi.koushinsha,
+		    vi.koushinhi,
+		    vi.picnum,
+		    ui.customid
+		FROM
+		    innodb.vr_info vi
+		        LEFT JOIN
+		    innodb.user_info ui ON vi.userid = ui.userid
+		WHERE
+		    ui.customid = (SELECT
+		            customid
+		        FROM
+		            user_info
+		        WHERE
+		            userid = #{userid})
 	</select>
 
+	<delete id="removeAlbum" parameterType="String">
+	delete from innodb.vr_info where filename = #{filename}
+	</delete>
 
+	<update id="editAlbum" parameterType = "jp.co.myapp.api.domain.model.AlbumBean">
+	update innodb.vr_info set
+	filename = #{album.filename},
+	bukenme = #{album.bukenme},
+	shoyusha = #{album.shoyusha},
+	yukokbn = #{album.yukokbn},
+	sakusesha = #{album.sakusesha},
+    sakusehi = #{album.sakusehi},
+	koushinsha = #{album.koushinsha},
+	koushinhi = #{album.koushinhi},
+	picnum where userid = #{album.userid}
+
+	</update>
+
+	<insert id="createAlbum" parameterType = "jp.co.myapp.api.app.request.AlbumCreateRequest">
+	insert into innodb.vr_info
+		(
+		filename,
+		bukenme,
+		userid,
+		sakusehi,
+		koushinhi,
+		picnum
+		)
+	values
+		(
+		NOW(),
+		#{bukenme},
+		#{userid},
+		#{sakusehi},
+		#{koushinhi},
+		0
+		)
+
+	</insert>
+
+	<update id="riiyoEff"  parameterType = "String">
+
+
+
+	</update>
 </mapper>

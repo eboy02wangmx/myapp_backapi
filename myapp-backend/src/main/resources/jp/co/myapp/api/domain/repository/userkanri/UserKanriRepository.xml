@@ -76,7 +76,10 @@
 		shimekanasei,
 		shimekanamei,
 		password,
-		systemdate
+		systemdate,
+		customid,
+		kengen,
+		yukokbn
 		)
 	values
 		(
@@ -86,10 +89,42 @@
 		#{furiganase},
 		#{furiganame},
 		#{password},
-		SYSDATE()
+		SYSDATE(),
+		#{customId},
+		'3',
+		'1'
 		)
     </insert>
 
+   <insert id="insertAdminUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+
+		insert into innodb.user_info
+		(
+        userid,
+		shimekanjisei,
+		shimekanjimei,
+		shimekanasei,
+		shimekanamei,
+		password,
+		systemdate,
+		customid,
+		kengen,
+		yukokbn
+		)
+	values
+		(
+		#{userid},
+		#{kanjise},
+		#{kanjime},
+		#{furiganase},
+		#{furiganame},
+		#{password},
+		SYSDATE(),
+		RAND(),
+		'2',
+		'1'
+		)
+    </insert>
     <delete id="deleteUser" parameterType="String">
 	delete from innodb.user_info where userid = #{userid}
 	</delete>

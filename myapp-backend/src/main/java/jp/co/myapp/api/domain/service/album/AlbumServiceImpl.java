@@ -25,7 +25,7 @@ public class AlbumServiceImpl implements AlbumService {
 		List<AlbumBean> albums = new ArrayList<AlbumBean>();
 		for(AlbumBean album : albumList) {
 			if(StringUtils.isNotEmpty(album.getCustomid())) {
-				album.setUserid("管理者");
+				// album.setUserid("管理者");
 			}
 			albums.add(album);
 		}

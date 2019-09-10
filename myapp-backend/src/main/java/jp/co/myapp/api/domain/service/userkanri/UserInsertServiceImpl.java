@@ -21,5 +21,11 @@ public class UserInsertServiceImpl implements UserInsertService {
 
 	}
 
+	@Override
+	public void insertAdmin(UserCreateRequest param) {
+		userKanriRepository.insertAdminUser(param);
+
+	}
+
 
 }

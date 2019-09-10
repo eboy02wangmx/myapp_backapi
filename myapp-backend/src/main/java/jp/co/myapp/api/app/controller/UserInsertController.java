@@ -24,7 +24,12 @@ public class UserInsertController {
 	@ResponseBody
 	public void getinfoSakuse(HttpServletRequest request, HttpServletResponse response, Locale locale,
 			@RequestBody UserCreateRequest params) {
-		userInsertService.insert(params);
 
+		if (params.getUserid().equals("panolib_admin") || params.getLoginid().equals("panolib_admin")){
+			userInsertService.insertAdmin(params);
+		}else {
+
+		userInsertService.insert(params);
+		}
 	}
 }

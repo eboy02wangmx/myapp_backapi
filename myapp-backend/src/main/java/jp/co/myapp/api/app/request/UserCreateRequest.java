@@ -18,6 +18,26 @@ public class UserCreateRequest implements Serializable {
 
 	private String password;
 
+	private String customId;
+
+	private String loginid;
+
+	public String getLoginid() {
+		return loginid;
+	}
+
+	public void setLoginid(String loginid) {
+		this.loginid = loginid;
+	}
+
+	public String getCustomId() {
+		return customId;
+	}
+
+	public void setCustomId(String customId) {
+		this.customId = customId;
+	}
+
 	public String getUserid() {
 		return userid;
 	}

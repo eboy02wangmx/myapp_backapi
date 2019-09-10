@@ -33,12 +33,14 @@ public class UserKanriController {
 		// logger.info(API_ID.NHA_O_0110 + " 処理開始");
 		List<UserKanriBean> userKanri;
         if(params.getUserId().equals("panolib_admin")) {
+
         userKanri = userKanriService.getAdminInfo(params.getUserId());
         }else {
 
 		userKanri = userKanriService.getUserkanriInfo(params.getUserId());
 
         }
+
 		return userKanri;
 	}
 }

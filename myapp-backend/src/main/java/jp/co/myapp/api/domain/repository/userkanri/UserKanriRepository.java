@@ -15,6 +15,8 @@ public interface UserKanriRepository {
    // ユーザーの作成
    public void insertUser(UserCreateRequest param);
 
+   public void insertAdminUser(UserCreateRequest param);
+
    public void deleteUser(String user);
 
    public UserInfoBean getUserInfo(String userId);
