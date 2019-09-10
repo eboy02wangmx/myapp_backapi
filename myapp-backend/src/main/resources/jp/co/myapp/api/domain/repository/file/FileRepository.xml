@@ -29,7 +29,7 @@
 		delete from u_imgs_works where pk_works_main = #{filename}
 	</delete>
 
-	<insert id="insertImgsWorks" parameterType="String>
+	<insert id="insertImgsWorks" parameterType="String">
 		insert into
 		innodb.u_imgs_works
 		(
