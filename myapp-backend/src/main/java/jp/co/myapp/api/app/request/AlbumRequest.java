@@ -10,6 +10,16 @@ public class AlbumRequest implements Serializable {
 
 	private String filename;
 
+	private String create_time;
+
+	public String getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
+	}
+
 	public String getFilename() {
 		return filename;
 	}

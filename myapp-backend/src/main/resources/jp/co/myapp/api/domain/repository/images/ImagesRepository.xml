@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.images.ImagesRepository">
+
+	<resultMap id="imagesMap" type="ImagesBean">
+		<id property="userid" column="userid" javaType="java.lang.String"></id>
+		<result property="filename" column="filename" javaType="java.lang.String"></result>
+		<result property="create_time" column="create_time" javaType="java.lang.String"></result>
+		<result property="location" column="location" javaType="java.lang.String"></result>
+	</resultMap>
+
+
+    <select id="getImagesInfo" parameterType="String" resultMap="imagesMap">
+		select t1.filename, t1.create_time, t1.location
+		from innodb.u_imgsmain t1
+		inner join innodb.u_imgs_works t2 on t1.pk_img_main = t2.pk_img_main
+		inner join innodb.vr_info t3 on t2.pk_works_main = t3.id
+		where t3.userid = #{userid}
+    </select>
+
+    <delete id="deleteUser" parameterType="String">
+	delete from innodb.user_info where userid = #{userid}
+	</delete>
+</mapper>
