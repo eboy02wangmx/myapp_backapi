@@ -2,10 +2,9 @@ package jp.co.myapp.api.domain.model;
 
 public class AlbumBean {
 
-	/**
-	 * フィル名称
-	 */
-	private String filename;;
+	private Integer id;
+
+	private String filename;
 
 	private String bukenme;
 
@@ -23,6 +22,14 @@ public class AlbumBean {
 
 	private String customid;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getCustomid() {
 		return customid;
 	}
@@ -30,6 +37,7 @@ public class AlbumBean {
 	public void setCustomid(String customid) {
 		this.customid = customid;
 	}
+
 	public String getFilename() {
 		return filename;
 	}

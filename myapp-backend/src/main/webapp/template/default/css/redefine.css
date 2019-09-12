@@ -33,7 +33,7 @@
     background: rgba(0, 0, 0, 0) url("/plugin/custom_logo/images/custom_logo.png") no-repeat scroll 0 0;
 }
 .btn_showcard {
-    background: url(/static/images/skin1/pano-icon.png) no-repeat;
+    background: url(/myapp-backend/static/images/skin1/pano-icon.png) no-repeat;
     background-size: 32px;
 }
 .vrshow_logo_title {
@@ -183,7 +183,7 @@
     right: 10px;
     top: 50%;
     margin-top: -40px;
-    background: url(/static/images/skin1/radar_open.png) no-repeat;
+    background: url(/myapp-backend/static/images/skin1/radar_open.png) no-repeat;
     z-index: 800;
     display: none;
     width: 40px;
@@ -297,154 +297,154 @@
 }
 
 .btn_fullscreen {
-    background: url("/static/images/skin1/full-screen.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/full-screen.png") no-repeat;
     background-size: 32px;
 }
 
 /*.btn_fullscreen:focus,*/
 /*.btn_fullscreen:hover {*/
-/*background: url("/static/images/kr/icon.png") no-repeat -120px -80px / 400px 160px;*/
+/*background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -120px -80px / 400px 160px;*/
 /*}*/
 
 .btn_fullscreen_off {
-    background: url("/static/images/skin1/full-stop.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/full-stop.png") no-repeat;
     background-size: 32px;
 }
 
 /*.btn_fullscreen_off:focus,*/
 /*.btn_fullscreen_off:hover {*/
-/*background: url("/static/images/kr/icon.png") no-repeat -200px -80px / 400px 160px;*/
+/*background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -200px -80px / 400px 160px;*/
 /*}*/
 
 .btn_vrmode {
-    background: url("/static/images/skin1/vrmode.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/vrmode.png") no-repeat;
      background-size: 32px;
 }
 
 .btn_bgmusic {
-    background: url("/static/images/skin1/bgmusic-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/bgmusic-open.png") no-repeat;
     background-size: 32px;
 }
 
 .btn_bgmusic_off {
-    background: url("/static/images/skin1/bgmusic-close.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/bgmusic-close.png") no-repeat;
     background-size: 32px;
 }
 .btn_music {
-    background: url("/static/images/skin1/music-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/music-open.png") no-repeat;
     background-size: 32px;
 }
 .btn_music_off {
-    background: url("/static/images/skin1/music-close.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/music-close.png") no-repeat;
     background-size: 32px;
 }
 /*.btn_music {
-    background: url("/static/images/kr/music-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/music-open.png") no-repeat;
 }
 
 
 .btn_music_off {
-    background: url("/static/images/kr/music-close.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/music-close.png") no-repeat;
 }*/
 
 /*.btn_bgmusic {
-    background: url("/static/images/kr/bgmusic-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/bgmusic-open.png") no-repeat;
 }
 
 .btn_bgmusic_off {
-    background: url("/static/images/kr/bgmusic-close.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/bgmusic-close.png") no-repeat;
 }*/
 
 /*.btn_music_off:focus,*/
 /*.btn_music_off:hover {*/
-/*background: url("/static/images/kr/icon.png") no-repeat -40px -120px / 400px 160px;*/
+/*background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -40px -120px / 400px 160px;*/
 /*}*/
 
 .btn_gyro {
-    background: url("/static/images/skin1/gyro-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/gyro-open.png") no-repeat;
     background-size: 32px;
 }
 
 /*.btn_gyro:focus,*/
 /*.btn_gyro:hover {*/
-    /*background: url("/static/images/kr/icon.png") no-repeat -160px -120px / 400px 160px;*/
+    /*background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -160px -120px / 400px 160px;*/
 /*}*/
 
 .btn_gyro_off {
-    background: url("/static/images/skin1/gyro-close.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/gyro-close.png") no-repeat;
     background-size: 32px;
 }
 
 /*.btn_gyro_off:focus,*/
 /*.btn_gyro_off:hover {*/
-    /*background: url("/static/images/kr/icon.png") no-repeat -240px -120px / 400px 160px;*/
+    /*background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -240px -120px / 400px 160px;*/
 /*}*/
 
 .btn_comment {
-    background: url("/static/images/kr/icon.png") no-repeat -160px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -160px 0px / 400px 160px;
 }
 
 .btn_comment:focus,
 .btn_comment:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -200px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -200px 0px / 400px 160px;
 }
 
 .btn_trace {
-    background: url("/static/images/kr/icon.png") no-repeat -240px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -240px -40px / 400px 160px;
 }
 
 .btn_trace:focus,
 .btn_trace:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -280px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -280px -40px / 400px 160px;
 }
 
 .btn_details {
-    background: url("/static/images/kr/icon.png") no-repeat -160px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -160px -40px / 400px 160px;
 }
 
 .btn_details:focus,
 .btn_details:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -200px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -200px -40px / 400px 160px;
 }
 
 .btn_share {
-    background: url("/static/images/kr/icon.png") no-repeat 0px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat 0px -40px / 400px 160px;
 }
 
 .btn_share:focus,
 .btn_share:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -40px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -40px -40px / 400px 160px;
 }
 
 .btn_like {
-    background: url("/static/images/kr/icon.png") no-repeat -80px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -80px -40px / 400px 160px;
 }
 
 .btn_like_onclick {
-    background: url("/static/images/kr/icon.png") no-repeat -80px -120px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -80px -120px / 400px 160px;
 }
 
 .btn_like:focus,
 .btn_like:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -120px -40px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -120px -40px / 400px 160px;
 }
 
 .btn_choose_sence {
-    background: url("/static/images/kr/icon.png") no-repeat -240px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -240px 0px / 400px 160px;
 }
 
 .btn_choose_sence:focus,
 .btn_choose_sence:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -280px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -280px 0px / 400px 160px;
 }
 
 .btn_url {
-    background: url("/static/images/kr/icon.png") no-repeat 0px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat 0px 0px / 400px 160px;
 }
 
 .btn_url:focus,
 .btn_url:hover {
-    background: url("/static/images/kr/icon.png") no-repeat -40px 0px / 400px 160px;
+    background: url("/myapp-backend/static/images/kr/icon.png") no-repeat -40px 0px / 400px 160px;
 }
 
 #top {
@@ -459,7 +459,7 @@
 /*}*/
 
 .btn_reward {
-    background: url("/static/images/skin1/bgreward-open.png") no-repeat;
+    background: url("/myapp-backend/static/images/skin1/bgreward-open.png") no-repeat;
     background-size: 32px;
 }
 
@@ -693,7 +693,7 @@
 }
 
 .login_qq {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") -42px 0;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") -42px 0;
     display: inline-block;
     width: 42px;
     height: 42px;
@@ -702,11 +702,11 @@
 
 .login_qq:focus,
 .login_qq:hover {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") -42px -42px;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") -42px -42px;
 }
 
 .login_weixin {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") -294px 0;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") -294px 0;
     display: inline-block;
     width: 42px;
     height: 42px;
@@ -715,11 +715,11 @@
 
 .login_weixin:focus,
 .login_weixin:hover {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") -294px -42px;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") -294px -42px;
 }
 
 .login_weibo {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") 0 0;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") 0 0;
     display: inline-block;
     width: 42px;
     height: 42px;
@@ -728,7 +728,7 @@
 
 .login_weibo:focus,
 .login_weibo:hover {
-    background: rgba(0, 0, 0, 0) url("/static/images/kr/login-bg.gif") 0 -42px;
+    background: rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/login-bg.gif") 0 -42px;
 }
 
 .carousel {
@@ -1497,7 +1497,7 @@
 .subject_part {
     width: 49%;
     height: auto;
-    background: url("/static/images/kr/subject_bg.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/subject_bg.png") no-repeat;
     background-size: 100% 100%;
     padding: 15px;
     box-sizing: border-box;
@@ -3474,7 +3474,7 @@ ul.sub-nav {
     margin: 0px 0 30px;
     line-height: 34px;
     font-size: 16px;
-    background: url(/static/images/kr/mod_sub_nav.png) no-repeat 0 0;
+    background: url(/myapp-backend/static/images/kr/mod_sub_nav.png) no-repeat 0 0;
     position: relative;
     display: list-item;
 }
@@ -3484,18 +3484,18 @@ ul.sub-nav {
 }
 
 .li_list {
-    background: url("/static/images/kr/sub_nav_1.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/sub_nav_1.png") no-repeat;
     color: #2e82ff;
 }
 
 .li_list1 {
-    background: url("/static/images/kr/sub_nav_2.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/sub_nav_2.png") no-repeat;
     color: #2e82ff;
     margin-left: -15px;
 }
 
 .li_list2 {
-    background: url("/static/images/kr/sub_nav_3.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/sub_nav_3.png") no-repeat;
     color: #2e82ff;
     margin-left: -30px;
 }
@@ -3624,7 +3624,7 @@ input.check_code {
     height: 48px;
     display: inline-block;
     margin-top: 50px;
-    background: url("/static/images/kr/play.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/play.png") no-repeat;
     background-size: 99% 100%;
 }
 
@@ -3633,7 +3633,7 @@ input.check_code {
     height: 48px;
     display: inline-block;
     margin-top: 50px;
-    background: url("/static/images/kr/pause.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/pause.png") no-repeat;
 }
 
 .music-play p {
@@ -3993,7 +3993,7 @@ input.check_code {
 .center-grid {
     width: 100%;
     height: 362px;
-    background: url("/static/images/kr/explore-bg2.jpg") no-repeat scroll center top / cover;
+    background: url("/myapp-backend/static/images/kr/explore-bg2.jpg") no-repeat scroll center top / cover;
     /*background-size: 100% 100%;*/
     text-align: center;
     padding: 80px 0 20px;
@@ -4069,7 +4069,7 @@ input.check_code {
 
 .four-grid {
     width: 100%;
-    background: url("/static/images/kr/explore-bg3.png") no-repeat;
+    background: url("/myapp-backend/static/images/kr/explore-bg3.png") no-repeat;
     text-align: center;
     height: 400px;
 
@@ -4740,7 +4740,7 @@ input.check_code {
     top: -5px;
     width: 20px;
     height: 20px;
-    background: url('/static/images/kr/radar-out.png') no-repeat
+    background: url('/myapp-backend/static/images/kr/radar-out.png') no-repeat
 }
 
 .radar-point:hover {
@@ -4754,7 +4754,7 @@ input.check_code {
     width: 24px;
     height: 24px;
     cursor: move;
-    background: url('/static/images/kr/radar-center.png') no-repeat;
+    background: url('/myapp-backend/static/images/kr/radar-center.png') no-repeat;
 }
 
 .radar-control {
@@ -4783,7 +4783,7 @@ input.check_code {
     width: 60px;
     height: 60px;
     position: absolute;
-    background: url('/static/images/kr/radar-back.png') no-repeat
+    background: url('/myapp-backend/static/images/kr/radar-back.png') no-repeat
 }
 
 #chooseSceneModal .modal-body img {
@@ -5404,7 +5404,7 @@ input.check_code {
 
 /*关于我们*/
 .about-warper {
-    background: url('/static/images/kr/about-01.png') no-repeat left top;
+    background: url('/myapp-backend/static/images/kr/about-01.png') no-repeat left top;
     background-size: 100% 100%;
     width: 100%;
     height: auto;
@@ -5470,7 +5470,7 @@ input.check_code {
 }
 
 .about-vrvideo-share {
-    background: url('/static/images/kr/about-02.png') no-repeat left top;
+    background: url('/myapp-backend/static/images/kr/about-02.png') no-repeat left top;
     background-size: 100% 100%;
     width: 100%;
     height: 615px;
@@ -5500,7 +5500,7 @@ input.check_code {
 }
 
 .app-warper {
-    background: url('/static/images/kr/app-bg.png') no-repeat left top;
+    background: url('/myapp-backend/static/images/kr/app-bg.png') no-repeat left top;
     background-size: 100% 100%;
     height: 615px;
     color: white;
@@ -5517,7 +5517,7 @@ input.check_code {
 .app-left {
     width: 344px;
     height: 605px;
-    background: url("/static/images/kr/APP-phone.png") no-repeat left top;
+    background: url("/myapp-backend/static/images/kr/APP-phone.png") no-repeat left top;
     background-size: 100% 100%;
     float: left;
     /*margin-left: 300px;*/
@@ -5830,7 +5830,7 @@ input.check_code {
 .cloud-upload{
     width: 25px;
     height: 20px;
-    background:url("/static/images/kr/cloud.png") no-repeat;
+    background:url("/myapp-backend/static/images/kr/cloud.png") no-repeat;
     display:inline-block;
     vertical-align: bottom;
 }
@@ -6018,15 +6018,15 @@ input.check_code {
     padding-top: 2px;
 }
 .socially-content .weixin-ico {
-    background-image: url('/static/images/kr/login-bg.gif');
+    background-image: url('/myapp-backend/static/images/kr/login-bg.gif');
     background-position:-294px 0px;
 }
 .socially-content .qq-ico {
-    background-image: url('/static/images/kr/login-bg.gif');
+    background-image: url('/myapp-backend/static/images/kr/login-bg.gif');
     background-position:-42px 0px ;
 }
 .socially-content .weibo-ico {
-    background-image: url('/static/images/kr/login-bg.gif');
+    background-image: url('/myapp-backend/static/images/kr/login-bg.gif');
     background-position:0 0;
 }
 .email-content{
@@ -6060,7 +6060,7 @@ input.check_code {
 }
 
 .aboutus-block1{
-    background:rgba(0, 0, 0, 0) url("/static/images/kr/aboutus-block1.png") no-repeat scroll center top / cover;
+    background:rgba(0, 0, 0, 0) url("/myapp-backend/static/images/kr/aboutus-block1.png") no-repeat scroll center top / cover;
     height:530px;
     position:relative;
     text-align:center;
@@ -6236,7 +6236,7 @@ html,body{
 .cloud-upload {
     width: 25px;
     height: 20px;
-    background: url(/static/images/member/cloud.png) no-repeat;
+    background: url(/myapp-backend/static/images/member/cloud.png) no-repeat;
     display: inline-block;
     vertical-align: bottom;
 }

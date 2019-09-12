@@ -29,6 +29,5 @@ public class AlbumController {
 		String userid = params.getUserid();
 		List<AlbumBean> albums = albumService.getAlbum(userid);
 		return albums;
-
 	}
 }

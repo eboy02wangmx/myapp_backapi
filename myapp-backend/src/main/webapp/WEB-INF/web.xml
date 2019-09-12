@@ -142,6 +142,12 @@
 		<description></description>
 		<servlet-class>jp.co.myapp.servlet.GetToken</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>GetVrInfoDirId</servlet-name>
+		<display-name>GetVrInfoDirId</display-name>
+		<description></description>
+		<servlet-class>jp.co.myapp.servlet.GetVrInfoDirId</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>MemberMediares</servlet-name>
 		<url-pattern>/member/mediares</url-pattern>
@@ -153,6 +159,10 @@
 	<servlet-mapping>
 		<servlet-name>GetToken</servlet-name>
 		<url-pattern>/getToken</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetVrInfoDirId</servlet-name>
+		<url-pattern>/getVrInfoDirId</url-pattern>
 	</servlet-mapping>
 
     <jsp-config>

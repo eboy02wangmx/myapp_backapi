@@ -2,9 +2,6 @@ package jp.co.myapp.api.app.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,17 +41,24 @@ public class PanoImageUploadController extends AbstractApiController {
 		if (paramVrInfoId != null) {
 			Integer vrInfoId = Integer.valueOf(paramVrInfoId);
 			if (files != null && files.length > 0) {
-				String classesPath = this.getClass().getResource("/").getPath().replaceFirst("/", "")
+				String classesPath = "/" + this.getClass().getResource("/").getPath().replaceFirst("/", "")
 						.replaceAll("WEB-INF/classes/", "");
 				String dirId = UuidUtil.get();
 
 				// 1.创建pano目录。
 				String panoDirPath = classesPath + "tour/" + dirId;
-				Path panoDir = Paths.get(panoDirPath);
-				if (!Files.exists(panoDir)) {
-					Files.createDirectory(panoDir);
+				// Path panoDir = Paths.get(panoDirPath);
+				// if (!Files.exists(panoDir)) {
+				//     Files.createDirectory(panoDir);
+				// }
+				File panoDir = new File(panoDirPath);
+				System.out.println("111111111111111");
+				if (!panoDir.exists()) {
+					System.out.println("2222222222222222");
+					Boolean result = panoDir.mkdir();
+					System.out.println("文件创建-------->" + result);
 				}
-
+				System.out.println("33333333333333");
 				// 2.保存上传文件。
 				for (int i = 0; i < files.length; i++) {
 					MultipartFile file = files[i];
@@ -82,6 +86,8 @@ public class PanoImageUploadController extends AbstractApiController {
 						}
 					}
 				}
+
+				System.out.println(panoDirPath);
 
 				// 4.生成Pano。
 				KrPanoCmdBatUtil.setKrpano(classesPath, panoDirPath, "");

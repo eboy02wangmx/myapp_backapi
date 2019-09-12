@@ -3633,14 +3633,14 @@ function addPic(picArr) {
 
 }
 
-function openPanoSetting() {
+function openPanoSetting(dirId) {
    krpano_Id="panoSettingObject";
    var settings = {};
     settings["onstart"] = 'js(initPanoSetting());';
     embedpano({
         id: "panoSettingObject",
         swf: "/myapp-backend/tour/tour.swf",
-        xml: "/myapp-backend/tour/test8/tour.xml",
+        xml: "/myapp-backend/tour/" + dirId + "/vtour/tour.xml",
         target: "settingPano",
         html5:'auto',
        // flash:'only',
@@ -4764,7 +4764,7 @@ function addRadarControlOk(){
 
 function appendRadarCircle(sceneName,sceneTitle){
     var htmlStr = '<div class="radar-control">'+
-        '<img class="radar-control-img" src="/static/images/kr/radar-out.png" data-toggle="tooltip" title="'+sceneTitle+'" data-container="#panoSettingModal" ondragstart="return false;" data-scenename="'+sceneName+'">'+
+        '<img class="radar-control-img" src="/myapp-backend/static/images/kr/radar-out.png" data-toggle="tooltip" title="'+sceneTitle+'" data-container="#panoSettingModal" ondragstart="return false;" data-scenename="'+sceneName+'">'+
         '<div class="radar-circle">'+
         '<div class="radar-point" onmousedown="dragStart(event)" ></div>'+
         '<div class="radar-center-point"></div>'+

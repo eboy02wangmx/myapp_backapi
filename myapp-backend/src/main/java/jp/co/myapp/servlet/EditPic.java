@@ -38,6 +38,7 @@ public class EditPic extends HttpServlet {
 					result.append("{");
 					result.append("    \"pk_works_main\" : \"" + view_uuid + "\", ");
 					result.append("    \"name\" : \"" + vrInfo.get("bukenme") + "\", ");
+					result.append("    \"dirId\" : \"" + vrInfo.get("dirid") + "\", ");
 					result.append("    \"tour_guide\" : {\"points\":[]}, ");
 					result.append("    \"scenechoose\": \"1\",");
 					result.append("    \"autorotate\": \"1\",");
@@ -207,7 +208,7 @@ public class EditPic extends HttpServlet {
 				List<Object> params = new ArrayList<Object>();
 				params.add(id);
 				List<HashMap<String, Object>> list = JDBCUtil.getListHashMap(
-						"select t1.bukenme from innodb.vr_info t1 where t1.id = ?",
+						"select t1.bukenme, t1.dirId from innodb.vr_info t1 where t1.id = ?",
 						params);
 				if (list != null && list.size() > 0) {
 					vrInfo = list.get(0);

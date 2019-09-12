@@ -30,10 +30,21 @@
 	<script type="text/javascript">
 		$(function() {
 			setTimeout(function() {
-				openPanoSetting();
+				$.ajax({
+		            type : "POST",
+		            contentType: "application/json;charset=UTF-8",
+					url: "/myapp-backend/getVrInfoDirId?id=" + getQueryString("pid"),
+					success: function(dirId){
+						openPanoSetting(dirId);
+					}
+				});
 			}, 1000);
-
 		});
+		function getQueryString(name) {
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
 	</script>
 </head>
 <body>

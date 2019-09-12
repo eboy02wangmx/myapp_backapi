@@ -728,7 +728,8 @@ function initPano(){
         }
         embedpano({
             swf: "/myapp-backend/tour/tour.swf",
-            xml: "/myapp-backend/tour/test8/tour.xml",
+            //xml: "/myapp-backend/tour/test8/tour.xml",
+            xml: "/myapp-backend/tour/" + data.dirId + "/vtour/tour.xml",
             target: "pano",
             html5:'prefer',
             //flash:'only',

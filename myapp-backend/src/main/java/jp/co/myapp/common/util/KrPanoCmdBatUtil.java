@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,13 +39,16 @@ public class KrPanoCmdBatUtil {
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
 		}
-		String ex = "krpanotools64.exe makepano -config=\\templates\\vtour-vr.config " + preFolder + "\\*";
+//		String ex = "krpanotools makepano -config=\\templates\\vtour-vr.config " + preFolder + "\\*";
+		String ex = "krpanotools makepano -config=templates/vtour-vr.config " + preFolder + "/*";
 		Runtime runtime = Runtime.getRuntime();
 		boolean b = true;
 		Process p = null;
 		try {
-			p = runtime.exec("cmd /c start " + classesPath + "tool/krpano/" + ex);
+//			p = runtime.exec("cmd /c start " + classesPath + "tool/krpano/" + ex);
+			p = runtime.exec("/opt/soft/krpano/" + ex);
 		} catch (Exception e) {
+			e.printStackTrace();
 			b = false;
 		}
 		if (b) {
@@ -65,6 +69,9 @@ public class KrPanoCmdBatUtil {
 					} finally {
 						try {
 							is1.close();
+							File srcFile = new File(classesPath + "tour/vtourskin.xml");
+							File destFile = new File(path + "/vtour/skin/vtourskin.xml");
+							FileUtils.copyInputStreamToFile(new FileInputStream(srcFile), destFile);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
