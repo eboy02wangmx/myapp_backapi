@@ -1,0 +1,127 @@
+<!-- 公用包含地图 -->
+{literal}
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=5994df74e871c57bd0752608bfc0069a"></script> 
+<style>
+      #mainContainer{
+        width: 100%;
+        height: 100%;
+      }
+        #tip {
+            background-color: #ddf;
+            color: #333;
+            border: 1px solid silver;
+            box-shadow: 3px 4px 3px 0px silver;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            line-height: 30px;
+        }
+        #tip input[type="text"] {
+            height: 30px;
+            border: 0;
+            padding-left: 5px;
+            width: 280px;
+            border-radius: 3px;
+            outline: none;
+        }
+
+</style>
+<script>
+var point;
+
+    // function showWindow(position){
+    //     initMap(position);
+    // }
+    //初始化地图
+    function initMap(position){
+        ss = position.split(",");//
+        var info = createMap(ss);
+        addMarker(ss,info);
+        addMapControl();
+        SearchMap();
+    }
+    //创建地图
+    function createMap(position){
+         
+        var map = new AMap.Map('mainContainer', {
+        resizeEnable: true,
+        zoom:13,
+        center: position,
+		raiseOnDrag: false  
+        }); 
+        window.map = map;  
+        var clickEventListener = map.on('click', function(e) {
+            point= e.lnglat.getLng() + ',' + e.lnglat.getLat();
+            addMarker(e.lnglat);
+            $('input[name="position"]').val(point);
+        });
+
+        
+    }
+    //加载工具
+    function addMapControl(){
+        AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView'],
+        function(){
+        map.addControl(new AMap.ToolBar());
+
+        map.addControl(new AMap.Scale());
+
+        map.addControl(new AMap.OverView({isOpen:true}));
+        });
+    }
+    //添加标注
+    function addMarker(point,info){
+        map.clearMap();
+        var marker = new AMap.Marker({
+         position: point,//[116.480983, 39.989628], //new AMap.LngLat(116.39,39.9)
+         draggable: true,
+      });
+       marker.setMap(map);
+       marker.on('dragend', function(e) {
+          point= e.lnglat.getLng() + ',' + e.lnglat.getLat();
+          $('input[name="position"]').val(point);
+        });
+       // AMap.event.addListener(marker, "dragend", alert('1'));
+       return marker;
+    }
+
+
+    //添加弹出信息
+    function createWindowInfo(content){
+        var info=new AMap.InfoWindow({
+            content:content,
+            offset:new AMap.Pixel(0,-28)
+        });
+        return info;
+    }
+
+    function SearchMap(){
+        AMap.plugin(['AMap.Autocomplete','AMap.PlaceSearch'],function(){
+     var autoOptions = {
+          city: "六盘水", //城市，默认全国
+          input: "txt_keyword"//使用联想输入的input的id
+     };
+     autocomplete= new AMap.Autocomplete(autoOptions);
+     var placeSearch = new AMap.PlaceSearch({
+              city:'六盘水',
+              map:map
+     });
+     AMap.event.addListener(autocomplete, "select", function(e){
+           //TODO 针对选中的poi实现自己的功能
+           // console.log(e.poi.location);
+           if(e.poi.location){
+              var nowPoint = e.poi.location['lng']+','+e.poi.location['lat'];
+              $('input[name="position"]').val(nowPoint);
+           }
+           // addMarker(nowPoint);
+           placeSearch.search(e.poi.name)
+        });
+    });
+}
+</script>
+<script type="text/javascript" src="http://webapi.amap.com/demos/js/liteToolbar.js"></script>
+{/literal}
+

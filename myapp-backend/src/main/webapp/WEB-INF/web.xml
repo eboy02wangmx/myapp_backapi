@@ -124,6 +124,37 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+	<servlet>
+		<servlet-name>MemberMediares</servlet-name>
+		<display-name>MemberMediares</display-name>
+		<description></description>
+		<servlet-class>jp.co.myapp.servlet.MemberMediares</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditPic</servlet-name>
+		<display-name>EditPic</display-name>
+		<description></description>
+		<servlet-class>jp.co.myapp.servlet.EditPic</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetToken</servlet-name>
+		<display-name>GetToken</display-name>
+		<description></description>
+		<servlet-class>jp.co.myapp.servlet.GetToken</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberMediares</servlet-name>
+		<url-pattern>/member/mediares</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditPic</servlet-name>
+		<url-pattern>/edit/pic</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetToken</servlet-name>
+		<url-pattern>/getToken</url-pattern>
+	</servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

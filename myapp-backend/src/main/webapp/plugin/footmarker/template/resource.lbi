@@ -1,0 +1,98 @@
+{literal}
+
+<div style="width:60%;height:482px;position:absolute;left:20%;top:140px;display:none;background:#fff" id="container">
+	<iframe src="/footer_marker.html" style="width:100%;height:100%;overflow:hidden;position:absolute;left:0;top:0" scrolling='no'></iframe>
+	<div style="position:absolute;right:-5px;top:-5px;cursor:pointer" class="map_cha">
+		<img src="/template/default/images/cha.png" style="width:25px;">
+	</div>
+	<div style="background:#3280fc;color:#fff;width:150px;height:40px;line-height:40px;text-align:center;position:absolute;right:15px;bottom:15px;cursor:pointer" class='my_zuji'>
+		Ta的地图足迹
+	</div>
+</div>	
+<script>
+$("#footmarkDiv").click(function(){
+		$("#container").css("display","block");
+});
+$(".map_cha").click(function(){
+		$("#container").css("display","none");
+});
+$(".my_zuji").click(function(){
+		var my_location=document.location.href;
+	    my_location=parent.location.pathname.substring(6,23);
+	    $.ajax({
+	   		url:"/getMarker.php",
+	   		data:{
+	   			"view_uuid":my_location
+	   		},
+	   		success:function(data){
+	   			data=JSON.parse(data);
+	   			lc_address=data.lcposition;
+	   			lc_position=data.arr;
+	   			lc_user=data.user;
+	   			console.log(data);
+	   			window.location.href="/mapFooter/person_footer.php?user="+lc_user;
+	   		}
+	    
+	});
+	});
+	$(function(){
+		plugins_init_function.push(footmarker_init);
+	})
+	function click_footer(){
+		$("#footmarkDiv").click(function(){
+			map_show();
+		});
+	}
+	function footmarker_init(data){
+		 if (data.footmark=='0') {
+            $('#footmarkDiv').hide();
+        }
+	}
+	function hideShareAndFootmarkBtn(){
+	    //$("#shareDiv").hide();
+	    $("#footmarkDiv").hide();
+	}
+	/*
+	
+	*/
+	function map_show(){
+		// var krpano = document.getElementById('krpanoSWFObject');
+	    //var sceneName = krpano.get('xml.scene');
+	    //var viewuuid = (sceneName.split('_'))[1].toUpperCase();
+	    //var locationData = $('body').data(viewuuid);
+	   // console.log(locationData);
+	    //if(locationData){
+	      //  _U.mapMarkModal().openModal(locationData,true);
+	   // }else{
+	     //   $.zui.messager.show('没有足迹', {placement: 'center', type: 'warning', time: '3000', icon: 'warning-sign'});
+	   // }
+	   var my_location=document.location.href;
+	   //console.log(my_location);
+	  my_location=my_location.substring(27,43);
+	  // console.log(my_location);
+	   $.ajax({
+	   		url:"/getMarker.php",
+	   		data:{
+	   			"view_uuid":my_location
+	   		},
+	   		success:function(data){
+	   			data=JSON.parse(data);
+	   			lc_address=data.lcposition;
+	   			lc_position=data.arr;
+	   			if(lc_address.length>0){
+	   				lc_position=lc_position.split(",");
+	   				console.log(lc_position);
+	   				init(lc_position[0],lc_position[1]);
+	   			}
+	   			else{
+	   				$.zui.messager.show('没有足迹', {placement: 'center', type: 'warning', time: '3000', icon: 'warning-sign'});
+	   			}
+	   		}
+	   })
+	}
+	function showFootMark(){
+	   
+	}
+
+</script>
+{/literal}

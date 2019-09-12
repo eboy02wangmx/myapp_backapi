@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>VR表示</title>
+    <meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control" />
+    <meta content="no-cache" http-equiv="Pragma" />
+    <meta content="0" http-equiv="Expires" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="/myapp-backend/template/default/css/redefine.css">
+	<link rel="stylesheet" href="/myapp-backend/template/default/css/aliplayer-min.css"/>
+    <script type="text/javascript" src="/myapp-backend/static/js/kr/uhweb.js?v=2.0"></script>
+    <script type="text/javascript" src="/myapp-backend/static/js/kr/video_patch.js?v=0105"></script>
+	<script type="text/javascript" src="/myapp-backend/static/js/kr/polygonHotSpot.js"></script>
+    <script type="text/javascript" src="/myapp-backend/static/js/kr/vrshow2.js?v=012301"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp"></script>
+    <style>
+        @-ms-viewport { width:device-width; }
+        @media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+        html { height:100%; }
+        body { height:100%; overflow:hidden; margin:0; padding:0; font-family:microsoft yahei, Helvetica, sans-serif;  background-color:#000000; }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            setSize();
+        });
+        function setSize(){
+            var swidth= $(window).width();
+            var pwidth= $("#div_place").width();
+            var w=(swidth-pwidth)/2;
+            $(".vrshow_container_4_min").css("left",w);
+        }
+        $(window).resize(function(){
+            setSize();
+        });
+    </script>
+</head>
+<body>
+	<script type="text/javascript" src="/myapp-backend/tour/tour.js?v=121901"></script>
+	<div id="fullscreenid" style="position:relative;width:100%; height:100%;">
+        <div id="panoBtns" style="display:none">
+            <div class="vrshow_container_1_min"></div>
+            <div class="vrshow_radar_btn" onClick="toggleKrpSandTable()"></div>
+            <div class="vrshow_container_2_min"></div>
+            <div class="vrshow_container_3_min">
+                <div class="img_desc_container_min scene-choose-width" style="display:none">
+                    <img src="/myapp-backend/static/images/skin1/vr-btn-scene.png" onClick="showthumbs()">
+                    <div class="img_desc_min">シーン一覧</div>
+                </div>
+            </div>
+        </div>
+        <div id="pano" style="width:100%; height:100%;"></div>
+	</div>
+</body>
+</html>

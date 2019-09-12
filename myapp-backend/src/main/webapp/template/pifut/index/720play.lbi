@@ -1,0 +1,81 @@
+	
+		
+		<style type="text/css">
+h2.art-tit{
+margin:0;color:#888;font-weight:normal;padding:10px;background:#fff;border-bottom:1px solid #e4e4e4;
+}
+.art-box{
+border:1px solid #e4e4e4;margin-bottom:20px;
+}
+.art-content{
+padding:10px;overflow:hidden;
+}
+.art-content img{
+max-width:100%;
+}
+
+
+.vid-wrap{
+
+    width:100%;background: #000;
+
+    position:relative;
+
+    padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+
+    height: 0;
+
+}
+
+.vid-wrap video{
+
+    position: absolute;
+
+    top:0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 80%
+
+}
+
+</style>
+
+
+	
+      
+	  
+
+	  
+<!-- 标题 -->
+
+<H1  style="    font-size: 30px;    margin-top: 10px;    margin-bottom: 10px;    line-height: 20px;    text-align: center;">{$a.rname} </H1><!-- 文本 -->
+	
+		<div class="clearfix">	  </div>
+	
+<div class="vid-wrap">
+
+
+    <video controls autoplay loop>
+
+	<source src="{$a.obj}" type="video/mp4" poster="/static/images/loading.gif" autoplay="true">
+
+    </video>
+
+</div
+  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	
+
+
+
+</div>

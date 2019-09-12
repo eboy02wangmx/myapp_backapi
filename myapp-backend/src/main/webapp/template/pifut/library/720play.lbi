@@ -1,0 +1,33 @@
+	
+		
+		<style type="text/css">
+h2.art-tit{
+margin:0;color:#888;font-weight:normal;padding:10px;background:#fff;border-bottom:1px solid #e4e4e4;
+}
+.art-box{
+border:1px solid #e4e4e4;margin-bottom:20px;
+}
+.art-content{
+padding:10px;overflow:hidden;
+}
+.art-content img{
+max-width:100%;
+}
+</style>
+
+<div class="about-container body-content">
+<DIV class="top-banner hidden-xs"><IMG class="bc-img" src="./template/{$_lang.moban}/images/about-bg.jpg"></DIV><!-- container -->
+<DIV class="container"><!-- 标题 -->
+
+<H1  style="    font-size: 30px;    margin-top: 50px;    margin-bottom: 30px;    line-height: 30px;    text-align: center;">{$a.rname} </H1><!-- 文本 -->
+	
+		<div class="clearfix"></div>
+	
+      <div class="modal-body" style="text-align: center;min-height: 500px;">
+           <video src="{$a.obj}" controls="controls" style="width: 80%;" poster="/static/images/loading.gif" autoplay="true">
+              您的浏览器暂不支持视频预览，请升级浏览器版本
+            </video>
+        </div>
+	</div>
+
+</div>

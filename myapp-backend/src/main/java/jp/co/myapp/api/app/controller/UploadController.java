@@ -50,6 +50,7 @@ public class UploadController extends AbstractApiController {
     public void fileupload(HttpServletRequest request, HttpServletResponse response) throws Exception {
         logger.info("NHA_O_0010" + " 処理開始");
 
+        String vrInfoId = request.getParameter("vrInfoId");
         Part part = request.getPart("file");
         String file = request.getParameter("fileName");
         String fileName = part.getSubmittedFileName();

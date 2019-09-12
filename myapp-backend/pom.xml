@@ -375,6 +375,22 @@
 		<!-- 追加あれば、xmlを戻る <dependency> <groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId> <version>2.4.3</version>
 			</dependency> -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -583,7 +599,7 @@
 			<properties>
 				<app.context>homeassist</app.context>
 				<csrf.disabled>true</csrf.disabled>
-				<admin.authority>1</admin.authority>                
+				<admin.authority>1</admin.authority>
 				<jdbc.sonpo.username>sonpo_ha</jdbc.sonpo.username>
 				<jdbc.sonpo.password>ki8eXYXs</jdbc.sonpo.password>
 			</properties>

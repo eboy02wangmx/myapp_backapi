@@ -1,0 +1,119 @@
+
+{include file="{$_lang.moban}/library/member_paths.lbi"}
+
+<div class="works-container">
+<div class="container container_works" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-10">
+            <ol class="breadcrumb clear_padding_left">
+                <li><a href="/member/videobox"><i class="icon icon-home"></i>&nbsp;视频</a></li>
+                <li class="active">{$videobox.rname}</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row row_margin_bottom" style="margin-top: 0px;">
+        <div class="col-md-10 advanced-setting-block" style="padding-top:10px;padding-bottom:10px;">
+            <div class="row">
+                <div class="col-md-55">
+                    <img id="img_path" style="height:200px;" class="img-responsive" src="{if $videobox.img_path}{$videobox.img_path}{else}/static/images/default.png{/if}">
+                    <div class="col-md-12 row_margin_bottom" style="padding: 0">
+                        <!-- <input id="picUpload" name="file" type="file" class="file-loading"> -->
+                        <button type="button" id="workCover" data-imgtype="custom" data-usetype="workCover" data-modalid="#media_icon" class="btn btn-block">替换封面图</button>
+                        <!-- <span class="help-block">请选择或上传2比1的封面图片
+                        </strong> 支持格式: <strong class="text-warning">JPG / PNG / JPEG </strong></span> -->
+                    </div>
+                   <!--  <div id="errorMsgDiv" class="col-md-12 text-danger" style="padding: 0;display: none">
+                        <i class="icon icon-exclamation-sign"></i>
+                        <span id="errorMsg"></span>
+                    </div> -->
+
+                </div>
+
+                <div class="col-md-55">
+                    <form class="form-horizontal" method="post" role="form">
+                        <div class="form-group">
+
+                            <label class="col-md-2 control-label">视频名称</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="rname" name="rname" value="{$videobox.rname}" onblur="update_ring('rname',this)" placeholder="请输入720名称" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">外部链接</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="link" name="link" value="{$videobox.link}" onblur="update_ring('link',this)" placeholder="请输入720链接地址" maxlength="100">
+                            </div>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label class="col-md-2 control-label">视频文件</label>
+                               <div class="col-md-10">
+                                  <img src="/static/images/zip.png" width="30px">
+                                  <a id="obj" href="{$videobox.obj}" style="margin:0px 10px;">
+                                     <i class="icon icon-download">下载查看</i>
+                                  </a>
+                                   <a href="javascript:;" id="update_obj">
+                                     <i class="icon icon-undo">替换文件</i>
+                                  </a>
+
+                              </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </div>
+
+      
+        </div>
+        <div class="col-md-2">
+            <div class="btn_fixed_works">
+
+                <button class="btn btn-block advanced-setting-btn" type="button" onclick="preview_videobox({$videobox.id})">预览</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+</div>
+</div>
+<div class="modal fade" id="media_icon" data-backdrop="static" data-keyboard="false" data-position="5%">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ul id="myTab" class="nav nav-tabs">
+                    <!-- <li ><a href="#pic" data-toggle="tab" class="img_tab">图片</a></li> -->
+                    <li class="active"><a href="#upload" data-toggle="tab" id="upload_tab">上传</a></li>
+                    <div class="btn_confirm">
+                        <!-- <li>
+                            <button class="btn btn-primary confirm-choose" type="button" onclick="confirmChoseCover()">确定选择</button>
+                        </li> -->
+                        <li>
+                            <button class="btn" type="button" id="cancel_icon" data-dismiss="modal">取消
+                            </button>
+                        </li>
+                    </div>
+                </ul>
+                <div id="myTabContent" class="tab-content" style="height:410px;overflow: auto;">
+
+                    <div class="tab-pane fade clearfix active in" id="upload">
+                       <input id="imgUpload" name="file" type="file" class="">
+                        <p id="mediaTyPrompt">上传文件格式：mtl、obj、mp3、png、jpg格式。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var cdn_host = "{$cdn_host}";
+var up_url = "{$_lang.up_url}";
+var prefix = "{$prefix}";
+var rid = "{$videobox.id}";
+</script>
+<script src="/static/js/jquery.zclip.min.js"></script>
+<script src="/static/js/kr/videobox_edit.js"></script>
+<!-- <script src="/static/js/kr/video_edit.js"></script> -->

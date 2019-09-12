@@ -1,0 +1,91 @@
+<script>
+	$(function(){
+		plugins_init_function.push(link_init);
+	   $('#mapMarkModal').on('hide.zui.modal', function (e) {
+	        toggleBtns(true);
+	    });
+	})
+	function link_init(data){
+		$(".vrshow_container_3_min .img_desc_container_min:first").nextAll().remove();
+		if (data.url_phone_nvg.linkSettings && data.url_phone_nvg.linkSettings.length > 0) {
+		    $(data.url_phone_nvg.linkSettings).each(function(idx){
+		        var imgSrc = this.imgPath;
+		        var title = this.title;
+		        var htmlStr = '';
+		        if(this.type == 0){
+		            var locationData = this.content;
+		            htmlStr += '<div class="img_desc_container_min img_add" >'+
+		                '<img src="'+imgSrc+'" onclick="openMapModal(this,true)">'+
+		                '<div class="img_desc_min">'+title+'</div>'+
+		                '</div>';
+		            $(".vrshow_container_3_min").append(htmlStr);
+		            $(".vrshow_container_3_min > div:last img").data("locationData",locationData);
+		        }else{
+		            var url = this.content;
+		            if(!isNaN(url)){
+		                url = "tel://" + url;
+		            }else{
+		                if(url.indexOf('http://') != 0&&url.indexOf('https://') != 0){
+		                    url = 'http://' + url;
+		                }
+		            }
+		            htmlStr += '<div class="img_desc_container_min img_add" >'+
+		                '<img src="'+imgSrc+'" onclick="lookLinkUrl(\''+url+'\')" '+(isIos()?'':'data-toggle="tooltip"')+' title="'+(url.length > 20 ? url.substring(0,20)+'...' : url)+'">'+
+		                '<div class="img_desc_min">'+title+'</div>'+
+		                '</div>';
+		            $(".vrshow_container_3_min").append(htmlStr);
+		        }
+		    });
+		    $('.vrshow_container_3_min [data-toggle=tooltip]').tooltip({});
+		}
+	}
+	function isIos(){
+		var ua = navigator.userAgent.toLowerCase();	
+		if (/iphone|ipad|ipod/.test(ua)) {
+				return true;	
+		} 
+		return false;
+	}
+	function lookLinkUrl(url){
+	
+    	window.open(url);
+	}
+	function openMapModal(el,readonly){
+		// toggleBtns();
+	    mapModalEl = el;
+	    //_U.mapMarkModal().openModal($(mapModalEl).data("locationData"),readonly);
+	    //console.log(mapModalEl.lng);
+	    //console.log(mapModalEl.lat);
+	   // console.log($(mapModalEl).data("locationData").lng);
+	    lng=$(mapModalEl).data("locationData").lng;
+	   // console.log($(mapModalEl).data("locationData").lat);
+	    lat=$(mapModalEl).data("locationData").lat;
+	    model='<div style="position:absolute;left:25%;'+
+'top:10%;width:50%;height:60%;border:1px solid #ccc;background:#fff;z-index:9999;'+
+'border-radius:15px;"class="diaLog_qq">'+
+'<div style="position:absolute;left:0;top:0;height:50px;line-height:50px;padding-left:10px;">导航'+
+'</div>'+
+'<iframe src="//3gimg.qq.com/lightmap/v1/marker/?referer=myapp;&amp;key=YK6BZ-XG7KX-4A244-7FPRA-'+'ESPTF-ZOBPF&marker=coord:'+lat+','+lng+'"'+
+		'frameborder="0" width="100%" height="88%" style="position:absolute;left:0;top:50px;">'+
+		'</iframe>'+
+		'<div class="s_close" style="position: absolute;right:20px;top:10px;'+
+		'width: 120px;height:30px;border:1px solid #ccc;text-align: center;line-height: 30px;border-radius:10px;">'+
+		'<a href="javascript:;" style="text-decoration:none;color:#000">'+
+		'关闭</a>'+
+		'</div>'+
+	'</div>';
+//		console.log(model);
+		if($(window).width()>1024){
+			//alert("PC"+$(window).width());
+			$("#fullscreenid").append(model);
+		}
+		else{
+			//alert("mobile"+$(window).width());
+			window.location.href="http://3gimg.qq.com/lightmap/v1/marker/?referer=myapp;&amp;key=ETYBZ-OUAW4-O3GU6-DCKMA-MNSPH-PSBSD&marker=coord:"+lat+","+lng;
+		}
+	 
+	    $(".s_close").click(function(){
+			$(".diaLog_qq").remove();
+		});
+	}
+</script>

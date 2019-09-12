@@ -1,0 +1,13 @@
+<style>
+@media (max-width: 768px) {
+	.mui-mbar-tabs{
+		display:none
+	}
+	.mapcontent{
+		height:500px !important;
+	}
+}
+</style>
+<div style="width:100%;height:680px" class="mapcontent">
+	<iframe src="map.html" width="100%" height="100%"></iframe>
+</div>

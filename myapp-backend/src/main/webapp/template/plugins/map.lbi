@@ -1,0 +1,45 @@
+
+          <div class="row">
+            <div class="col-md-10">
+              <div class="form-group" >
+                <div class="input-group" style="width:120.5%" >
+                  <span class="input-group-addon">地理位置</span>
+                  <input type="text" class="form-control" id="cityInput"
+                       placeholder="点击地图选取作品拍摄地点，保存位置信息更利于作品被搜索到" data-toggle="modal"
+                       data-target="#mapLocation">
+                </div>
+              </div>
+            </div>
+          </div>
+<!--地址选择框-->
+<div class="modal fade" id="mapLocation">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+              class="sr-only">关闭</span></button>
+        <h4 class="modal-title">地图位置</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary aaaaaa">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="/static/address-locator/address-locator.css">
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=YK6BZ-XG7KX-4A244-7FPRA-ESPTF-ZOBPF"></script>
+<script src="/static/address-locator/address-locator.js"></script>
+<script>
+  var $mapLocation = $('#mapLocation');
+  var $locator = $mapLocation.find('.modal-body').locator();
+  var $cityInput = $('#cityInput');
+  console
+  $mapLocation.find('button.btn-primary').on('click', function () {
+    var ret = $locator.locator('location');
+    $cityInput.val(ret.address);
+    $mapLocation.modal('hide');
+    
+  });
+</script>
