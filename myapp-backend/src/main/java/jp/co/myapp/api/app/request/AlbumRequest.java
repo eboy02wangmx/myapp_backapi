@@ -12,6 +12,26 @@ public class AlbumRequest implements Serializable {
 
 	private String create_time;
 
+	private String location;
+
+	private String setsumei;
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getSetsumei() {
+		return setsumei;
+	}
+
+	public void setSetsumei(String setsumei) {
+		this.setsumei = setsumei;
+	}
+
 	public String getCreate_time() {
 		return create_time;
 	}

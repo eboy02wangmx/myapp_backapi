@@ -13,6 +13,16 @@ public class ImagesBean {
 
 	private String location;
 
+	private String setsumei;
+
+	public String getSetsumei() {
+		return setsumei;
+	}
+
+	public void setSetsumei(String setsumei) {
+		this.setsumei = setsumei;
+	}
+
 	public String getLocation() {
 		return location;
 	}

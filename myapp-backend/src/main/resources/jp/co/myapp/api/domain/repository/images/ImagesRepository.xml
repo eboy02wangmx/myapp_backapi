@@ -10,11 +10,12 @@
 		<result property="filename" column="filename" javaType="java.lang.String"></result>
 		<result property="create_time" column="create_time" javaType="java.lang.String"></result>
 		<result property="location" column="location" javaType="java.lang.String"></result>
+		<result property="setsumei" column="setsumei" javaType="java.lang.String"></result>
 	</resultMap>
 
 
     <select id="getImagesInfo" parameterType="String" resultMap="imagesMap">
-		select t1.filename, t1.create_time, t1.location
+		select t1.filename, t1.create_time, t1.location, t1.setsumei
 		from innodb.u_imgsmain t1
 		inner join innodb.u_imgs_works t2 on t1.pk_img_main = t2.pk_img_main
 		inner join innodb.vr_info t3 on t2.pk_works_main = t3.id
@@ -24,4 +25,10 @@
     <delete id="deleteUser" parameterType="String">
 	delete from innodb.user_info where userid = #{userid}
 	</delete>
+
+	<update id="insertSetsumei" parameterType="jp.co.myapp.api.app.request.AlbumRequest">
+	update innodb.u_imgsmain set
+	setsumei = #{setsumei}
+	where location = #{location}
+	</update>
 </mapper>
