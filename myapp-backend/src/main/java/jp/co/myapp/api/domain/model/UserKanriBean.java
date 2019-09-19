@@ -5,6 +5,14 @@ import java.io.Serializable;
 import jp.co.myapp.api.app.data.AbstractResultData;
 
 public class UserKanriBean extends AbstractResultData implements Serializable {
+	public String getSoshikiid() {
+		return soshikiid;
+	}
+
+	public void setSoshikiid(String soshikiid) {
+		this.soshikiid = soshikiid;
+	}
+
 	private static final long serialVersionUID = -8103595080889462692L;
 
 	//アカウントID
@@ -26,6 +34,18 @@ public class UserKanriBean extends AbstractResultData implements Serializable {
 	private String picnum;
 
 	private String flag;
+
+	private String soshikiid;
+
+	private String soshikime;
+
+	public String getSoshikime() {
+		return soshikime;
+	}
+
+	public void setSoshikime(String soshikime) {
+		this.soshikime = soshikime;
+	}
 
 	public String getFlag() {
 		return flag;

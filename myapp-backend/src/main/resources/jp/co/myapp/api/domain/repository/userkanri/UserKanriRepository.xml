@@ -12,6 +12,8 @@
 		<result property="yukokbn" column="yukokbn" javaType="java.lang.String"></result>
 		<result property="systemdate" column="systemdate" javaType="java.lang.String"></result>
 		<result property="picnum" column="picnum" javaType="java.lang.String"></result>
+		<result property="soshikiid" column="soshikiid" javaType="java.lang.String"></result>
+		<result property="soshikime" column="soshikime" javaType="java.lang.String"></result>
 	</resultMap>
 
 
@@ -22,7 +24,9 @@
 			user_info.kengen,
 			user_info.yukokbn,
 			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
-			sum(vr_info.picnum) picnum
+			sum(vr_info.picnum) picnum,
+			user_info.soshikiid,
+			user_info.soshikime
 			FROM
 				user_info
 			left join
@@ -45,7 +49,9 @@
 			user_info.kengen,
 			user_info.yukokbn,
 			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
-			sum(vr_info.picnum) picnum
+			sum(vr_info.picnum) picnum,
+			user_info.soshikiid,
+			user_info.soshikime
 			FROM
 				user_info
 			left join
@@ -128,4 +134,12 @@
     <delete id="deleteUser" parameterType="String">
 	delete from innodb.user_info where userid = #{userid}
 	</delete>
+
+	<update id="updateyukokbn" parameterType = "jp.co.myapp.api.app.request.UserKanriRequest">
+    update innodb.user_info set
+    yukokbn = #{yukokbn}
+	where userid = #{userId}
+
+	</update>
+
 </mapper>

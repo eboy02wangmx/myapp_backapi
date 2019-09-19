@@ -3,6 +3,7 @@ package jp.co.myapp.api.domain.repository.userkanri;
 import java.util.List;
 
 import jp.co.myapp.api.app.request.UserCreateRequest;
+import jp.co.myapp.api.app.request.UserKanriRequest;
 import jp.co.myapp.api.domain.model.UserInfoBean;
 import jp.co.myapp.api.domain.model.UserKanriBean;
 
@@ -22,4 +23,6 @@ public interface UserKanriRepository {
    public UserInfoBean getUserInfo(String userId);
 
    public List<UserKanriBean> getAdminInfo(String userId);
+
+   public void updateyukokbn(UserKanriRequest param);
 }
