@@ -12,7 +12,7 @@
 		<result property="yukokbn" column="yukokbn" javaType="java.lang.String"></result>
 		<result property="systemdate" column="systemdate" javaType="java.lang.String"></result>
 		<result property="picnum" column="picnum" javaType="java.lang.String"></result>
-		<result property="soshikiid" column="soshikiid" javaType="java.lang.String"></result>
+		<result property="customid" column="soshikiid" javaType="java.lang.String"></result>
 		<result property="soshikime" column="soshikime" javaType="java.lang.String"></result>
 	</resultMap>
 
@@ -25,7 +25,7 @@
 			user_info.yukokbn,
 			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
 			sum(vr_info.picnum) picnum,
-			user_info.soshikiid,
+			user_info.customid,
 			user_info.soshikime
 			FROM
 				user_info
@@ -40,6 +40,7 @@
                                     )
 
             group by user_info.userid
+            order by customid,kengen
 
     </select>
         <select id="getAdminInfo" parameterType="String" resultMap="userKanriMap">
@@ -50,7 +51,7 @@
 			user_info.yukokbn,
 			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
 			sum(vr_info.picnum) picnum,
-			user_info.soshikiid,
+			user_info.customid,
 			user_info.soshikime
 			FROM
 				user_info
@@ -58,7 +59,7 @@
 				vr_info
 			on vr_info.userid = user_info.userid
 			group by userid
-
+            order by customid,kengen
     </select>
 
     <update id="createUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">

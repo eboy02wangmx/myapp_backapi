@@ -5,13 +5,6 @@ import java.io.Serializable;
 import jp.co.myapp.api.app.data.AbstractResultData;
 
 public class UserKanriBean extends AbstractResultData implements Serializable {
-	public String getSoshikiid() {
-		return soshikiid;
-	}
-
-	public void setSoshikiid(String soshikiid) {
-		this.soshikiid = soshikiid;
-	}
 
 	private static final long serialVersionUID = -8103595080889462692L;
 
@@ -35,9 +28,17 @@ public class UserKanriBean extends AbstractResultData implements Serializable {
 
 	private String flag;
 
-	private String soshikiid;
+	private String customid;
 
 	private String soshikime;
+
+	public String getCustomid() {
+		return customid;
+	}
+
+	public void setCustomid(String customid) {
+		this.customid = customid;
+	}
 
 	public String getSoshikime() {
 		return soshikime;
