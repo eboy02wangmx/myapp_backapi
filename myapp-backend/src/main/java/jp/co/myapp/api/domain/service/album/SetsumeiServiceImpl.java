@@ -18,8 +18,6 @@ public class SetsumeiServiceImpl implements SetsumeiService {
 	@Override
 	public void insertSetsumei(AlbumRequest params) {
 		imagesRepository.insertSetsumei(params);
-
 	}
-
 
 }

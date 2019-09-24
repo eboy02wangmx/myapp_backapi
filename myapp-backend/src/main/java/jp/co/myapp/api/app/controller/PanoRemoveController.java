@@ -72,7 +72,7 @@ public class PanoRemoveController extends AbstractApiController {
 				}
 
 				// 2.重新生成Pano。
-				KrPanoCmdBatUtil.setKrpano(classesPath, destFileFolder, "");
+				KrPanoCmdBatUtil.setKrpano(classesPath, destFileFolder);
 
 				Date now = new Date();
 				Integer picNum = 0;

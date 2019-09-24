@@ -1,13 +1,11 @@
 package jp.co.myapp.api.domain.service.album;
 
-
 import java.util.List;
 
-import jp.co.myapp.api.domain.model.AlbumBean;
+import jp.co.myapp.api.domain.model.Riyo;
 
 public interface RiyoService {
 
-	public List<AlbumBean> getRiyo();
+	public List<Riyo> search(String userId);
 
-	public void riyoEff(String riyoEff);
 }

@@ -6,8 +6,6 @@ import jp.co.myapp.api.domain.model.ImagesBean;
 
 public interface ImagesService {
 
-		public List<ImagesBean> getImagesInfo(String userid);
-
-		public List<ImagesBean> getAdminInfo(String userid);
+	public List<ImagesBean> getImagesInfo(String vrInfoId);
 
 }

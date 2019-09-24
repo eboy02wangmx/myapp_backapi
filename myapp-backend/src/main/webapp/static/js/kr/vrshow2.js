@@ -722,7 +722,8 @@ function initPano(){
              plugins_init_function[i](data,settings);
         }
         settings['skin_settings.littleplanetintro'] = data.littleplanet=="1" ? true : false;
-        settings['autorotate.enabled'] = data.autorotate=="1" ? true : false;
+//        settings['autorotate.enabled'] = data.autorotate=="1" ? true : false;
+        settings['autorotate.enabled'] = false;
         if (data.scene_group.sceneGroups.length>0) {
              $(".vrshow_container_3_min .img_desc_container_min:eq(0) img").attr('src',data.scene_group.sceneGroups[0].imgPath);
         }

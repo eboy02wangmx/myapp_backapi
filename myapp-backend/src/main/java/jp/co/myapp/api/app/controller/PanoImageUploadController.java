@@ -52,13 +52,9 @@ public class PanoImageUploadController extends AbstractApiController {
 				//     Files.createDirectory(panoDir);
 				// }
 				File panoDir = new File(panoDirPath);
-				System.out.println("111111111111111");
 				if (!panoDir.exists()) {
-					System.out.println("2222222222222222");
-					Boolean result = panoDir.mkdir();
-					System.out.println("文件创建-------->" + result);
+					panoDir.mkdir();
 				}
-				System.out.println("33333333333333");
 				// 2.保存上传文件。
 				for (int i = 0; i < files.length; i++) {
 					MultipartFile file = files[i];
@@ -87,10 +83,8 @@ public class PanoImageUploadController extends AbstractApiController {
 					}
 				}
 
-				System.out.println(panoDirPath);
-
 				// 4.生成Pano。
-				KrPanoCmdBatUtil.setKrpano(classesPath, panoDirPath, "");
+				KrPanoCmdBatUtil.setKrpano(classesPath, panoDirPath);
 
 				Date now = new Date();
 				Integer picNum = 0;

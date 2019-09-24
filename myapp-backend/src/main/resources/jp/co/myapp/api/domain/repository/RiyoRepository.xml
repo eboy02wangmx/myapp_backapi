@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.myapp.api.domain.repository.RiyoRepository">
+
+	<select id="selectUser" resultType="jp.co.myapp.api.domain.model.User">
+		select kengen, customid from user_info where userid = #{userId};
+	</select>
+
+	<select id="selectRiyoHeadListByAdmin" resultType="jp.co.myapp.api.domain.model.RiyoHead">
+		select distinct t1.customid, t1.soshikime, t1.planname contractName,
+			(select t2.uploadNum from contract t2 where t2.name = t1.planname) contractUploadNum,
+		    (select sum(t3.picnum) from vr_info t3 inner join user_info t4 on t3.userid = t4.userid where t4.customid = t1.customid) contractUploadedNum
+		from user_info t1
+		where t1.customid is not null and t1.customid != ''
+		group by customid, soshikime, planname
+	</select>
+
+	<select id="selectRiyoHeadListByCustom" resultType="jp.co.myapp.api.domain.model.RiyoHead">
+		select t1.customid, t1.soshikime, t1.planname contractName,
+			(select t2.uploadNum from contract t2 where t2.name = t1.planname) contractUploadNum,
+		    (select sum(t3.picnum) from vr_info t3 inner join user_info t4 on t3.userid = t4.userid where t4.customid = t1.customid) contractUploadedNum
+		from user_info t1
+		where customid = #{customId}
+	</select>
+
+	<select id="selectRiyoBodyList" resultType="jp.co.myapp.api.domain.model.RiyoBody">
+		select t1.bukenme vrInfoName, t1.userid, t1.sakusehi, t1.koushinhi, t1.picnum
+		from vr_info t1
+		inner join user_info t2 on t1.userid = t2.userid
+		where t2.customid = #{customId}
+	</select>
+
+</mapper>

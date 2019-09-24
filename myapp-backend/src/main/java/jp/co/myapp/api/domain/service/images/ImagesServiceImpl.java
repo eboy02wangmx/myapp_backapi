@@ -10,20 +10,13 @@ import jp.co.myapp.api.domain.model.ImagesBean;
 import jp.co.myapp.api.domain.repository.images.ImagesRepository;
 
 @Service
-public class ImagesServiceImpl implements ImagesService{
+public class ImagesServiceImpl implements ImagesService {
+
 	@Inject
 	ImagesRepository imagesRepository;
 
-
 	public List<ImagesBean> getImagesInfo(String userid) {
 		return imagesRepository.getImagesInfo(userid);
-	}
-
-
-	@Override
-	public List<ImagesBean> getAdminInfo(String userid) {
-
-		return imagesRepository.getAdminInfo(userid);
 	}
 
 }

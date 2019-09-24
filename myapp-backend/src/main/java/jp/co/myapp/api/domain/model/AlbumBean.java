@@ -22,6 +22,8 @@ public class AlbumBean {
 
 	private String customid;
 
+	private String panoPreviewUrl;
+
 	public Integer getId() {
 		return id;
 	}
@@ -100,6 +102,14 @@ public class AlbumBean {
 
 	public void setPicnum(String picnum) {
 		this.picnum = picnum;
+	}
+
+	public String getPanoPreviewUrl() {
+		return panoPreviewUrl;
+	}
+
+	public void setPanoPreviewUrl(String panoPreviewUrl) {
+		this.panoPreviewUrl = panoPreviewUrl;
 	}
 
 }

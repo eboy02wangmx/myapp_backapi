@@ -5,7 +5,7 @@ public class ImagesBean {
 	/**
 	 * フィル名称
 	 */
-	private String id;;
+	private String id;
 
 	private String filename;
 
@@ -54,6 +54,5 @@ public class ImagesBean {
 	public void setCreate_time(String create_time) {
 		this.create_time = create_time;
 	}
-
 
 }

@@ -76,7 +76,7 @@ public class UploadController extends AbstractApiController {
         }
 
         // KrPano生成
-        KrPanoCmdBatUtil.setKrpano(classesPath, path, file);
+        KrPanoCmdBatUtil.setKrpano(classesPath, path);
 
         File panos = new File(classesPath + "\\tour\\" + file + "\\panos\\");
 
