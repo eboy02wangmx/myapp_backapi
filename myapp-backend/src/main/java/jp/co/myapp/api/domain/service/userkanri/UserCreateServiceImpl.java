@@ -1,5 +1,7 @@
 package jp.co.myapp.api.domain.service.userkanri;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -29,4 +31,10 @@ public class UserCreateServiceImpl implements UserCreateService {
 
 		return userInfoRepository.getUserInfo(userId);
 	}
+	@Override
+	public List<String> getUserPlan() {
+
+		return userInfoRepository.getUserPlan();
+	}
+
 }

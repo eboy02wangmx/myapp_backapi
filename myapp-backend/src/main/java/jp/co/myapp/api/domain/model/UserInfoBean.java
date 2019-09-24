@@ -1,6 +1,7 @@
 package jp.co.myapp.api.domain.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jp.co.myapp.api.app.data.AbstractResultData;
 
@@ -23,6 +24,36 @@ public class UserInfoBean extends AbstractResultData implements Serializable {
 	 * 氏名漢字_名
 	 */
 	private String kanjime;
+
+	private String planname;
+
+	private String name;
+
+	private List<String> userplans;
+
+	public List<String> getUserplans() {
+		return userplans;
+	}
+
+	public void setUserplans(List<String> userplans) {
+		this.userplans = userplans;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPlanname() {
+		return planname;
+	}
+
+	public void setPlanname(String planname) {
+		this.planname = planname;
+	}
 
 	public String getFuriganase() {
 		return furiganase;

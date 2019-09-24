@@ -22,6 +22,16 @@ public class UserCreateRequest implements Serializable {
 
 	private String loginid;
 
+	private String planname;
+
+	public String getPlanname() {
+		return planname;
+	}
+
+	public void setPlanname(String planname) {
+		this.planname = planname;
+	}
+
 	public String getLoginid() {
 		return loginid;
 	}

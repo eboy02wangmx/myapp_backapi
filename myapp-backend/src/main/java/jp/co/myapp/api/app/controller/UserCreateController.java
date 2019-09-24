@@ -1,5 +1,6 @@
 package jp.co.myapp.api.app.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -44,6 +45,10 @@ public class UserCreateController {
 		String userId = params.getUserid();
 
 		UserInfoBean userInfoBean = userCreateService.getUserInfo(userId);
+
+		List<String> userPlan= userCreateService.getUserPlan();
+
+		userInfoBean.setUserplans(userPlan);
 
 		logger.info("NHA_O_0155" + " 処理終了");
 		return userInfoBean;

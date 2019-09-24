@@ -68,7 +68,8 @@
     shimekanamei = #{furiganame},
 	shimekanjisei = #{kanjise},
 	shimekanjimei = #{kanjime},
-	password = #{password}
+	password = #{password},
+	planname = #{planname}
 	where userid = #{userid}
 
 	</update>
