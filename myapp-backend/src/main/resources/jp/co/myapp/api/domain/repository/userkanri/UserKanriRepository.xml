@@ -87,7 +87,17 @@
 		systemdate,
 		customid,
 		kengen,
-		yukokbn
+		yukokbn,
+		soshikime,
+		address,
+		tel,
+		tantobusho,
+		tantosha,
+		planname,
+		mail,
+		keiyakuhi,
+		keiyakushiki,
+		keiyakushuki
 		)
 	values
 		(
@@ -100,7 +110,17 @@
 		SYSDATE(),
 		#{customId},
 		'3',
-		'1'
+		'1',
+		#{soshikime},
+		#{address},
+		#{tel},
+		#{tantobusho},
+		#{tantosha},
+		#{planname},
+		#{mail},
+		#{keiyakuhi},
+		#{keiyakushiki},
+		#{keiyakushuki}
 		)
     </insert>
 
@@ -117,7 +137,17 @@
 		systemdate,
 		customid,
 		kengen,
-		yukokbn
+		yukokbn,
+		soshikime,
+		address,
+		tel,
+		tantobusho,
+		tantosha,
+		planname,
+		mail,
+		keiyakuhi,
+		keiyakushiki,
+		keiyakushuki
 		)
 	values
 		(
@@ -130,7 +160,17 @@
 		SYSDATE(),
 		RAND(),
 		'2',
-		'1'
+		'1',
+		#{soshikime},
+		#{address},
+		#{tel},
+		#{tantobusho},
+		#{tantosha},
+		#{planname},
+		#{mail},
+		#{keiyakuhi},
+		#{keiyakushiki},
+		#{keiyakushuki}
 		)
     </insert>
     <delete id="deleteUser" parameterType="String">

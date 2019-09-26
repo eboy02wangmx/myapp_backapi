@@ -53,4 +53,19 @@ public class UserCreateController {
 		logger.info("NHA_O_0155" + " 処理終了");
 		return userInfoBean;
 	}
+
+	@RequestMapping(value = "/api/userPlanInfo", method = { RequestMethod.POST })
+	@ResponseBody
+	public AbstractResultData getUserPlanInfo(HttpServletRequest request, HttpServletResponse response, Locale locale,
+			@RequestBody UserCreateRequest params) {
+		logger.info("NHA_O_0117" + " 処理開始");
+
+		UserInfoBean userInfoPlanBean= new UserInfoBean();
+		List<String> userPlan= userCreateService.getUserPlan();
+
+		userInfoPlanBean.setUserplans(userPlan);
+
+		logger.info("NHA_O_0117" + " 処理終了");
+		return userInfoPlanBean;
+	}
 }

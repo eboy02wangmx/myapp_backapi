@@ -24,6 +24,96 @@ public class UserCreateRequest implements Serializable {
 
 	private String planname;
 
+	private String soshikime;
+
+	private String address;
+
+	private String tel;
+
+	private String tantobusho;
+
+	private String tantosha;
+
+	private String mail;
+
+	private String keiyakuhi;
+
+	private String keiyakushiki;
+
+	private String keiyakushuki;
+
+	public String getSoshikime() {
+		return soshikime;
+	}
+
+	public void setSoshikime(String soshikime) {
+		this.soshikime = soshikime;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getTantobusho() {
+		return tantobusho;
+	}
+
+	public void setTantobusho(String tantobusho) {
+		this.tantobusho = tantobusho;
+	}
+
+	public String getTantosha() {
+		return tantosha;
+	}
+
+	public void setTantosha(String tantosha) {
+		this.tantosha = tantosha;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getKeiyakuhi() {
+		return keiyakuhi;
+	}
+
+	public void setKeiyakuhi(String keiyakuhi) {
+		this.keiyakuhi = keiyakuhi;
+	}
+
+	public String getKeiyakushiki() {
+		return keiyakushiki;
+	}
+
+	public void setKeiyakushiki(String keiyakushiki) {
+		this.keiyakushiki = keiyakushiki;
+	}
+
+	public String getKeiyakushuki() {
+		return keiyakushuki;
+	}
+
+	public void setKeiyakushuki(String keiyakushuki) {
+		this.keiyakushuki = keiyakushuki;
+	}
+
 	public String getPlanname() {
 		return planname;
 	}
