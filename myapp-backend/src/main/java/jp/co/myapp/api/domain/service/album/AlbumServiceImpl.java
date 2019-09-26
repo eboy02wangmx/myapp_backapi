@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import jp.co.myapp.api.domain.model.AlbumBean;
 import jp.co.myapp.api.domain.repository.album.AlbumRepository;
 
-
 @Service
 public class AlbumServiceImpl implements AlbumService {
 
@@ -23,8 +22,8 @@ public class AlbumServiceImpl implements AlbumService {
 
 		List<AlbumBean> albumList = albumDao.getAlbum(user);
 		List<AlbumBean> albums = new ArrayList<AlbumBean>();
-		for(AlbumBean album : albumList) {
-			if(StringUtils.isNotEmpty(album.getCustomid())) {
+		for (AlbumBean album : albumList) {
+			if (StringUtils.isNotEmpty(album.getCustomid())) {
 				// album.setUserid("管理者");
 			}
 			albums.add(album);
@@ -33,15 +32,13 @@ public class AlbumServiceImpl implements AlbumService {
 	}
 
 	@Override
-	public void editAlbum(AlbumBean album) {
-
-		albumDao.editAlbum(album);
+	public void editDomain(Integer id, String domain) {
+		albumDao.updateDomain(id, domain);
 	}
 
 	@Override
 	public void removeAlbum(String filename) {
 		albumDao.removeAlbum(filename);
-
 	}
 
 }

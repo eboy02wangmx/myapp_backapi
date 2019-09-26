@@ -18,84 +18,40 @@
 		    vi.koushinsha,
 		    DATE_FORMAT(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
 		    vi.picnum,
-		    ui.customid
+		    ui.customid,
+		    vi.domain
 		FROM
 		    innodb.vr_info vi
 		        LEFT JOIN
 		    innodb.user_info ui ON vi.userid = ui.userid
 		WHERE
-		    ui.customid = (SELECT
-		            customid
-		        FROM
-		            user_info
-		        WHERE
-		            userid = #{userid})
+		    ui.customid = (SELECT customid FROM user_info WHERE userid = #{userid})
 	</select>
 
-	<select id="getRiyo" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
-    	SELECT
-    		vi.id,
-		    vi.filename,
-		    vi.bukenme,
-		    vi.userid,
-		    vi.shoyusha,
-		    vi.yukokbn,
-		    vi.sakusesha,
-		    DATE_FORMAT(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
-		    vi.koushinsha,
-		    DATE_FORMAT(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
-		    vi.picnum,
-		    ui.customid
-		FROM
-		    innodb.vr_info vi
-		        LEFT JOIN
-		    innodb.user_info ui ON vi.userid = ui.userid
-		WHERE
-		    vi.userid &lt;&gt; 'panolib_admin'
-		ORDER BY ui.customid, vi.userid, vi.sakusehi ASC
-	</select>
+	<update id="updateDomain">
+		update innodb.vr_info set domain = #{domain} where id = #{id}
+	</update>
 
 	<delete id="removeAlbum" parameterType="String">
-	delete from innodb.vr_info where filename = #{filename}
+		delete from innodb.vr_info where filename = #{filename}
 	</delete>
 
-	<update id="editAlbum" parameterType = "jp.co.myapp.api.domain.model.AlbumBean">
-	update innodb.vr_info set
-	filename = #{album.filename},
-	bukenme = #{album.bukenme},
-	shoyusha = #{album.shoyusha},
-	yukokbn = #{album.yukokbn},
-	koushinsha = #{album.koushinsha},
-	koushinhi = SYSDATE(),
-	picnum where userid = #{album.userid}
-
-	</update>
-
 	<insert id="createAlbum" parameterType = "jp.co.myapp.api.app.request.AlbumCreateRequest">
-	insert into innodb.vr_info
-		(
-		filename,
-		bukenme,
-		userid,
-		sakusehi,
-		koushinhi,
-		picnum
+		insert into innodb.vr_info (
+			filename,
+			bukenme,
+			userid,
+			sakusehi,
+			koushinhi,
+			picnum
+		) values (
+			NOW(),
+			#{bukenme},
+			#{userid},
+			SYSDATE(),
+			SYSDATE(),
+			0
 		)
-	values
-		(
-		NOW(),
-		#{bukenme},
-		#{userid},
-		SYSDATE(),
-		SYSDATE(),
-		0
-		)
-
 	</insert>
 
-	<update id="riiyoEff"  parameterType = "String">
-
-
-
-	</update>
 </mapper>

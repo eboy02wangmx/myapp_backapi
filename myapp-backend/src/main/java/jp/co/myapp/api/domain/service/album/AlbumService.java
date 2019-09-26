@@ -8,7 +8,8 @@ public interface AlbumService {
 
 	public List<AlbumBean> getAlbum(String user);
 
-	public void editAlbum(AlbumBean album);
+	public void editDomain(Integer id, String domain);
 
 	public void removeAlbum(String filename);
+
 }

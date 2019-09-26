@@ -3,6 +3,7 @@ package jp.co.myapp.api.app.controller;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +20,14 @@ import jp.co.myapp.api.domain.model.AlbumBean;
 import jp.co.myapp.api.domain.service.album.AlbumService;
 import jp.co.myapp.util.StringUtil;
 
+@RequestMapping(value = "/api/album")
 @Controller
 public class AlbumController {
+
 	@Inject
 	AlbumService albumService;
 
-	@RequestMapping(value = "/api/album", method = { RequestMethod.POST })
+	@RequestMapping(method = { RequestMethod.POST })
 	@ResponseBody
 	public List<AlbumBean> getAlbumInfo(HttpServletRequest request, HttpServletResponse response, Locale locale,
 			@RequestBody AlbumRequest params) {
@@ -52,4 +55,15 @@ public class AlbumController {
 
 		return albums;
 	}
+
+	@RequestMapping(value = "/domain", method = { RequestMethod.POST })
+	@ResponseBody
+	public void editDomain(@RequestBody Map<String, String> param) {
+		String id = param.get("id");
+		if (!StringUtil.isNull(id)) {
+			String domain = param.get("domain");
+			albumService.editDomain(Integer.valueOf(id), domain);
+		}
+	}
+
 }

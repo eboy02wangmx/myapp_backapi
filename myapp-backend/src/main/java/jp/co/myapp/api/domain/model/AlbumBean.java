@@ -1,5 +1,7 @@
 package jp.co.myapp.api.domain.model;
 
+import jp.co.myapp.util.StringUtil;
+
 public class AlbumBean {
 
 	private Integer id;
@@ -23,6 +25,8 @@ public class AlbumBean {
 	private String customid;
 
 	private String panoPreviewUrl;
+
+	private String domain;
 
 	public Integer getId() {
 		return id;
@@ -110,6 +114,18 @@ public class AlbumBean {
 
 	public void setPanoPreviewUrl(String panoPreviewUrl) {
 		this.panoPreviewUrl = panoPreviewUrl;
+	}
+
+	public String getDomain() {
+		if (StringUtil.isNull(domain)) {
+			domain = "制限なし";
+		}
+
+		return domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
 
 }
