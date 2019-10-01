@@ -14,7 +14,7 @@
 			(select t2.uploadNum from contract t2 where t2.name = t1.planname) contractUploadNum,
 		    (select sum(t3.picnum) from vr_info t3 inner join user_info t4 on t3.userid = t4.userid where t4.customid = t1.customid) contractUploadedNum
 		from user_info t1
-		where t1.customid is not null and t1.customid != ''
+		where t1.kengen = '2' and t1.customid is not null and t1.customid != ''
 		group by customid, soshikime, planname
 	</select>
 
@@ -23,7 +23,7 @@
 			(select t2.uploadNum from contract t2 where t2.name = t1.planname) contractUploadNum,
 		    (select sum(t3.picnum) from vr_info t3 inner join user_info t4 on t3.userid = t4.userid where t4.customid = t1.customid) contractUploadedNum
 		from user_info t1
-		where customid = #{customId}
+		where t1.kengen = '2' and t1.customid = #{customId}
 	</select>
 
 	<select id="selectRiyoBodyList" resultType="jp.co.myapp.api.domain.model.RiyoBody">

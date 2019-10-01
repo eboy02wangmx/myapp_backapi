@@ -12,18 +12,27 @@ public class UserBean extends AbstractResultData implements Serializable {
 	 * ユーザー名称
 	 */
 	private String userName;
+
 	/**
 	 * パスワード
 	 */
 	private String password;
+
 	/**
 	 * お客様id
 	 */
 	private String customId;
+
 	/**
 	 * 権限
 	 */
 	private String kengen;
+
+	private String yukokbn;
+
+	private Boolean success = true;
+
+	private String msg;
 
 	public String getCustomId() {
 		return customId;
@@ -55,6 +64,30 @@ public class UserBean extends AbstractResultData implements Serializable {
 
 	public void setKengen(String kengen) {
 		this.kengen = kengen;
+	}
+
+	public Boolean getSuccess() {
+		return success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public String getYukokbn() {
+		return yukokbn;
+	}
+
+	public void setYukokbn(String yukokbn) {
+		this.yukokbn = yukokbn;
 	}
 
 }

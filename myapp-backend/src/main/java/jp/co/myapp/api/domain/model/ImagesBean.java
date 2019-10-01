@@ -1,19 +1,23 @@
 package jp.co.myapp.api.domain.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ImagesBean {
 
-	/**
-	 * フィル名称
-	 */
-	private String id;
+	private Integer id;
 
 	private String filename;
 
-	private String create_time;
+	private Date create_time;
+
+	private String createTimeDisplay;
 
 	private String location;
 
 	private String setsumei;
+
+	private String filefullname;
 
 	public String getSetsumei() {
 		return setsumei;
@@ -31,11 +35,11 @@ public class ImagesBean {
 		this.location = location;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -47,12 +51,33 @@ public class ImagesBean {
 		this.filename = filename;
 	}
 
-	public String getCreate_time() {
+	public Date getCreate_time() {
 		return create_time;
 	}
 
-	public void setCreate_time(String create_time) {
+	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
+	}
+
+	public String getCreateTimeDisplay() {
+		if (create_time != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			createTimeDisplay = sdf.format(create_time);
+		}
+
+		return createTimeDisplay;
+	}
+
+	public void setCreateTimeDisplay(String createTimeDisplay) {
+		this.createTimeDisplay = createTimeDisplay;
+	}
+
+	public String getFilefullname() {
+		return filefullname;
+	}
+
+	public void setFilefullname(String filefullname) {
+		this.filefullname = filefullname;
 	}
 
 }

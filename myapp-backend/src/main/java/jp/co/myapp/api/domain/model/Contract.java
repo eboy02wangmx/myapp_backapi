@@ -1,6 +1,7 @@
 package jp.co.myapp.api.domain.model;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class Contract {
 
@@ -11,6 +12,8 @@ public class Contract {
 	private Integer uploadNum;
 
 	private BigDecimal money;
+
+	private String moneyDisplay;
 
 	private Integer pv;
 
@@ -46,6 +49,19 @@ public class Contract {
 
 	public void setMoney(BigDecimal money) {
 		this.money = money;
+	}
+
+	public String getMoneyDisplay() {
+		if (money != null) {
+			DecimalFormat decimalFormat = new DecimalFormat("###,###");
+			moneyDisplay = decimalFormat.format(money);
+		}
+
+		return moneyDisplay;
+	}
+
+	public void setMoneyDisplay(String moneyDisplay) {
+		this.moneyDisplay = moneyDisplay;
 	}
 
 	public Integer getPv() {

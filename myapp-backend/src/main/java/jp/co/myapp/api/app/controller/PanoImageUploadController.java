@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import jp.co.myapp.api.domain.model.ImagesBean;
+import jp.co.myapp.api.domain.service.images.ImagesService;
 import jp.co.myapp.common.util.KrPanoCmdBatUtil;
 import jp.co.myapp.util.FileUtil;
 import jp.co.myapp.util.JDBCUtil;
@@ -33,10 +36,14 @@ import jp.co.myapp.util.UuidUtil;
 @Controller
 public class PanoImageUploadController extends AbstractApiController {
 
+	@Inject
+	ImagesService imagesService;
+
 	@RequestMapping(value = "/api/panoImageUpload", method = { RequestMethod.POST })
 	@ResponseBody
-	public void fileupload(@RequestParam("file") MultipartFile[] files, HttpServletRequest request,
+	public List<ImagesBean> fileupload(@RequestParam("file") MultipartFile[] files, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		List<ImagesBean> images = null;
 		String paramVrInfoId = request.getParameter("vrInfoId");
 		if (paramVrInfoId != null) {
 			Integer vrInfoId = Integer.valueOf(paramVrInfoId);
@@ -47,14 +54,11 @@ public class PanoImageUploadController extends AbstractApiController {
 
 				// 1.创建pano目录。
 				String panoDirPath = classesPath + "tour/" + dirId;
-				// Path panoDir = Paths.get(panoDirPath);
-				// if (!Files.exists(panoDir)) {
-				//     Files.createDirectory(panoDir);
-				// }
 				File panoDir = new File(panoDirPath);
 				if (!panoDir.exists()) {
 					panoDir.mkdir();
 				}
+
 				// 2.保存上传文件。
 				for (int i = 0; i < files.length; i++) {
 					MultipartFile file = files[i];
@@ -125,7 +129,11 @@ public class PanoImageUploadController extends AbstractApiController {
 				// 7.清空Pano配置信息。
 				deletePanoConfig(vrInfoId);
 			}
+
+			images = imagesService.search(vrInfoId);
 		}
+
+		return images;
 	}
 
 	/**

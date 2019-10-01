@@ -16,6 +16,10 @@ public class AlbumRequest implements Serializable {
 
 	private String setsumei;
 
+	private String orderName;
+
+	private String orderDirect;
+
 	public String getLocation() {
 		return location;
 	}
@@ -54,6 +58,22 @@ public class AlbumRequest implements Serializable {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+
+	public String getOrderName() {
+		return orderName;
+	}
+
+	public void setOrderName(String orderName) {
+		this.orderName = orderName;
+	}
+
+	public String getOrderDirect() {
+		return orderDirect;
+	}
+
+	public void setOrderDirect(String orderDirect) {
+		this.orderDirect = orderDirect;
 	}
 
 }

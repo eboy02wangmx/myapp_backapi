@@ -8,17 +8,11 @@ public class UserCreateRequest implements Serializable {
 
 	private String userid;
 
-	private String furiganase;
-
-	private String furiganame;
-
-	private String kanjise;
-
-	private String kanjime;
+	private String name;
 
 	private String password;
 
-	private String customId;
+	private String customid;
 
 	private String loginid;
 
@@ -130,12 +124,12 @@ public class UserCreateRequest implements Serializable {
 		this.loginid = loginid;
 	}
 
-	public String getCustomId() {
-		return customId;
+	public String getCustomid() {
+		return customid;
 	}
 
-	public void setCustomId(String customId) {
-		this.customId = customId;
+	public void setCustomid(String customid) {
+		this.customid = customid;
 	}
 
 	public String getUserid() {
@@ -146,36 +140,12 @@ public class UserCreateRequest implements Serializable {
 		this.userid = userid;
 	}
 
-	public String getFuriganase() {
-		return furiganase;
+	public String getName() {
+		return name;
 	}
 
-	public void setFuriganase(String furiganase) {
-		this.furiganase = furiganase;
-	}
-
-	public String getFuriganame() {
-		return furiganame;
-	}
-
-	public void setFuriganame(String furiganame) {
-		this.furiganame = furiganame;
-	}
-
-	public String getKanjise() {
-		return kanjise;
-	}
-
-	public void setKanjise(String kanjise) {
-		this.kanjise = kanjise;
-	}
-
-	public String getKanjime() {
-		return kanjime;
-	}
-
-	public void setKanjime(String kanjime) {
-		this.kanjime = kanjime;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -185,6 +155,5 @@ public class UserCreateRequest implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 }

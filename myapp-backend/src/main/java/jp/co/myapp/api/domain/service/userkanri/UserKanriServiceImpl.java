@@ -10,20 +10,18 @@ import jp.co.myapp.api.domain.model.UserKanriBean;
 import jp.co.myapp.api.domain.repository.userkanri.UserKanriRepository;
 
 @Service
-public class UserKanriServiceImpl implements UserKanriService{
+public class UserKanriServiceImpl implements UserKanriService {
+
 	@Inject
 	UserKanriRepository userKanriRepository;
 
-
-	public List<UserKanriBean> getUserkanriInfo(String userId) {
-		return userKanriRepository.getUserkanriInfo(userId);
+	public List<UserKanriBean> getUserkanriInfo(String userId, String orderName, String orderDirect) {
+		return userKanriRepository.getUserkanriInfo(userId, orderName, orderDirect);
 	}
 
-
 	@Override
-	public List<UserKanriBean> getAdminInfo(String userId) {
-
-		return userKanriRepository.getAdminInfo(userId);
+	public List<UserKanriBean> getAdminInfo(String userId, String orderName, String orderDirect) {
+		return userKanriRepository.getAdminInfo(userId, orderName, orderDirect);
 	}
 
 }

@@ -7,28 +7,33 @@
 	namespace="jp.co.myapp.api.domain.repository.userinfo.UserInfoRepository">
 
 	<resultMap id="userInfoBeanMap" type="UserInfoBean">
-		<id property="furiganase" column="shimekanasei"
-			javaType="java.lang.String"></id>
-		<result property="furiganame" column="shimekanamei"
-			javaType="java.lang.String"></result>
-		<result property="kanjise" column="shimekanjisei"
-			javaType="java.lang.String"></result>
-		<result property="kanjime" column="shimekanjimei"
-			javaType="java.lang.String"></result>
-		<result property="planname" column="planname"
-			javaType="java.lang.String"></result>
+		<result property="name" column="name" javaType="java.lang.String"></result>
+		<result property="planname" column="planname" javaType="java.lang.String"></result>
+		<result property="soshikime" column="soshikime" javaType="java.lang.String"></result>
+		<result property="address" column="address" javaType="java.lang.String"></result>
+		<result property="tel" column="tel" javaType="java.lang.String"></result>
+		<result property="tantobusho" column="tantobusho" javaType="java.lang.String"></result>
+		<result property="tantosha" column="tantosha" javaType="java.lang.String"></result>
+		<result property="mail" column="mail" javaType="java.lang.String"></result>
+		<result property="keiyakuhi" column="keiyakuhi" javaType="java.lang.String"></result>
+		<result property="keiyakushiki" column="keiyakushiki" javaType="java.lang.String"></result>
+		<result property="keiyakushuki" column="keiyakushuki" javaType="java.lang.String"></result>
 	</resultMap>
 
-
-	<select id="getUserInfo" parameterType="String"
-		resultMap="userInfoBeanMap">
+	<select id="getUserInfo" parameterType="String" resultMap="userInfoBeanMap">
         <![CDATA[
         SELECT
-			u.shimekanasei,
-			u.shimekanamei,
-			u.shimekanjisei,
-			u.shimekanjimei,
-			u.planname
+			u.name,
+			u.planname,
+			u.soshikime,
+			u.address,
+			u.tel,
+			u.tantobusho,
+			u.tantosha,
+			u.mail,
+			u.keiyakuhi,
+			u.keiyakushiki,
+			u.keiyakushuki
 		FROM
 			user_info u
 		WHERE
@@ -36,14 +41,8 @@
 		]]>
 	</select>
 
-		<select id="getUserPlan" parameterType="String" resultType="String">
-
-        <![CDATA[
-        SELECT
-			name
-		FROM
-			contract
-		]]>
+	<select id="getUserPlan" parameterType="String" resultType="String">
+        SELECT name FROM contract
 	</select>
 
 </mapper>

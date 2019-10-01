@@ -16,172 +16,178 @@
 		<result property="soshikime" column="soshikime" javaType="java.lang.String"></result>
 	</resultMap>
 
+	<select id="count" parameterType="String" resultType="Integer">
+		select count(*) from user_info where userid = #{userId}
+    </select>
 
     <select id="getUserkanriInfo" parameterType="String" resultMap="userKanriMap">
-
-            SELECT
-			user_info.userid,
-			user_info.kengen,
-			user_info.yukokbn,
-			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
-			sum(vr_info.picnum) picnum,
-			user_info.customid,
-			user_info.soshikime
-			FROM
-				user_info
-			left join
-				vr_info
-			on vr_info.userid = user_info.userid
-			WHERE
-            user_info.customid = (
-                                    select user_info.customid
-                                    from user_info
-                                    where user_info.userid = #{userId}
-                                    )
-
-            group by user_info.userid
-            order by customid,kengen
-
-    </select>
-        <select id="getAdminInfo" parameterType="String" resultMap="userKanriMap">
-
-            SELECT
-			user_info.userid,
-			user_info.kengen,
-			user_info.yukokbn,
-			DATE_FORMAT(user_info.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
-			sum(vr_info.picnum) picnum,
-			user_info.customid,
-			user_info.soshikime
-			FROM
-				user_info
-			left join
-				vr_info
-			on vr_info.userid = user_info.userid
-			group by userid
-            order by customid,kengen
+		select t1.userid,
+			t1.kengen,
+			t1.yukokbn,
+			date_format(t1.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
+			sum(t2.picnum) picnum,
+			t1.customid,
+            (select t3.soshikime from user_info t3 where t3.customid = t1.customid and t3.soshikime is not null limit 1) as soshikime
+		from user_info t1
+		left join vr_info t2 on t1.userid = t2.userid
+		where t1.customid = (select t4.customid from user_info t4 where t4.userid = #{userId})
+		group by t1.userid
+		<choose>
+			<when test="orderName == 'customid' and orderDirect == 'ASC'">
+				order by t1.customid asc
+			</when>
+			<when test="orderName == 'customid' and orderDirect == 'DESC'">
+				order by t1.customid desc
+			</when>
+			<otherwise>
+				order by t1.customid, t1.kengen, t1.systemdate
+			</otherwise>
+		</choose>
     </select>
 
-    <update id="createUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
-    update innodb.user_info set
-    shimekanasei = #{furiganase},
-    shimekanamei = #{furiganame},
-	shimekanjisei = #{kanjise},
-	shimekanjimei = #{kanjime},
-	password = #{password},
-	planname = #{planname}
-	where userid = #{userid}
+	<select id="getAdminInfo" parameterType="String" resultMap="userKanriMap">
+		select t1.userid,
+			t1.kengen,
+			t1.yukokbn,
+			date_format(t1.systemdate,'%Y-%m-%d %H:%i:%s') as systemdate,
+			sum(t2.picnum) picnum,
+			t1.customid,
+			(select t3.soshikime from user_info t3 where t3.customid = t1.customid and t3.soshikime is not null limit 1) as soshikime
+		from user_info t1
+		left join vr_info t2 on t1.userid = t2.userid
+		group by t1.userid
+		<choose>
+			<when test="orderName == 'customid' and orderDirect == 'ASC'">
+				order by t1.customid asc
+			</when>
+			<when test="orderName == 'customid' and orderDirect == 'DESC'">
+				order by t1.customid desc
+			</when>
+			<otherwise>
+				order by t1.customid, t1.kengen, t1.systemdate
+			</otherwise>
+		</choose>
+    </select>
 
+    <update id="updateAll" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+	    update innodb.user_info
+	    set name = #{name},
+			password = #{password},
+			planname = #{planname},
+			soshikime = #{soshikime},
+			address = #{address},
+			tel = #{tel},
+			tantobusho = #{tantobusho},
+			tantosha = #{tantosha},
+			mail = #{mail},
+			keiyakuhi = #{keiyakuhi},
+			keiyakushiki = #{keiyakushiki},
+			keiyakushuki = #{keiyakushuki}
+		where userid = #{userid}
+	</update>
+
+	<update id="update" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+	    update innodb.user_info
+	    set name = #{name},
+			planname = #{planname},
+			soshikime = #{soshikime},
+			address = #{address},
+			tel = #{tel},
+			tantobusho = #{tantobusho},
+			tantosha = #{tantosha},
+			mail = #{mail},
+			keiyakuhi = #{keiyakuhi},
+			keiyakushiki = #{keiyakushiki},
+			keiyakushuki = #{keiyakushuki}
+		where userid = #{userid}
 	</update>
 
     <insert id="insertUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
-
-		insert into innodb.user_info
-		(
-        userid,
-		shimekanjisei,
-		shimekanjimei,
-		shimekanasei,
-		shimekanamei,
-		password,
-		systemdate,
-		customid,
-		kengen,
-		yukokbn,
-		soshikime,
-		address,
-		tel,
-		tantobusho,
-		tantosha,
-		planname,
-		mail,
-		keiyakuhi,
-		keiyakushiki,
-		keiyakushuki
+		insert into innodb.user_info (
+	        userid,
+			name,
+			password,
+			systemdate,
+			customid,
+			kengen,
+			yukokbn,
+			soshikime,
+			address,
+			tel,
+			tantobusho,
+			tantosha,
+			planname,
+			mail,
+			keiyakuhi,
+			keiyakushiki,
+			keiyakushuki
+		) values (
+			#{userid},
+			#{name},
+			#{password},
+			SYSDATE(),
+			#{customid},
+			'3',
+			'1',
+			#{soshikime},
+			#{address},
+			#{tel},
+			#{tantobusho},
+			#{tantosha},
+			#{planname},
+			#{mail},
+			#{keiyakuhi},
+			#{keiyakushiki},
+			#{keiyakushuki}
 		)
-	values
-		(
-		#{userid},
-		#{kanjise},
-		#{kanjime},
-		#{furiganase},
-		#{furiganame},
-		#{password},
-		SYSDATE(),
-		#{customId},
-		'3',
-		'1',
-		#{soshikime},
-		#{address},
-		#{tel},
-		#{tantobusho},
-		#{tantosha},
-		#{planname},
-		#{mail},
-		#{keiyakuhi},
-		#{keiyakushiki},
-		#{keiyakushuki}
+	</insert>
+
+	<insert id="insertAdminUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
+		insert into innodb.user_info (
+	        userid,
+			name,
+			password,
+			systemdate,
+			customid,
+			kengen,
+			yukokbn,
+			soshikime,
+			address,
+			tel,
+			tantobusho,
+			tantosha,
+			planname,
+			mail,
+			keiyakuhi,
+			keiyakushiki,
+			keiyakushuki
+		) values (
+			#{userid},
+			#{name},
+			#{password},
+			SYSDATE(),
+			#{customid},
+			'2',
+			'1',
+			#{soshikime},
+			#{address},
+			#{tel},
+			#{tantobusho},
+			#{tantosha},
+			#{planname},
+			#{mail},
+			#{keiyakuhi},
+			#{keiyakushiki},
+			#{keiyakushuki}
 		)
     </insert>
 
-   <insert id="insertAdminUser" parameterType = "jp.co.myapp.api.app.request.UserCreateRequest">
-
-		insert into innodb.user_info
-		(
-        userid,
-		shimekanjisei,
-		shimekanjimei,
-		shimekanasei,
-		shimekanamei,
-		password,
-		systemdate,
-		customid,
-		kengen,
-		yukokbn,
-		soshikime,
-		address,
-		tel,
-		tantobusho,
-		tantosha,
-		planname,
-		mail,
-		keiyakuhi,
-		keiyakushiki,
-		keiyakushuki
-		)
-	values
-		(
-		#{userid},
-		#{kanjise},
-		#{kanjime},
-		#{furiganase},
-		#{furiganame},
-		#{password},
-		SYSDATE(),
-		RAND(),
-		'2',
-		'1',
-		#{soshikime},
-		#{address},
-		#{tel},
-		#{tantobusho},
-		#{tantosha},
-		#{planname},
-		#{mail},
-		#{keiyakuhi},
-		#{keiyakushiki},
-		#{keiyakushuki}
-		)
-    </insert>
     <delete id="deleteUser" parameterType="String">
-	delete from innodb.user_info where userid = #{userid}
+		delete from innodb.user_info where userid = #{userid}
 	</delete>
 
 	<update id="updateyukokbn" parameterType = "jp.co.myapp.api.app.request.UserKanriRequest">
-    update innodb.user_info set
-    yukokbn = #{yukokbn}
-	where userid = #{userId}
-
+	    update innodb.user_info set yukokbn = #{yukokbn} where userid = #{userId}
 	</update>
 
 </mapper>

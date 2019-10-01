@@ -2,27 +2,35 @@ package jp.co.myapp.api.domain.repository.userkanri;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import jp.co.myapp.api.app.request.UserCreateRequest;
 import jp.co.myapp.api.app.request.UserKanriRequest;
 import jp.co.myapp.api.domain.model.UserInfoBean;
 import jp.co.myapp.api.domain.model.UserKanriBean;
 
 public interface UserKanriRepository {
-   public List<UserKanriBean> getUserkanriInfo(String userId);
 
-   // ユーザーの編集
-   public void createUser(UserCreateRequest param);
+	public Integer count(String userId);
 
-   // ユーザーの作成
-   public void insertUser(UserCreateRequest param);
+	public List<UserKanriBean> getUserkanriInfo(@Param("userId") String userId, @Param("orderName") String orderName,
+			@Param("orderDirect") String orderDirect);
 
-   public void insertAdminUser(UserCreateRequest param);
+	public void updateAll(UserCreateRequest param);
 
-   public void deleteUser(String user);
+	public void update(UserCreateRequest param);
 
-   public UserInfoBean getUserInfo(String userId);
+	public void insertUser(UserCreateRequest param);
 
-   public List<UserKanriBean> getAdminInfo(String userId);
+	public void insertAdminUser(UserCreateRequest param);
 
-   public void updateyukokbn(UserKanriRequest param);
+	public void deleteUser(String user);
+
+	public UserInfoBean getUserInfo(String userId);
+
+	public List<UserKanriBean> getAdminInfo(@Param("userId") String userId, @Param("orderName") String orderName,
+			@Param("orderDirect") String orderDirect);
+
+	public void updateyukokbn(UserKanriRequest param);
+
 }

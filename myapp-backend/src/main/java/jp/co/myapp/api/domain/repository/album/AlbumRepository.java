@@ -9,11 +9,23 @@ import jp.co.myapp.api.domain.model.AlbumBean;
 
 public interface AlbumRepository {
 
-	public List<AlbumBean> getAlbum(String user);
+	public AlbumBean selectById(@Param("id") Integer id);
+
+	public List<AlbumBean> selectByUserId(@Param("userId") String userId, @Param("orderName") String orderName,
+			@Param("orderDirect") String orderDirect);
+
+	public List<AlbumBean> selectAll(@Param("userId") String userId, @Param("orderName") String orderName,
+			@Param("orderDirect") String orderDirect);
+
+	public Integer selectPicNum(@Param("id") Integer id);
 
 	public void updateDomain(@Param("id") Integer id, @Param("domain") String domain);
 
-	public void removeAlbum(String filename);
+	public void delete(@Param("id") Integer id);
+
+	public void deleteImgsWorks(@Param("id") Integer id);
+
+	public void deletePanoConfig(@Param("id") Integer id);
 
 	public void createAlbum(AlbumCreateRequest param);
 

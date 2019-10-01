@@ -87,42 +87,51 @@ public class RiyoController {
 				Riyo riyo = riyoList.get(i);
 				if (riyo != null) {
 					String[] row1 = new String[10];
-					row1[0] = "組織ID：";
-					row1[2] = "組織名：";
-					row1[4] = "契約プラン：";
-					row1[6] = "登録可能画像数：";
-					row1[8] = "登録済み画像数：";
-					RiyoHead head = riyo.getHead();
-					if (head != null) {
-						row1[1] = StringUtil.isNull(head.getCustomid()) ? "" : head.getCustomid();
-						row1[3] = StringUtil.isNull(head.getSoshikime()) ? "" : head.getSoshikime();
-						row1[5] = StringUtil.isNull(head.getContractName()) ? "" : head.getContractName();
-						row1[7] = head.getContractUploadNum() == null ? ""
-								: String.valueOf(head.getContractUploadNum());
-						row1[9] = head.getContractUploadedNum() == null ? ""
-								: String.valueOf(head.getContractUploadedNum());
-					}
+					row1[0] = "組織ID";
+					row1[1] = "組織名";
+					row1[2] = "契約プラン";
+					row1[3] = "登録可能画像数";
+					row1[4] = "登録済み画像数";
+					row1[5] = "アルバム名";
+					row1[6] = "作成者";
+					row1[7] = "作成日時";
+					row1[8] = "更新日時";
+					row1[9] = "画像数";
 					csvWriter.writeRecord(row1);
-					String[] row2 = new String[5];
-					row2[0] = "アルバム名";
-					row2[1] = "作成者";
-					row2[2] = "作成日時";
-					row2[3] = "更新日時";
-					row2[4] = "画像数";
-					csvWriter.writeRecord(row2);
+
+					RiyoHead head = riyo.getHead();
 					List<RiyoBody> bodyList = riyo.getBodyList();
-					if (bodyList != null && bodyList.size() > 0) {
-						for (int j = 0; j < bodyList.size(); j++) {
-							RiyoBody body = bodyList.get(j);
-							if (body != null) {
-								String[] row3 = new String[5];
-								row3[0] = body.getVrInfoName();
-								row3[1] = body.getUserid();
-								row3[2] = body.getSakusehiDisplay();
-								row3[3] = body.getKoushinhiDisplay();
-								row3[4] = body.getPicnum();
-								csvWriter.writeRecord(row3);
+					if (head != null) {
+						if (bodyList != null && bodyList.size() > 0) {
+							for (int j = 0; j < bodyList.size(); j++) {
+								RiyoBody body = bodyList.get(j);
+								if (body != null) {
+									String[] row2 = new String[10];
+									row2[0] = StringUtil.isNull(head.getCustomid()) ? "" : head.getCustomid();
+									row2[1] = StringUtil.isNull(head.getSoshikime()) ? "" : head.getSoshikime();
+									row2[2] = StringUtil.isNull(head.getContractName()) ? "" : head.getContractName();
+									row2[3] = head.getContractUploadNum() == null ? ""
+											: String.valueOf(head.getContractUploadNum());
+									row2[4] = head.getContractUploadedNum() == null ? ""
+											: String.valueOf(head.getContractUploadedNum());
+									row2[5] = body.getVrInfoName();
+									row2[6] = body.getUserid();
+									row2[7] = body.getSakusehiDisplay();
+									row2[8] = body.getKoushinhiDisplay();
+									row2[9] = body.getPicnum();
+									csvWriter.writeRecord(row2);
+								}
 							}
+						} else {
+							String[] row2 = new String[10];
+							row2[0] = StringUtil.isNull(head.getCustomid()) ? "" : head.getCustomid();
+							row2[1] = StringUtil.isNull(head.getSoshikime()) ? "" : head.getSoshikime();
+							row2[2] = StringUtil.isNull(head.getContractName()) ? "" : head.getContractName();
+							row2[3] = head.getContractUploadNum() == null ? ""
+									: String.valueOf(head.getContractUploadNum());
+							row2[4] = head.getContractUploadedNum() == null ? ""
+									: String.valueOf(head.getContractUploadedNum());
+							csvWriter.writeRecord(row2);
 						}
 					}
 					csvWriter.writeRecord(new String[10]);
