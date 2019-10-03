@@ -7,8 +7,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,26 +19,25 @@ import jp.co.myapp.api.domain.service.userkanri.UserKanriService;
 
 @Controller
 public class UserKanriController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
 	@Inject
 	UserKanriService userKanriService;
 
-
 	@RequestMapping(value = "/api/userKanri", method = { RequestMethod.POST })
 	@ResponseBody
-	public List<UserKanriBean> getUserkanriInfo(HttpServletRequest request, HttpServletResponse response,  Locale locale,
+	public List<UserKanriBean> getUserkanriInfo(HttpServletRequest request, HttpServletResponse response, Locale locale,
 			@RequestBody UserKanriRequest params) {
-		// logger.info(API_ID.NHA_O_0110 + " 処理開始");
 		List<UserKanriBean> userKanri;
-        if(params.getUserId().equals("panolib_admin")) {
-
-        userKanri = userKanriService.getAdminInfo(params.getUserId());
-        }else {
-
-		userKanri = userKanriService.getUserkanriInfo(params.getUserId());
-
-        }
+		String userId = params.getUserId();
+		String orderName = params.getOrderName();
+		String orderDirect = params.getOrderDirect();
+		if ("panolib_admin".equals(userId)) {
+			userKanri = userKanriService.getAdminInfo(userId, orderName, orderDirect);
+		} else {
+			userKanri = userKanriService.getUserkanriInfo(userId, orderName, orderDirect);
+		}
 
 		return userKanri;
 	}
+
 }

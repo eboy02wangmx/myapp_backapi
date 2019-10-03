@@ -6,6 +6,8 @@ import jp.co.myapp.api.domain.model.ImagesBean;
 
 public interface ImagesService {
 
-	public List<ImagesBean> getImagesInfo(String vrInfoId);
+	public ImagesBean get(Integer id);
+
+	public List<ImagesBean> search(Integer vrInfoId);
 
 }

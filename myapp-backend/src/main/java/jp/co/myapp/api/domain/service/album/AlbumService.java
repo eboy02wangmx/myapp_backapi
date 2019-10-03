@@ -6,10 +6,14 @@ import jp.co.myapp.api.domain.model.AlbumBean;
 
 public interface AlbumService {
 
-	public List<AlbumBean> getAlbum(String user);
+	public AlbumBean get(Integer id);
+
+	public List<AlbumBean> search(String userId, String orderName, String orderDirect);
+
+	public Integer getPicNum(Integer id);
 
 	public void editDomain(Integer id, String domain);
 
-	public void removeAlbum(String filename);
+	public void removeAlbum(Integer id);
 
 }

@@ -6,15 +6,22 @@
 <mapper namespace="jp.co.myapp.api.domain.repository.images.ImagesRepository">
 
 	<resultMap id="imagesMap" type="ImagesBean">
-		<id property="userid" column="userid" javaType="java.lang.String"></id>
+		<id property="id" column="id" javaType="java.lang.Integer"></id>
 		<result property="filename" column="filename" javaType="java.lang.String"></result>
-		<result property="create_time" column="create_time" javaType="java.lang.String"></result>
+		<result property="create_time" column="create_time" javaType="java.util.Date"></result>
 		<result property="location" column="location" javaType="java.lang.String"></result>
 		<result property="setsumei" column="setsumei" javaType="java.lang.String"></result>
+		<result property="filefullname" column="filefullname" javaType="java.lang.String"></result>
 	</resultMap>
 
-    <select id="getImagesInfo" parameterType="String" resultMap="imagesMap">
-		select t1.filename, t1.create_time, t1.location, t1.setsumei
+	<select id="selectById" resultMap="imagesMap">
+		select t1.pk_img_main id, t1.filename, t1.create_time, t1.location, t1.setsumei, t1.filefullname
+		from innodb.u_imgsmain t1
+		where t1.pk_img_main = #{id}
+    </select>
+
+    <select id="select" resultMap="imagesMap">
+		select t1.pk_img_main id, t1.filename, t1.create_time, t1.location, t1.setsumei
 		from innodb.u_imgsmain t1
 		inner join innodb.u_imgs_works t2 on t1.pk_img_main = t2.pk_img_main
 		inner join innodb.vr_info t3 on t2.pk_works_main = t3.id
@@ -22,9 +29,27 @@
     </select>
 
 	<update id="insertSetsumei" parameterType="jp.co.myapp.api.app.request.AlbumRequest">
-	update innodb.u_imgsmain set
-	setsumei = #{setsumei}
-	where location = #{location}
+		update innodb.u_imgsmain set setsumei = #{setsumei} where location = #{location}
+	</update>
+
+	<delete id="delete">
+		delete from innodb.u_imgsmain where pk_img_main = #{id}
+	</delete>
+
+	<delete id="deleteImgsWorks">
+		delete from innodb.u_imgs_works where pk_img_main = #{id}
+	</delete>
+
+	<delete id="deletePanoConfig">
+		delete from innodb.u_pano_config where pk_works_main = #{vrInfoId}
+	</delete>
+
+	<select id="selectVrInfoPicNum" resultType="Integer">
+		select count(*) from innodb.u_imgs_works where pk_works_main = #{vrInfoId}
+	</select>
+
+	<update id="updateVrInfoPicNum">
+		update innodb.vr_info set picnum = #{picNum} where id = #{vrInfoId}
 	</update>
 
 </mapper>

@@ -29,10 +29,12 @@ public class AlbumController {
 
 	@RequestMapping(method = { RequestMethod.POST })
 	@ResponseBody
-	public List<AlbumBean> getAlbumInfo(HttpServletRequest request, HttpServletResponse response, Locale locale,
+	public List<AlbumBean> search(HttpServletRequest request, HttpServletResponse response, Locale locale,
 			@RequestBody AlbumRequest params) {
-		String userid = params.getUserid();
-		List<AlbumBean> albums = albumService.getAlbum(userid);
+		String userId = params.getUserid();
+		String orderName = params.getOrderName();
+		String orderDirect = params.getOrderDirect();
+		List<AlbumBean> albums = albumService.search(userId, orderName, orderDirect);
 		if (albums != null && albums.size() > 0) {
 			StringBuilder appFullPath = new StringBuilder();
 			appFullPath.append(request.getScheme());

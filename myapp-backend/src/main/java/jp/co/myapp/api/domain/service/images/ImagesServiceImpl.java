@@ -13,10 +13,16 @@ import jp.co.myapp.api.domain.repository.images.ImagesRepository;
 public class ImagesServiceImpl implements ImagesService {
 
 	@Inject
-	ImagesRepository imagesRepository;
+	ImagesRepository repository;
 
-	public List<ImagesBean> getImagesInfo(String userid) {
-		return imagesRepository.getImagesInfo(userid);
+	@Override
+	public ImagesBean get(Integer id) {
+		return repository.selectById(id);
+	}
+
+	@Override
+	public List<ImagesBean> search(Integer vrInfoId) {
+		return repository.select(vrInfoId);
 	}
 
 }

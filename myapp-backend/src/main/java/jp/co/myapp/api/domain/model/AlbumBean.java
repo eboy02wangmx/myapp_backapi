@@ -26,7 +26,11 @@ public class AlbumBean {
 
 	private String panoPreviewUrl;
 
+	private String iframeCode;
+
 	private String domain;
+
+	private String dirId;
 
 	public Integer getId() {
 		return id;
@@ -116,6 +120,18 @@ public class AlbumBean {
 		this.panoPreviewUrl = panoPreviewUrl;
 	}
 
+	public String getIframeCode() {
+		if (!StringUtil.isNull(panoPreviewUrl)) {
+			iframeCode = "<iframe src='" + panoPreviewUrl + "' width='100%' height='100%' frameborder='0'></iframe>";
+		}
+
+		return iframeCode;
+	}
+
+	public void setIframeCode(String iframeCode) {
+		this.iframeCode = iframeCode;
+	}
+
 	public String getDomain() {
 		if (StringUtil.isNull(domain)) {
 			domain = "制限なし";
@@ -126,6 +142,14 @@ public class AlbumBean {
 
 	public void setDomain(String domain) {
 		this.domain = domain;
+	}
+
+	public String getDirId() {
+		return dirId;
+	}
+
+	public void setDirId(String dirId) {
+		this.dirId = dirId;
 	}
 
 }

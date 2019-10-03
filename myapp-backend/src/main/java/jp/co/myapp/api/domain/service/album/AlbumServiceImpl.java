@@ -1,11 +1,9 @@
 package jp.co.myapp.api.domain.service.album;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import jp.co.myapp.api.domain.model.AlbumBean;
@@ -18,17 +16,25 @@ public class AlbumServiceImpl implements AlbumService {
 	private AlbumRepository albumDao;
 
 	@Override
-	public List<AlbumBean> getAlbum(String user) {
+	public AlbumBean get(Integer id) {
+		return albumDao.selectById(id);
+	}
 
-		List<AlbumBean> albumList = albumDao.getAlbum(user);
-		List<AlbumBean> albums = new ArrayList<AlbumBean>();
-		for (AlbumBean album : albumList) {
-			if (StringUtils.isNotEmpty(album.getCustomid())) {
-				// album.setUserid("管理者");
-			}
-			albums.add(album);
+	@Override
+	public List<AlbumBean> search(String userId, String orderName, String orderDirect) {
+		List<AlbumBean> albums = null;
+		if ("panolib_admin".equals(userId)) {
+			albums = albumDao.selectAll(userId, orderName, orderDirect);
+		} else {
+			albums = albumDao.selectByUserId(userId, orderName, orderDirect);
 		}
+
 		return albums;
+	}
+
+	@Override
+	public Integer getPicNum(Integer id) {
+		return albumDao.selectPicNum(id);
 	}
 
 	@Override
@@ -37,8 +43,10 @@ public class AlbumServiceImpl implements AlbumService {
 	}
 
 	@Override
-	public void removeAlbum(String filename) {
-		albumDao.removeAlbum(filename);
+	public void removeAlbum(Integer id) {
+		albumDao.delete(id);
+		albumDao.deleteImgsWorks(id);
+		albumDao.deletePanoConfig(id);
 	}
 
 }

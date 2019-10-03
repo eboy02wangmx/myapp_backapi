@@ -5,35 +5,115 @@
 
 <mapper namespace="jp.co.myapp.api.domain.repository.album.AlbumRepository">
 
-	<select id="getAlbum" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
-    	SELECT
-    		vi.id,
+	<select id="selectById" parameterType="Integer" resultType="jp.co.myapp.api.domain.model.AlbumBean">
+    	select vi.id,
 		    vi.filename,
 		    vi.bukenme,
 		    vi.userid,
 		    vi.shoyusha,
 		    vi.yukokbn,
 		    vi.sakusesha,
-		    DATE_FORMAT(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
+		    date_format(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
 		    vi.koushinsha,
-		    DATE_FORMAT(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
+		    date_format(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
+		    vi.picnum,
+		    vi.domain,
+		    vi.dirId
+		from innodb.vr_info vi
+		where vi.id = #{id}
+	</select>
+
+	<select id="selectByUserId" parameterType="String" resultType="jp.co.myapp.api.domain.model.AlbumBean">
+    	select vi.id,
+		    vi.filename,
+		    vi.bukenme,
+		    vi.userid,
+		    vi.shoyusha,
+		    vi.yukokbn,
+		    vi.sakusesha,
+		    date_format(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
+		    vi.koushinsha,
+		    date_format(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
 		    vi.picnum,
 		    ui.customid,
-		    vi.domain
-		FROM
-		    innodb.vr_info vi
-		        LEFT JOIN
-		    innodb.user_info ui ON vi.userid = ui.userid
-		WHERE
-		    ui.customid = (SELECT customid FROM user_info WHERE userid = #{userid})
+		    vi.domain,
+		    vi.dirId
+		from innodb.vr_info vi
+		left join innodb.user_info ui ON vi.userid = ui.userid
+		where ui.customid = (select customid from user_info where userid = #{userId})
+		<choose>
+			<when test="orderName == 'bukenme' and orderDirect == 'ASC'">
+				order by vi.bukenme asc
+			</when>
+			<when test="orderName == 'bukenme' and orderDirect == 'DESC'">
+				order by vi.bukenme desc
+			</when>
+			<when test="orderName == 'koushinhi' and orderDirect == 'ASC'">
+				order by vi.koushinhi asc
+			</when>
+			<when test="orderName == 'koushinhi' and orderDirect == 'DESC'">
+				order by vi.koushinhi desc
+			</when>
+			<otherwise>
+				order by vi.koushinhi desc
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="selectAll" resultType="jp.co.myapp.api.domain.model.AlbumBean">
+    	select vi.id,
+		    vi.filename,
+		    vi.bukenme,
+		    vi.userid,
+		    vi.shoyusha,
+		    vi.yukokbn,
+		    vi.sakusesha,
+		    date_format(vi.sakusehi,'%Y-%m-%d %H:%i:%s') as sakusehi,
+		    vi.koushinsha,
+		    date_format(vi.koushinhi,'%Y-%m-%d %H:%i:%s') as koushinhi,
+		    vi.picnum,
+		    ui.customid,
+		    vi.domain,
+		    vi.dirId
+		from innodb.vr_info vi
+		left join innodb.user_info ui ON vi.userid = ui.userid
+		<choose>
+			<when test="orderName == 'bukenme' and orderDirect == 'ASC'">
+				order by vi.bukenme asc
+			</when>
+			<when test="orderName == 'bukenme' and orderDirect == 'DESC'">
+				order by vi.bukenme desc
+			</when>
+			<when test="orderName == 'koushinhi' and orderDirect == 'ASC'">
+				order by vi.koushinhi asc
+			</when>
+			<when test="orderName == 'koushinhi' and orderDirect == 'DESC'">
+				order by vi.koushinhi desc
+			</when>
+			<otherwise>
+				order by vi.koushinhi desc
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="selectPicNum" resultType="Integer">
+    	select picnum from innodb.vr_info where id = #{id}
 	</select>
 
 	<update id="updateDomain">
 		update innodb.vr_info set domain = #{domain} where id = #{id}
 	</update>
 
-	<delete id="removeAlbum" parameterType="String">
-		delete from innodb.vr_info where filename = #{filename}
+	<delete id="delete">
+		delete from innodb.vr_info where id = #{id}
+	</delete>
+
+	<delete id="deleteImgsWorks">
+		delete from innodb.u_imgs_works where pk_works_main = #{id}
+	</delete>
+
+	<delete id="deletePanoConfig">
+		delete from innodb.u_pano_config where pk_works_main = #{id}
 	</delete>
 
 	<insert id="createAlbum" parameterType = "jp.co.myapp.api.app.request.AlbumCreateRequest">

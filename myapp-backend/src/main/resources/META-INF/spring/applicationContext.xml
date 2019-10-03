@@ -71,4 +71,9 @@
 	<bean id="AdminFilter" class="jp.co.myapp.filter.AdminFilter" />
 	<bean id="CustomFilter" class="jp.co.myapp.filter.CustomFilter" />
 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="prefix" value="/WEB-INF"/>
+	    <property name="suffix" value=".html"/>
+	</bean>
+
 </beans>

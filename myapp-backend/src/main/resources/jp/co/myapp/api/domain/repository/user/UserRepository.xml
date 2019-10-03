@@ -10,155 +10,20 @@
 		<result property="password" column="password" javaType="java.lang.String"></result>
 		<result property="customId" column="customid" javaType="java.lang.String"></result>
 		<result property="kengen" column="kengen" javaType="java.lang.String"></result>
+		<result property="yukokbn" column="yukokbn" javaType="java.lang.String"></result>
 	</resultMap>
 
     <select id="findOne" parameterType="string" resultMap="userMap">
-    <![CDATA[
-        SELECT
-            userid,
-            password,
-            customId,
-            kengen
-        FROM
-            user_info
-        WHERE
-            userid = #{userName}
-    ]]>
+        select userid, password, customId, kengen, yukokbn
+        from user_info
+        where userid = #{userId}
     </select>
 
-    <insert id="create" parameterType="UserBean">
-    <![CDATA[
-        INSERT INTO user
-        (
-            userid,
-            password,
-            customId
-        )
-        VALUES
-        (
-            #{userid},
-            #{password},
-            #{customId}
-        )
-    ]]>
-    </insert>
-
-    <update id="update" parameterType="UserBean">
-    <![CDATA[
-        UPDATE
-            user
-        SET
-            password = #{password},
-            customId = #{customId}
-        WHERE
-            userid = #{userid}
-    ]]>
-    </update>
-
-    <delete id="delete" parameterType="UserBean">
-    <![CDATA[
-        DELETE FROM user
-        WHERE
-            userid = #{userid}
-    ]]>
-    </delete>
-<!--
-
-    <resultMap id="todoResultMap" type="Todo">
-        <id property="todoId" column="todo_id" />
-        <result property="todoTitle" column="todo_title" />
-        <result property="finished" column="finished" />
-        <result property="createdAt" column="created_at" />
-    </resultMap>
-
-    <select id="findOne" parameterType="string" resultMap="todoResultMap">
-    <![CDATA[
-        SELECT
-            todo_id,
-            todo_title,
-            finished,
-            created_at
-        FROM
-            todo
-        WHERE
-            todo_id = #{todoId}
-    ]]>
+	<select id="selectContractDate" parameterType="string" resultType="java.util.Map">
+        select t1.keiyakushiki, t1.keiyakushuki
+		from user_info t1
+		where t1.kengen = '2'
+			and t1.customid = (select customid from user_info t2 where t2.userid = #{userId})
     </select>
-
-    <select id="findAll" resultMap="todoResultMap">
-    <![CDATA[
-        SELECT
-            todo_id,
-            todo_title,
-            finished,
-            created_at
-        FROM
-            todo
-    ]]>
-    </select>
-
-    <insert id="create" parameterType="Todo">
-    <![CDATA[
-        INSERT INTO todo
-        (
-            todo_id,
-            todo_title,
-            finished,
-            created_at
-        )
-        VALUES
-        (
-            #{todoId},
-            #{todoTitle},
-            #{finished},
-            #{createdAt}
-        )
-    ]]>
-    </insert>
-
-    <update id="update" parameterType="Todo">
-    <![CDATA[
-        UPDATE
-            todo
-        SET
-            todo_title = #{todoTitle},
-            finished = #{finished},
-            created_at = #{createdAt}
-        WHERE
-            todo_id = #{todoId}
-    ]]>
-    </update>
-
-    <delete id="delete" parameterType="Todo">
-    <![CDATA[
-        DELETE FROM todo
-        WHERE
-            todo_id = #{todoId}
-    ]]>
-    </delete>
-
-    <select id="countByFinished" parameterType="boolean" resultType="long">
-    <![CDATA[
-        SELECT
-            COUNT(*)
-        FROM
-            todo
-        WHERE
-            finished = #{finished}
-    ]]>
-    </select>
-
-    <select id="exists" parameterType="string" resultType="long">
-    <![CDATA[
-        SELECT
-            COUNT(*)
-        FROM
-            todo
-        WHERE
-            todo_id = #{todoId}
-    ]]>
-    </select>
-
--->
 
 </mapper>
